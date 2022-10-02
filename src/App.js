@@ -17,7 +17,6 @@ import NotFound from "./Pages/NotFound";
 
 function App() {
     const { auth, isBusy } = useContext(AuthContext);
-
     const role = auth?.user?.role === "admin";
 
     const ProtectedRoute = ({ check, path, children }) => {
