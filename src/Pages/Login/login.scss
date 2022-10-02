@@ -1,0 +1,143 @@
+.page-account {
+    padding: 25px 0 150px;
+    &__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+
+        .page-login {
+            width: 80%;
+            .section-header {
+                h2 {
+                    font-family: Poppins, sans-serif;
+                    font-size: 3rem;
+                    text-shadow: 1px 1px 0 black;
+                }
+                margin-bottom: 26px;
+            }
+        }
+
+        .page-register {
+            background-color: #fafafa;
+            &__wrapper {
+                padding: 70px;
+            }
+        }
+
+        .form-vertical {
+            .form-title {
+                h3 {
+                    font-family: Platform;
+                    font-size: 2.8rem;
+                    line-height: 3.4rem;
+                    letter-spacing: 0.04em;
+                    margin-bottom: 20px;
+                }
+                &__des {
+                    font-size: 1.6rem;
+                    color: #000;
+                    margin-bottom: 35px;
+                }
+            }
+
+            .form-content {
+                .form-group {
+                    margin-bottom: 20px;
+
+                    label {
+                        display: inline-block;
+                        color: #1e1e1e;
+                        font-family: Poppins, sans-serif;
+                        margin-bottom: 7px;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                    }
+                    input {
+                        display: block;
+                        width: 100%;
+                        font-size: 1.6rem;
+                        border: 2px solid #00000026;
+                        background: transparent;
+                        padding: 16px;
+                        transition: all 0.3s linear;
+
+                        &:focus {
+                            border: 2px solid #000;
+                        }
+                    }
+                }
+
+                .actions {
+                    .action-group {
+                        margin-bottom: 20px;
+
+                        .action__remember {
+                            input[type="checkbox"] {
+                                filter: sepia(100%) brightness(80%)
+                                    hue-rotate(170deg) saturate(0%)
+                                    contrast(400%);
+                                cursor: pointer;
+                                transform: translateY(10%);
+                            }
+                            label {
+                                cursor: pointer;
+                                padding-left: 8px;
+                            }
+                        }
+
+                        input[type="submit"] {
+                            height: 55px;
+                            width: 100%;
+                            max-width: 180px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .page-account {
+        .page-register__wrapper {
+            padding: 70px 30px 30px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .page-account {
+        .page-account__row {
+            grid-template-columns: 1fr;
+
+            .page-login {
+                width: 100%;
+                padding: 30px;
+            }
+
+            .form-title {
+                h3 {
+                    font-size: 2.2rem;
+                }
+            }
+            .action-group {
+                input {
+                    max-width: 100% !important;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 374px) {
+    .page-account {
+        .page-account__row {
+            .page-login {
+                padding: 15px;
+            }
+            .page-register__wrapper {
+                padding: 15px;
+            }
+        }
+    }
+}
