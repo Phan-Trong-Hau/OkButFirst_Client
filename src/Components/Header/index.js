@@ -487,7 +487,7 @@ const Header = () => {
                                     <div className="search-wrapper">
                                         <form
                                             action="/"
-                                            className="search-form"
+                                            className="search-form wrapper-input"
                                         >
                                             <input
                                                 type="text"

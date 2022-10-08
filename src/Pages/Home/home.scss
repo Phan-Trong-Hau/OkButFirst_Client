@@ -2,11 +2,16 @@ $banner1: url("../../Assets/img/banner1.png");
 $banner2: url("../../Assets/img/banner2.png");
 $banner3: url("../../Assets/img/banner3.png");
 $banner4: url("../../Assets/img/banner4.png");
+$bgHome1: url("../../Assets/img/bgHome1.png");
 $banner1Mb: url("../../Assets/img/banner1-mb.png");
 $banner2Mb: url("../../Assets/img/banner2-mb.png");
 $banner3Mb: url("../../Assets/img/banner3-mb.png");
 $banner4Mb: url("../../Assets/img/banner4-mb.png");
 $logo: url("../../Assets/svg/logo.svg");
+$leaf: url("../../Assets/svg/leaf.svg");
+$arrow1: url("../../Assets/svg/arrow1.svg");
+$arrow2: url("../../Assets/svg/arrow2.svg");
+$selector: url("../../Assets/svg/selector.svg");
 $meshOrange: url("../../Assets/svg/meshOrange.svg");
 
 @mixin styling($base-width) {
@@ -202,6 +207,7 @@ $meshOrange: url("../../Assets/svg/meshOrange.svg");
                     height: 4px;
                     border-radius: 0;
                     border: 2px solid #fff;
+                    transition: all 0.2s ease;
 
                     &-active {
                         background-color: #000;
@@ -278,7 +284,300 @@ $meshOrange: url("../../Assets/svg/meshOrange.svg");
             right: 8%;
             width: 145px;
             height: 170px;
-            opacity: .4;
+            opacity: 0.4;
+        }
+    }
+
+    &-product {
+        position: relative;
+
+        .product-wrapper {
+            padding: 70px 0;
+
+            .product-title {
+                margin-bottom: 45px;
+            }
+
+            .swiper-pagination-bullet {
+                background-color: #000;
+                transition: all 0.3s ease;
+            }
+        }
+
+        &::after {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            background: $leaf no-repeat;
+            width: 135px;
+            height: 145px;
+            z-index: -1;
+        }
+    }
+
+    &-club {
+        background: #fcfaf5;
+        -webkit-box-shadow: 0px 0px 55px rgb(157 157 157 / 21%);
+        box-shadow: 0px 0px 55px rgb(157 157 157 / 21%);
+        padding: 65px 0;
+        .club-wrapper {
+            .club-title {
+            }
+
+            .club-box {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                justify-content: center;
+                .club-box__item {
+                    position: relative;
+                    img {
+                        max-width: 140px;
+                        height: 140px;
+                        width: 100%;
+                        margin: auto;
+                    }
+
+                    p {
+                        position: relative;
+                        padding: 15px 0;
+                        font-size: 1.6rem;
+                        line-height: 2.4rem;
+                        max-width: 230px;
+                        width: 100%;
+                        margin: 20px auto 0;
+
+                        &::before {
+                            position: absolute;
+                            content: "";
+                            background-color: #000;
+                            width: 20px;
+                            height: 1px;
+                            top: 0;
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+                    }
+                    &:nth-child(1) {
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            background: $arrow1 no-repeat;
+                            display: block;
+                            width: 89px;
+                            height: 25px;
+                            top: 50px;
+                            right: -35px;
+                        }
+                    }
+                    &:nth-child(2) {
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            background: $arrow2 no-repeat;
+                            display: block;
+                            width: 89px;
+                            height: 25px;
+                            top: 50px;
+                            right: -40px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-know {
+        padding: 120px 0 100px;
+        background: $bgHome1 no-repeat;
+        background-size: cover;
+        background-position: top center;
+        .know-wrapper {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            margin-bottom: 35px;
+
+            .coffee-calc {
+                .coffee-cup__size {
+                    .radio-img {
+                        position: relative;
+                        display: inline-block;
+                        margin: 10px;
+
+                        input {
+                            display: none;
+                        }
+                        img {
+                            padding: 20px;
+                            transition: all 0.5s ease;
+                            max-width: 130px;
+                            cursor: pointer;
+                        }
+
+                        &:hover {
+                            img {
+                                scale: 1.1;
+                            }
+                        }
+                    }
+
+                    .radio-bg {
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            background: $selector no-repeat;
+                            background-size: cover;
+                            display: block;
+                            width: 150px;
+                            height: 150px;
+                            top: calc(50% - 4px);
+                            left: calc(50% - 7px);
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                }
+
+                .coffee-numberOfCup {
+                    width: 100%;
+
+                    label {
+                        display: flex;
+                        gap: 10px;
+
+                        img {
+                            width: 50px;
+                        }
+
+                        .wrapper-input {
+                            width: 100%;
+                        }
+
+                        input {
+                            width: 100%;
+                            height: 50px;
+                            padding: 0 20px;
+                            line-height: 50px;
+                            border: 1px solid rgba(0, 0, 0, 0.15);
+                            border-bottom: 1px solid #000000;
+                            background: transparent;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            text-transform: capitalize;
+                            font-family: Milliard;
+                            font-size: 1.4rem;
+                            transition: 0.4s;
+                        }
+                    }
+                }
+
+                .coffee-frequency {
+                    input {
+                        display: none;
+                    }
+
+                    label {
+                        margin: 5px;
+                        border: 1px solid rgba($color: #000000, $alpha: 0.15);
+                        padding: 10px 30px;
+                        display: inline-block;
+                        cursor: pointer;
+                        transition: all 0.3s;
+                        color: #1e1e1e;
+                        font-weight: 700;
+                        font-family: -apple-system, BlinkMacSystemFont,
+                            "Segoe UI", Roboto, "Helvetica Neue", Arial,
+                            sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+                            "Segoe UI Symbol";
+                        font-size: 1.6rem;
+
+                        &:hover {
+                            border: 1px solid #000;
+                        }
+                    }
+                }
+
+                button {
+                    margin: 30px auto;
+                    max-width: 160px;
+                    height: 50px;
+                    width: 100%;
+                    line-height: 50px;
+                    font-family: "Milliard";
+                    font-weight: 500;
+                    font-size: 16px;
+                    text-align: center;
+                    text-transform: uppercase;
+                }
+
+                h4 {
+                    margin: 25px 0 10px 0;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-family: Milliard;
+                    font-size: 20px;
+                    line-height: 23px;
+                    text-transform: uppercase;
+                    color: #000000;
+                }
+            }
+
+            .result {
+                .suggest {
+                    font-family: Milliard;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 22px;
+                    line-height: 40px;
+                    text-align: center;
+                    color: #000000;
+                    margin-top: 5px;
+
+                    &-content {
+                        font-weight: bold;
+                        font-size: 32px;
+                        line-height: 2rem;
+                        color: #569046;
+                        display: block;
+
+                        img {
+                            max-width: 40px;
+                            margin: 0 10px;
+                            position: relative;
+                            top: -10px;
+                            vertical-align: middle;
+                        }
+                    }
+                }
+
+                .errorMsg {
+                    color: red;
+                }
+            }
+
+            .blow {
+                .content {
+                    .desc {
+                        margin-bottom: 20px;
+                    }
+                }
+
+                a {
+                    overflow: hidden;
+                    padding: 15px;
+                    width: 100%;
+                    font-family: "Milliard";
+                    font-weight: 500;
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    -webkit-transition: all 0.3s ease-in-out;
+                    transition: all 0.3s ease-in-out;
+                    border: 2px solid #000;
+                    max-width: 495px;
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
         }
     }
 }
@@ -419,6 +718,52 @@ $meshOrange: url("../../Assets/svg/meshOrange.svg");
 
                 a {
                     margin: 0 auto;
+                }
+            }
+        }
+        &-club {
+            .club-wrapper {
+                .club-box {
+                    grid-template-columns: 1fr;
+                    gap: 80px;
+
+                    &__item {
+                        &:nth-child(1),
+                        &:nth-child(2) {
+                            &::after {
+                                left: 50%;
+                                transform: translateY(200%);
+                                top: 111% !important;
+                                rotate: 90deg;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 675px) {
+    .home {
+        &-know {
+            padding: 40px 0;
+            .radio-img {
+                width: calc(50% - 20px);
+            }
+
+            .coffee-numberOfCup {
+                label {
+                    display: block !important;
+                    img {
+                        margin: 10px 0;
+                    }
+                }
+            }
+
+            .coffee-frequency {
+                label {
+                    width: calc(50% - 10px);
                 }
             }
         }

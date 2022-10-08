@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect } from "react";
 import AuthContext from "../../Context/AuthProvider";
 import CheckLoggedIn from "../../utils/loggedIn";
 import "./Account.scss";
@@ -9,16 +8,18 @@ const Account = () => {
 
     const handleOnClick = () => {
         CheckLoggedIn(setAuth);
-        if(auth)
-          console.log(auth.user.role);
+        if (auth) console.log(auth.user.role);
     };
+
+    useEffect(() => {
+        document.title = "Account";
+    }, []);
 
     return (
         <>
             <div className="account">
                 <h1>Account page</h1>
                 <button onClick={handleOnClick}>check</button>
-                <Link to='/admin'>admin</Link>
             </div>
         </>
     );
