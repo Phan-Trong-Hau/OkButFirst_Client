@@ -1,0 +1,107 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 130">
+	<g id="Layer_2" data-name="Layer 2">
+		<g id="Layer_1-2" data-name="Layer 1">
+			<rect width="130" height="130" fill="none"/>
+			<path class="lines" d="M54.2,126.1h0a1.9,1.9,0,0,1,1.9,1.9h0a2,2,0,0,1-1.9,1.9h0a1.9,1.9,0,0,1-1.9-1.9h0A1.8,1.8,0,0,1,54.2,126.1Z"/>
+			<line class="linec" x1="38.6" y1="27" x2="38.6" y2="126.1" fill="none" stroke="#507985" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+			<line class="linec" x1="39.3" y1="55.6" x2="53.1" y2="42.2" fill="none" stroke="#507985" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+			<line class="linec" x1="24.8" y1="42.4" x2="38.6" y2="56.3" fill="none" stroke="#507985" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+			<line class="linec" x1="39.3" y1="79" x2="53.1" y2="65.7" fill="none" stroke="#507985" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+			<line class="linec" x1="24.8" y1="65.9" x2="38.6" y2="79.7" fill="none" stroke="#507985" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+			<line class="linec" x1="39.3" y1="102.5" x2="53.1" y2="89.1" fill="none" stroke="#507985" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+			<line class="linec" x1="24.8" y1="89.3" x2="38.6" y2="103.1" fill="none" stroke="#507985" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+			<line class="lined" x1="111.4" y1="57.8" x2="48.2" y2="119.2" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+			<line class="lined" x1="99.2" y1="70.6" x2="118.4" y2="71.2" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+			<line class="lined" x1="82.4" y1="86.9" x2="101.6" y2="87.5" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+			<line class="lined" x1="94.3" y1="55.1" x2="94" y2="74.6" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+			<line class="lined" x1="65.6" y1="103.2" x2="84.8" y2="103.8" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+			<path class="line" d="M15.5,26.6s8.4-9.5,13.1-14.1S38.9,2.6,38.9,2.6L54,17.7S73.2,35.4,74.4,58.3v6.5" fill="none" stroke="#507985" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+			<path class="line" d="M74.4,46.5a75.4,75.4,0,0,1,33-6.8H127V59.7a74.3,74.3,0,0,1-8.3,34.7c-8.4,16-25,33.2-57.7,33.6" fill="none" stroke="#507985" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+			<path class="lines" d="M13.5,29.9S-1.2,48.2,3.9,75.4a64.3,64.3,0,0,0,16.4,32l18.6,19.7s20-16.2,29.9-35.8a56.2,56.2,0,0,0,5.5-20.1c0-.9.1-1.8.1-2.6" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+		</g>
+	</g>
+
+<style>
+.line {
+	stroke: #507985;
+	stroke-dasharray: 300;
+	stroke-dashoffset: 300;
+	animation: line 5s linear forwards;
+}
+@keyframes line {
+	from {
+		stroke-dashoffset: 300;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+.linec {
+	stroke: #507985;
+	stroke-dasharray: 300;
+	stroke-dashoffset: 300;
+	animation: linec 4s linear forwards infinite;
+}
+@keyframes linec {
+	from {
+		stroke-dashoffset: 300;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+.lined {
+	stroke: #000000;
+	stroke-dasharray: 300;
+	stroke-dashoffset: 300;
+	animation: lined 4s linear forwards infinite;
+}
+@keyframes lined {
+	from {
+		stroke-dashoffset: 300;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+.lines {
+	stroke: #000000;
+	stroke-dasharray: 300;
+	stroke-dashoffset: 300;
+	animation: line 5s linear forwards;
+}
+@keyframes lines {
+	from {
+		stroke-dashoffset: 300;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+.blink {
+    animation: blink 3s infinite;
+}
+.one {
+    animation-delay: 1000ms;
+}
+.two {
+    animation-delay: 1200ms;
+}
+.three {
+    animation-delay: 1400ms;
+}
+.four {
+    animation-delay: 1800ms;
+}
+@keyframes blink {
+	0% {
+	    opacity: 0;
+	}
+	50%, 100% {
+	    opacity: 1;
+	}
+}
+</style>
+
+</svg>

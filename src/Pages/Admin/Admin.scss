@@ -1,0 +1,28 @@
+.admin {
+    // height: 1000px;
+
+    &-wrapper {
+        padding: 40px 0;
+        .list {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(270px,1fr));
+                gap: 20px;
+            .item {
+                a {
+                    white-space: nowrap;
+                    background-color: rgb(36, 36, 36);
+                    display: block;
+                    padding: 50px 20px;
+                    color: white;
+                    transition: all .3s ease;
+                    border-radius: 10px;
+                    box-shadow: 7px 4px 10px rgba($color: #000000, $alpha: .3);
+                    &:hover {
+                        scale: 1.04;
+                        background-color: #000000;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,76 @@
+.product-manager {
+    &-wrapper {
+        padding: 30px 20px 100px;
+
+        .list-products {
+            margin-bottom: 50px;
+            .product-table {
+            }
+        }
+
+        .create-product {
+            .product-form {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                label {
+                    display: block;
+                    text-align: left;
+                    span {
+                        display: block;
+                        margin-bottom: 7px;
+                        font-size: 1.6rem;
+                    }
+
+                    input {
+                        padding: 10px;
+                        width: 100%;
+                        font-size: 1.6rem;
+                    }
+
+                    textarea {
+                        padding: 10px;
+                        width: 100%;
+                        resize: none;
+                        font-size: 1.6rem;
+                    }
+
+                    .show-img {
+                        cursor: pointer;
+                        border: 1px solid #000;
+                        min-height: 205px;
+                    }
+                }
+
+                .input-radio {
+                    text-align: left;
+                    font-size: 1.6rem;
+
+                    label {
+                        cursor: pointer;
+                        display: inline-block;
+                        width: 100px;
+                        margin-right: 20px;
+                        span {
+                            display: inline;
+                            margin-left: 5px;
+                        }
+                        input {
+                            width: 10px;
+                            transform: translateY(15%);
+                            filter: sepia(100%) brightness(80%)
+                                hue-rotate(170deg) saturate(0%) contrast(400%);
+                        }
+                    }
+                }
+            }
+        }
+
+        .product-title {
+            text-align: left;
+            font-size: 3rem;
+            white-space: 0.4rem;
+            margin-bottom: 30px;
+        }
+    }
+}

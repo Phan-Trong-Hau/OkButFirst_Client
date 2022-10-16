@@ -4,9 +4,9 @@ import "./Breadcrumb.scss";
 import arrowDown from "../../Assets/svg/arrowDown.svg";
 
 const Breadcrumb = (props) => {
-    const list = props.list?.map(item => {
+    const list = props.list?.map((item,index) => {
         return (
-            <li className="breadcrumb__item">
+            <li className="breadcrumb__item" key={index}>
                 <Link to={item.path}>{item.title}</Link>
                 <img src={arrowDown} alt="arrow-down" />
             </li>

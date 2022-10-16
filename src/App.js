@@ -14,16 +14,15 @@ import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import LoadingSpinner from "./Components/Loading";
 import NotFound from "./Pages/NotFound";
+import Admin from "./Pages/Admin";
+import ProductManager from "./Pages/Manager/Product";
 
 function App() {
     const { auth, isBusy } = useContext(AuthContext);
     const role = auth?.user?.role === "admin";
 
     const ProtectedRoute = ({ check, path, children }) => {
-        if (check) {
-            return children;
-        }
-        return <Navigate to={path} replace />;
+        return check ? children : <Navigate to={path} replace />;
     };
 
     return (
@@ -40,9 +39,14 @@ function App() {
                             element={
                                 <ProtectedRoute
                                     check={auth.loggedIn}
-                                    path="/login"
+                                    path={"/login"}
                                 >
-                                    <Account />
+                                    <ProtectedRoute
+                                        check={!role}
+                                        path={"/admin"}
+                                    >
+                                        <Account />
+                                    </ProtectedRoute>
                                 </ProtectedRoute>
                             }
                         ></Route>
@@ -70,10 +74,10 @@ function App() {
                         ></Route>
                         <Route path="/admin">
                             <Route
-                                path="user"
+                                path="products"
                                 element={
                                     <ProtectedRoute check={role} path="/">
-                                        <Home />
+                                        <ProductManager />
                                     </ProtectedRoute>
                                 }
                             ></Route>
@@ -81,7 +85,7 @@ function App() {
                                 index
                                 element={
                                     <ProtectedRoute check={role} path="/">
-                                        <Account />
+                                        <Admin />
                                     </ProtectedRoute>
                                 }
                             ></Route>

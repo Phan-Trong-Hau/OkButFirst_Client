@@ -19,8 +19,11 @@ import journeyStory from "../../Assets/img/journeyStory.png";
 import bag from "../../Assets/svg/bag.svg";
 import truck from "../../Assets/svg/truck.svg";
 import pickup from "../../Assets/svg/pickup.svg";
+import quality from "../../Assets/svg/quality.svg";
 import coffeeCup from "../../Assets/svg/coffeeCup.svg";
+import qualityCup from "../../Assets/svg/qualityCup.svg";
 import calculator from "../../Assets/svg/calculator.svg";
+import handCrafted from "../../Assets/svg/handCrafted.svg";
 
 import Card from "../../Components/Card";
 
@@ -36,6 +39,7 @@ const Home = () => {
     const [error3, setError3] = useState(null);
     const [data, setData] = useState({});
     const [valid, setValid] = useState();
+    const [email, setEmail] = useState();
 
     const handleOnChange = (e) => {
         const name = e.target.name;
@@ -43,6 +47,7 @@ const Home = () => {
         if (name === "coffeeCupSize") setCupSize(value);
         if (name === "numberOfCoffee") setNumberOfCoffee(value);
         if (name === "frequency") setFrequency(value);
+        if (name === "email") setEmail(value);
     };
 
     const handleOnSubmitCalc = (e) => {
@@ -100,6 +105,11 @@ const Home = () => {
             });
             setValid(true);
         } else setValid(false);
+    };
+
+    const handleOnSubmitEmail = (e) => {
+        e.preventDefault();
+        alert("Thanks for subscribing!");
     };
 
     const updateDimensions = () => {
@@ -581,6 +591,169 @@ const Home = () => {
                                     <b> SUBSCRIBE TODAY!</b>
                                 </Link>
                             </div>
+                        </div>
+                    </div>
+                </section>
+                <section className="home-quality">
+                    <div className="container">
+                        <div className="quality-wrapper">
+                            <div className="content">
+                                <h2 className="title">Quality Matters</h2>
+                            </div>
+                            <div className="quality-flip">
+                                <div className="flip-inner">
+                                    <div className="quality-box">
+                                        <div className="quality-box__item">
+                                            <img
+                                                src={handCrafted}
+                                                alt="hand-crafted"
+                                            />
+                                            <p>Hand Crafted</p>
+                                        </div>
+                                        <div className="box-content">
+                                            <div className="box-inner">
+                                                <h4 className="subtitle">
+                                                    Hand Crafted
+                                                </h4>
+                                                <p className="desc">
+                                                    Artisan care, less mass
+                                                    production. Craft coffee is
+                                                    the craftsmanship behind
+                                                    each cup. Artisans who take
+                                                    special care through each
+                                                    step of the creative
+                                                    process, from bean selection
+                                                    at the point of origin, to
+                                                    roasting methods. OKBF
+                                                    coffee is Small Batch
+                                                    Artisan Roasted.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flip-inner">
+                                    {" "}
+                                    <div className="quality-box">
+                                        <div className="quality-box__item">
+                                            <img src={quality} alt="quality" />
+                                            <p>Exotic Farm Location</p>
+                                        </div>
+                                        <div className="box-content">
+                                            <div className="box-inner">
+                                                <h4 className="subtitle">
+                                                    Exotic Farm Location
+                                                </h4>
+                                                <p className="desc">
+                                                    Think of coffee beans the
+                                                    way people think of wine
+                                                    grapes. Just like wine,
+                                                    coffee tastes different
+                                                    depending on where it is
+                                                    grown, the vineyard or
+                                                    coffee farm it’s from, and
+                                                    the season. Just like wine,
+                                                    coffee comes from a living
+                                                    plant that can expire, so
+                                                    choosing carefully selected
+                                                    beans makes sense. OKBF
+                                                    coffee is responsibly
+                                                    sourced from exotic farm
+                                                    locations.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flip-inner">
+                                    <div className="quality-box">
+                                        <div className="quality-box__item">
+                                            <img
+                                                src={qualityCup}
+                                                alt="quality-cup"
+                                            />
+                                            <p>Specialty Grade Coffee</p>
+                                        </div>
+                                        <div className="box-content">
+                                            <div className="box-inner">
+                                                <h4 className="subtitle">
+                                                    Specialty Grade Coffee
+                                                </h4>
+                                                <p className="desc">
+                                                    Specialty (premium, gourmet)
+                                                    coffee is a coffee or coffee
+                                                    experience recognized for
+                                                    its distinctive attributes,
+                                                    and because of these
+                                                    attributes, has significant
+                                                    extra value in the
+                                                    marketplace. It is a
+                                                    dedication to quality and
+                                                    care. OKBF is a specialty
+                                                    graded coffee
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section className="home-blog">
+                    <div className="container">
+                        <div className="blog-wrapper">
+                            <div className="blog-heading">
+                                <h2>Coffee 101</h2>
+                            </div>
+                            <div className="blog-content">
+                                <p>
+                                    the magical substance that turns <br />
+                                    "leave me alone or die" into "good <br />
+                                    morning honey!"
+                                </p>
+                                <Link
+                                    to="/blogs/coffee-101"
+                                    className="theme-btn__black"
+                                >
+                                    Learn More
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section className="home-join">
+                    <div className="container">
+                        <div className="join-wrapper">
+                            <div className="subtitle content">
+                                <h2 className="title">
+                                    GET THE SCOOP! JOIN OUR MAILING LIST
+                                </h2>
+                            </div>
+
+                            <form
+                                className="join-input"
+                                onSubmit={handleOnSubmitEmail}
+                            >
+                                <div className="wrapper-input">
+                                    <input
+                                        type="email"
+                                        placeholder="Enter Email"
+                                        name="email"
+                                        value={email}
+                                        onChange={handleOnChange}
+                                    />
+                                    <span className="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <button
+                                    type="submit"
+                                    className="theme-btn__black"
+                                >
+                                    Join
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </section>

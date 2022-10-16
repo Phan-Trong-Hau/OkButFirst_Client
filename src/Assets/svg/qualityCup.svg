@@ -1,0 +1,47 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 130">
+	<g id="Layer_2" data-name="Layer 2">
+		<g id="Layer_1-2" data-name="Layer 1">
+			<rect width="130" height="130" fill="none"/>
+			<path class="lines" d="M76.8,63.6h0c-5.2-5.1-14.7-4.1-21.2,2.4A19.2,19.2,0,0,0,50,76.9a12.4,12.4,0,0,0,3.2,10.3h0a12,12,0,0,0,8.5,3.3h1.8a18.9,18.9,0,0,0,10.9-5.6c6.5-6.5,7.6-16,2.4-21.2Z" fill="none" stroke="#c98931" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+			<path class="lines" d="M53.2,87s8.1-4,12.7-11.6,4.1-8.3,10-12" fill="none" stroke="#c98931" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/>
+			<rect x="4.9" y="14.7" width="120.3" height="17.2" rx="2.5" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+			<path class="line" d="M112.7,14.7H17.3l3-11.8a1.5,1.5,0,0,1,1.6-1.1H108a1.5,1.5,0,0,1,1.6,1.1Z" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+			<path class="line" d="M30,117.5h70l-2.2,9.8a1.2,1.2,0,0,1-1.2,1H33.4a1.2,1.2,0,0,1-1.1-1Z" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+			<path class="line" d="M11.2,31.9H118.8l-3.4,9.8a1.8,1.8,0,0,1-1.8,1H16.5a1.8,1.8,0,0,1-1.8-1Z" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+			<path class="line" d="M113.6,42.7H16.4a4.2,4.2,0,0,0-4.1,4.8l11,65.3a6.1,6.1,0,0,0,6.2,4.7H101a6.1,6.1,0,0,0,6.2-4.7l10.5-65.3A4.1,4.1,0,0,0,113.6,42.7Z" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+		</g>
+	</g>
+
+<style>
+.line {
+	stroke: #000000;
+	stroke-dasharray: 400;
+	stroke-dashoffset: 400;
+	animation: line 5s linear forwards;
+}
+@keyframes line {
+	from {
+		stroke-dashoffset: 300;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+.lines {
+	stroke: #c98931;
+	stroke-dasharray: 300;
+	stroke-dashoffset: 300;
+	animation: line 5s linear forwards infinite;
+}
+@keyframes lines {
+	from {
+		stroke-dashoffset: 300;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+</style>
+
+</svg>

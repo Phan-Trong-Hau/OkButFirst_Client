@@ -278,6 +278,41 @@ body {
     a {
         color: #000000;
     }
+
+    table {
+        width: 100%;
+        border-spacing: 1px;
+        border: 1.5px solid #000;
+        background-color: #000;
+        thead {
+            position: relative;
+            tr {
+                background-color: #cfcfcf;
+                th {
+                    padding: 20px 10px;
+                    white-space: nowrap;
+                }
+            }
+
+            &::after {
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 1px;
+                background-color: #000;
+                left: 0;
+            }
+        }
+
+        tbody {
+            tr {
+                background-color: white;
+                td {
+                    padding: 5px;
+                }
+            }
+        }
+    }
 }
 
 .container {
