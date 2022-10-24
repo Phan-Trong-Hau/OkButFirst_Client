@@ -91,7 +91,6 @@ const Header = () => {
             remember,
         })
             .then((res) => {
-                console.log(res);
                 setPost(res.data.message);
                 if (res.data.loggedIn) {
                     setAuth(res.data);

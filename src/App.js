@@ -15,7 +15,7 @@ import Home from "./Pages/Home";
 import LoadingSpinner from "./Components/Loading";
 import NotFound from "./Pages/NotFound";
 import Admin from "./Pages/Admin";
-import ProductManager from "./Pages/Manager/Product";
+import CoffeeShopManager from "./Pages/Manager/CoffeeShop";
 
 function App() {
     const { auth, isBusy } = useContext(AuthContext);
@@ -74,10 +74,10 @@ function App() {
                         ></Route>
                         <Route path="/admin">
                             <Route
-                                path="products"
+                                path="coffee-shop"
                                 element={
                                     <ProtectedRoute check={role} path="/">
-                                        <ProductManager />
+                                        <CoffeeShopManager />
                                     </ProtectedRoute>
                                 }
                             ></Route>
@@ -89,6 +89,10 @@ function App() {
                                     </ProtectedRoute>
                                 }
                             ></Route>
+                        </Route>
+                        <Route path="/products">
+                            <Route path=":slug" element={<h1>TEst</h1>}></Route>
+                            <Route index element={<Home />}></Route>
                         </Route>
                         <Route path="*" element={<NotFound />} />
                     </Routes>
