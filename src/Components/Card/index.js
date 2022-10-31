@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { Image } from "cloudinary-react";
+
 import iconCart from "../../Assets/svg/iconCart.svg";
 import iconHeart from "../../Assets/svg/iconHeart.svg";
 import "./Card.scss";
@@ -9,7 +11,6 @@ const Card = ({
     isNew = false,
     desc,
     price,
-    altImg,
     idProduct,
     path = "/",
 }) => {
@@ -26,7 +27,12 @@ const Card = ({
                     )}
 
                     <Link to={path}>
-                        <img src={img} alt={altImg} className="product-img" />
+                        <Image
+                            cloudName="ok-but-first-coffee"
+                            publicId={img}
+                            crop="scale"
+                            className="product-img"
+                        />
                     </Link>
 
                     <div className="card-wishlist">

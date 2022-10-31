@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Image } from "cloudinary-react";
+import { useSelector } from "react-redux";
 
 import Breadcrumb from "../../../Components/Breadcrumb";
 import LoadingSpinner from "../../../Components/Loading";
@@ -10,6 +11,8 @@ import { ShowImage, ShowImages } from "../Components/ShowImage";
 import "./CoffeeShop.scss";
 
 const ProductManager = () => {
+    const selector = useSelector((state) => state.products);
+
     const [productName, setProductName] = useState("");
     const [productPrice, setProductPrice] = useState(0);
     const [newBadge, setNewBadge] = useState(true);
@@ -73,6 +76,7 @@ const ProductManager = () => {
 
     const handleSubmitProduct = (e) => {
         e.preventDefault();
+
         if (
             productName.trim() === "" ||
             productDesc.trim() === "" ||
@@ -169,11 +173,9 @@ const ProductManager = () => {
     };
 
     useEffect(() => {
-        api.get("/v1/products").then((res) => {
-            console.log(res.data);
-            setFetchProducts(res.data);
-        });
-    }, []);
+        setFetchProducts(selector);
+        console.log(selector);
+    }, [selector]);
 
     const data = fetchProducts?.map((product, index) => {
         return (

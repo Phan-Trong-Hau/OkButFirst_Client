@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { useDispatch } from 'react-redux'
 import {
     BrowserRouter as Router,
     Routes,
@@ -16,14 +17,21 @@ import LoadingSpinner from "./Components/Loading";
 import NotFound from "./Pages/NotFound";
 import Admin from "./Pages/Admin";
 import CoffeeShopManager from "./Pages/Manager/CoffeeShop";
+import { fetchAllProducts } from "./redux/reducer/products";
 
 function App() {
     const { auth, isBusy } = useContext(AuthContext);
+    const dispatch = useDispatch();
+
     const role = auth?.user?.role === "admin";
 
     const ProtectedRoute = ({ check, path, children }) => {
         return check ? children : <Navigate to={path} replace />;
     };
+
+    useEffect(() => {
+        dispatch(fetchAllProducts());
+    }, [dispatch]);
 
     return (
         <div className="App">

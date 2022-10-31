@@ -299,6 +299,10 @@ $meshOrange: url("../../Assets/svg/meshOrange.svg");
                 margin-bottom: 45px;
             }
 
+            .slice-wrapper {
+                padding: 0 100px;
+            }
+
             .swiper-pagination-bullet {
                 background-color: #000;
                 transition: all 0.3s ease;
@@ -393,6 +397,7 @@ $meshOrange: url("../../Assets/svg/meshOrange.svg");
         background: $bgHome1 no-repeat;
         background-size: cover;
         background-position: top center;
+
         .know-wrapper {
             max-width: 600px;
             width: 100%;
@@ -1100,7 +1105,7 @@ $meshOrange: url("../../Assets/svg/meshOrange.svg");
                 .join-input {
                     grid-template-columns: 1fr;
                     gap: 15px;
-                    
+
                     button {
                         margin: 3px;
                         padding: 13px 10px;
@@ -1117,6 +1122,14 @@ $meshOrange: url("../../Assets/svg/meshOrange.svg");
                 width: 145px;
                 height: 170px;
                 z-index: -1;
+            }
+        }
+
+        &-product {
+            .product-wrapper {
+                .slice-wrapper {
+                    padding: 0;
+                }
             }
         }
     }

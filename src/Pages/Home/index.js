@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, EffectFade, Pagination } from "swiper";
+import { useSelector } from "react-redux";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -29,6 +30,7 @@ import Card from "../../Components/Card";
 
 const Home = () => {
     SwiperCore.use([Autoplay]);
+    const selector = useSelector((state) => state.products);
 
     const [width, setWidth] = useState(window.innerWidth);
     const [cupSize, setCupSize] = useState(null);
@@ -40,6 +42,7 @@ const Home = () => {
     const [data, setData] = useState({});
     const [valid, setValid] = useState();
     const [email, setEmail] = useState();
+    const [fetchProducts, setFetchProducts] = useState();
 
     const handleOnChange = (e) => {
         const name = e.target.name;
@@ -125,6 +128,23 @@ const Home = () => {
         document.title =
             "Buy Organic & Roasted Coffee Beans Online | 100% Arabica | OKBF";
     }, []);
+
+    useEffect(() => {
+        setFetchProducts(selector);
+    }, [selector]);
+
+    const listProducts = fetchProducts?.map((products, index) => {
+        return (
+            <SwiperSlide key={index}>
+                <Card
+                    img={products.imageDisplay}
+                    title={products.name}
+                    price={products.price}
+                    isNew={products.newBadge}
+                />
+            </SwiperSlide>
+        );
+    });
 
     return (
         <>
@@ -246,46 +266,24 @@ const Home = () => {
                             <div className="content product-title">
                                 <h2 className="title">Our Products</h2>
                             </div>
-
-                            <Swiper
-                                slidesPerView={
-                                    width > 992 ? 3 : width >= 424 ? 2 : 1
-                                }
-                                spaceBetween={30}
-                                loop={width > 992 ? false : true}
-                                loopFillGroupWithBlank={
-                                    width > 992 ? false : true
-                                }
-                                pagination={{
-                                    clickable: true,
-                                }}
-                                modules={[Pagination]}
-                            >
-                                <SwiperSlide>
-                                    <Card
-                                        img={journeyStory}
-                                        title={"Mornin' Kick"}
-                                        price="17.99"
-                                        isNew={true}
-                                    />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <Card
-                                        img={journeyStory}
-                                        title={"Mornin' Kick"}
-                                        price="17.99"
-                                        isNew={true}
-                                    />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <Card
-                                        img={journeyStory}
-                                        title={"Mornin' Kick"}
-                                        price="17.99"
-                                        isNew={true}
-                                    />
-                                </SwiperSlide>
-                            </Swiper>
+                            <div className="slice-wrapper">
+                                <Swiper
+                                    slidesPerView={
+                                        width > 992 ? 3 : width > 426 ? 2 : 1
+                                    }
+                                    spaceBetween={30}
+                                    loop={width > 992 ? false : true}
+                                    loopFillGroupWithBlank={
+                                        width > 992 ? false : true
+                                    }
+                                    pagination={{
+                                        clickable: true,
+                                    }}
+                                    modules={[Pagination]}
+                                >
+                                    {listProducts}
+                                </Swiper>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -518,7 +516,7 @@ const Home = () => {
                                 </form>
                             </div>
                             <div className="result">
-                                {valid ? (
+                                {valid && (
                                     <>
                                         <div className="suggest">
                                             Your consumption is
@@ -564,8 +562,6 @@ const Home = () => {
                                             Days
                                         </div>
                                     </>
-                                ) : (
-                                    <></>
                                 )}
                                 {error1 && (
                                     <div className="errorMsg">{error1}</div>
