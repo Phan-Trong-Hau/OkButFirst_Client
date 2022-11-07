@@ -1,0 +1,132 @@
+.collection-template {
+    .collection-toolbar {
+        margin-bottom: 40px;
+        font-family: Milliard;
+
+        .toolbar-wrapper {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 10px;
+            text-transform: uppercase;
+            background: #373737;
+            color: #ffffff;
+
+            .view-product {
+                display: flex;
+                align-items: center;
+                .view-input {
+                    position: relative;
+                    background-color: #ffffff;
+                    border: 1px solid #c5c5cf;
+                    cursor: pointer;
+                    border-left: 1px solid #c5c5cf;
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 45px;
+                    height: 100%;
+                    img {
+                        margin-top: 5px;
+                        text-align: center;
+                    }
+
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .view-list {
+                    // background-color: #ffffff;
+                    position: relative;
+                    &::before {
+                        top: 15px;
+                        left: 15px;
+                        content: "";
+                        position: absolute;
+                        background-color: #1e1e1e;
+                        transition: all 0.3s ease;
+                        width: 14px;
+                        height: 4.4px;
+                        box-shadow: 0 5px #1e1e1e, 0 10px #1e1e1e;
+                    }
+                }
+
+                .active {
+                    background-color: #f7f7f7;
+                }
+            }
+
+            .sort-product {
+                display: flex;
+                align-items: center;
+                .select-group {
+                    select {
+                        border: 1px solid #ffffff;
+                        color: #ffffff;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                        min-width: 150px;
+                        padding: 8px 28px 8px 15px;
+                        background: none;
+                        height: 45px;
+                        font-family: Milliard;
+
+                        option {
+                            background: #373737;
+                        }
+                    }
+                }
+            }
+
+            span {
+                margin-right: 15px;
+            }
+        }
+    }
+
+    .collection-product {
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .product-list {
+            display: grid;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .collection-template {
+        .collection-product {
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .collection-template {
+        .collection-toolbar {
+            span {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .collection-template {
+        .collection-product {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}

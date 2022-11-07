@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { useDispatch } from 'react-redux'
+import { useDispatch } from "react-redux";
 import {
     BrowserRouter as Router,
     Routes,
@@ -18,6 +18,14 @@ import NotFound from "./Pages/NotFound";
 import Admin from "./Pages/Admin";
 import CoffeeShopManager from "./Pages/Manager/CoffeeShop";
 import { fetchAllProducts } from "./redux/reducer/products";
+import Collection from "./Pages/Collection";
+import CoffeeShop from "./Pages/CoffeeShop";
+import MerchShop from "./Pages/MerchShop";
+import AboutUs from "./Pages/AboutUs";
+import ContactUs from "./Pages/ContactUs";
+import CoffeeClub from "./Pages/CoffeeClub";
+import Policies from "./Pages/Policies";
+import BlogCoffee from "./Pages/Blogs/BlogCoffee";
 
 function App() {
     const { auth, isBusy } = useContext(AuthContext);
@@ -99,8 +107,48 @@ function App() {
                             ></Route>
                         </Route>
                         <Route path="/products">
-                            <Route path=":slug" element={<h1>TEst</h1>}></Route>
-                            <Route index element={<Home />}></Route>
+                            <Route
+                                path="coffee-club-subscription"
+                                element={<CoffeeClub />}
+                            ></Route>
+                            <Route index element={<Collection />}></Route>
+                        </Route>
+                        <Route path="/collections">
+                            <Route
+                                path="coffee-shop"
+                                element={<CoffeeShop />}
+                            ></Route>
+                            <Route
+                                path="merch-shop"
+                                element={<MerchShop />}
+                            ></Route>
+                            <Route index element={<Collection />}></Route>
+                        </Route>
+                        <Route path="/pages">
+                            <Route
+                                path="about-us"
+                                element={<AboutUs />}
+                            ></Route>
+                            <Route
+                                path="contact-us"
+                                element={<ContactUs />}
+                            ></Route>
+                            <Route
+                                path="policies"
+                                element={<Policies title={"Policies"} />}
+                            ></Route>
+                            <Route
+                                path="terms-conditions"
+                                element={
+                                    <Policies title={"Terms Conditions"} />
+                                }
+                            ></Route>
+                        </Route>
+                        <Route path="/blogs">
+                            <Route
+                                path="coffee-101"
+                                element={<BlogCoffee />}
+                            ></Route>
                         </Route>
                         <Route path="*" element={<NotFound />} />
                     </Routes>

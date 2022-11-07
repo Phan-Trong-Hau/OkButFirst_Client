@@ -140,7 +140,7 @@ const Home = () => {
                     img={products.imageDisplay}
                     title={products.name}
                     price={products.price}
-                    isNew={products.newBadge}
+                    newBadge={products.newBadge}
                 />
             </SwiperSlide>
         );
@@ -241,7 +241,7 @@ const Home = () => {
                                 <img src={journeyLogo} alt="journey-logo" />
                                 <img src={journeyStory} alt="journey-story" />
                             </div>
-                            <div className="content journey-content">
+                            <div className="title-wrapper journey-content">
                                 <h2 className=" title">OUR JOURNEY</h2>
                                 <p className=" desc">
                                     Choosing exceptional coffee, shouldn’t be a
@@ -263,7 +263,7 @@ const Home = () => {
                 <section className="home-product">
                     <div className="container">
                         <div className="product-wrapper">
-                            <div className="content product-title">
+                            <div className="title-wrapper product-title">
                                 <h2 className="title">Our Products</h2>
                             </div>
                             <div className="slice-wrapper">
@@ -290,7 +290,7 @@ const Home = () => {
                 <section className="home-club">
                     <div className="container">
                         <div className="club-wrapper">
-                            <div className="club-title content">
+                            <div className="club-title title-wrapper">
                                 <h2 className="title">COFFEE CLUB</h2>
                                 <div className="desc">“How it works!”</div>
                             </div>
@@ -317,7 +317,7 @@ const Home = () => {
                 <section className="home-know">
                     <div className="container">
                         <div className="know-wrapper">
-                            <div className="content">
+                            <div className="title-wrapper">
                                 <h2 className="title">DID YOU KNOW?</h2>
                                 <p className="desc">
                                     It takes 70 coffee beans to make 1 cup of
@@ -328,7 +328,15 @@ const Home = () => {
                                 </p>
                             </div>
                             <div className="coffee-calc">
-                                <form onSubmit={handleOnSubmitCalc}>
+                                <form
+                                    acceptCharset="UTF-8"
+                                    onSubmit={handleOnSubmitCalc}
+                                >
+                                    <input
+                                        type="hidden"
+                                        name="utf8"
+                                        value={"✓"}
+                                    />
                                     <div className="coffee-cup__size">
                                         <h4>Select cup size</h4>
                                         <label
@@ -574,7 +582,7 @@ const Home = () => {
                                 )}
                             </div>
                             <div className="blow">
-                                <div className="content">
+                                <div className="title-wrapper">
                                     <div className="desc">
                                         “A yawn is a silent scream for coffee.”
                                     </div>
@@ -593,7 +601,7 @@ const Home = () => {
                 <section className="home-quality">
                     <div className="container">
                         <div className="quality-wrapper">
-                            <div className="content">
+                            <div className="title-wrapper">
                                 <h2 className="title">Quality Matters</h2>
                             </div>
                             <div className="quality-flip">
@@ -721,7 +729,7 @@ const Home = () => {
                 <section className="home-join">
                     <div className="container">
                         <div className="join-wrapper">
-                            <div className="subtitle content">
+                            <div className="subtitle title-wrapper">
                                 <h2 className="title">
                                     GET THE SCOOP! JOIN OUR MAILING LIST
                                 </h2>
@@ -730,7 +738,9 @@ const Home = () => {
                             <form
                                 className="join-input"
                                 onSubmit={handleOnSubmitEmail}
+                                acceptCharset='UTF-8'
                             >
+                                <input type="hidden" name="utf8" value={"✓"} />
                                 <div className="wrapper-input">
                                     <input
                                         type="email"

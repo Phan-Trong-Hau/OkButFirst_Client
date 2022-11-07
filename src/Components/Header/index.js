@@ -394,7 +394,13 @@ const Header = () => {
                                                     <form
                                                         className="login-form"
                                                         onSubmit={handleLogin}
+                                                        acceptCharset="UTF-8"
                                                     >
+                                                        <input
+                                                            type="hidden"
+                                                            name="utf8"
+                                                            value={"✓"}
+                                                        />
                                                         <div className="login-input">
                                                             <input
                                                                 id="customer_username"
@@ -487,7 +493,13 @@ const Header = () => {
                                         <form
                                             action="/"
                                             className="search-form wrapper-input"
+                                            acceptCharset="UTF-8"
                                         >
+                                            <input
+                                                type="hidden"
+                                                name="utf8"
+                                                value={"✓"}
+                                            />
                                             <input
                                                 type="text"
                                                 name="q"

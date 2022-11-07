@@ -174,7 +174,6 @@ const ProductManager = () => {
 
     useEffect(() => {
         setFetchProducts(selector);
-        console.log(selector);
     }, [selector]);
 
     const data = fetchProducts?.map((product, index) => {
@@ -199,507 +198,544 @@ const ProductManager = () => {
 
     return (
         <>
-            <div className="product-manager">
-                <Breadcrumb
-                    breadcrumb="Coffee Shop"
-                    list={[{ title: "Admin", path: "/admin" }]}
-                />
-                {busy || !fetchProducts ? (
-                    <LoadingSpinner />
-                ) : (
-                    <div className="container">
-                        <div className="product-manager-wrapper">
-                            <div className="list-products">
-                                <h3 className="product-title">
-                                    List Of Products
-                                </h3>
-                                <div className="product-table">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>STT</th>
-                                                <th>Name Product</th>
-                                                <th>Price</th>
-                                                <th>Description</th>
-                                                <th>Image</th>
-                                                <th>New</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>{fetchProducts && data}</tbody>
-                                    </table>
+            <main className="product-manager">
+                <section>
+                    <Breadcrumb
+                        breadcrumb="Coffee Shop"
+                        list={[{ title: "Admin", path: "/admin" }]}
+                    />
+                </section>
+                <section>
+                    {busy || !fetchProducts ? (
+                        <LoadingSpinner />
+                    ) : (
+                        <div className="container">
+                            <div className="product-manager-wrapper">
+                                <div className="list-products">
+                                    <h3 className="product-title">
+                                        List Of Products
+                                    </h3>
+                                    <div className="product-table">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>STT</th>
+                                                    <th>Name Product</th>
+                                                    <th>Price</th>
+                                                    <th>Description</th>
+                                                    <th>Image</th>
+                                                    <th>New</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {fetchProducts && data}
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div className="create-product">
-                                <h3 className="product-title">
-                                    Create New Product
-                                </h3>
-                                <form
-                                    onSubmit={handleSubmitProduct}
-                                    className="product-form"
-                                >
-                                    <label>
-                                        <span>Enter Name Product: </span>
-                                        <input
-                                            type="text"
-                                            name="productName"
-                                            onChange={handleOnChange}
-                                            value={productName}
-                                            autoComplete="off"
-                                        />
-                                    </label>
-                                    <label>
-                                        <span>Enter Price Product: </span>
-                                        <input
-                                            type="number"
-                                            name="productPrice"
-                                            onChange={handleOnChange}
-                                            step={0.01}
-                                            min={0}
-                                            value={productPrice}
-                                        />
-                                    </label>
-                                    <div className="input-radio">
-                                        <div className="form-group">
-                                            <h4>New Badge</h4>
-                                            <label>
-                                                <input
-                                                    type="radio"
-                                                    name="newBadge"
-                                                    defaultChecked
-                                                    value={true}
-                                                    onChange={handleOnChange}
-                                                />
-                                                <span>Yes</span>
-                                            </label>
-                                            <label>
-                                                <input
-                                                    type="radio"
-                                                    name="newBadge"
-                                                    value={false}
-                                                    onChange={handleOnChange}
-                                                />
-                                                <span>No</span>
-                                            </label>
-                                        </div>
-
-                                        <div className="form-group">
-                                            <h4>Bag Size</h4>
-                                            <label>
-                                                <input
-                                                    type="checkbox"
-                                                    value={12}
-                                                    onChange={
-                                                        handleOnChangeBagSize
-                                                    }
-                                                    checked={bagSize.includes(
-                                                        12
-                                                    )}
-                                                />
-                                                <span>12 OZ</span>
-                                            </label>
-                                            <label>
-                                                <input
-                                                    type="checkbox"
-                                                    value={24}
-                                                    onChange={
-                                                        handleOnChangeBagSize
-                                                    }
-                                                    checked={bagSize.includes(
-                                                        24
-                                                    )}
-                                                />
-                                                <span>24 OZ</span>
-                                            </label>
-                                            <label>
-                                                <input
-                                                    type="checkbox"
-                                                    value={36}
-                                                    onChange={
-                                                        handleOnChangeBagSize
-                                                    }
-                                                    checked={bagSize.includes(
-                                                        36
-                                                    )}
-                                                />
-                                                <span>36 OZ</span>
-                                            </label>
-                                            <label>
-                                                <input
-                                                    type="checkbox"
-                                                    value={48}
-                                                    onChange={
-                                                        handleOnChangeBagSize
-                                                    }
-                                                    checked={bagSize.includes(
-                                                        48
-                                                    )}
-                                                />
-                                                <span>48 OZ</span>
-                                            </label>
-                                            <label>
-                                                <input
-                                                    type="checkbox"
-                                                    value={60}
-                                                    onChange={
-                                                        handleOnChangeBagSize
-                                                    }
-                                                    checked={bagSize.includes(
-                                                        60
-                                                    )}
-                                                />
-                                                <span>60 OZ</span>
-                                            </label>
-                                            <label>
-                                                <input
-                                                    type="checkbox"
-                                                    value={72}
-                                                    onChange={
-                                                        handleOnChangeBagSize
-                                                    }
-                                                    checked={bagSize.includes(
-                                                        72
-                                                    )}
-                                                />
-                                                <span>72 OZ</span>
-                                            </label>
-                                            <label>
-                                                <input
-                                                    type="checkbox"
-                                                    value={84}
-                                                    onChange={
-                                                        handleOnChangeBagSize
-                                                    }
-                                                    checked={bagSize.includes(
-                                                        84
-                                                    )}
-                                                />
-                                                <span>84 OZ</span>
-                                            </label>
-                                            <label>
-                                                <input
-                                                    type="checkbox"
-                                                    value={96}
-                                                    onChange={
-                                                        handleOnChangeBagSize
-                                                    }
-                                                    checked={bagSize.includes(
-                                                        96
-                                                    )}
-                                                />
-                                                <span>96 OZ</span>
-                                            </label>
-                                        </div>
-                                        <div className="form-group">
-                                            <h4>Grind</h4>
-                                            <label>
-                                                <input
-                                                    type="checkbox"
-                                                    value="whole bean"
-                                                    onChange={
-                                                        handleOnChangeGrind
-                                                    }
-                                                    checked={grind.includes(
-                                                        "whole bean"
-                                                    )}
-                                                />
-                                                <span>Whole Bean</span>
-                                            </label>
-                                            <label>
-                                                <input
-                                                    type="checkbox"
-                                                    value="ground"
-                                                    onChange={
-                                                        handleOnChangeGrind
-                                                    }
-                                                    checked={grind.includes(
-                                                        "ground"
-                                                    )}
-                                                />
-                                                <span>Ground</span>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <label>
-                                        <span>Enter Product Description: </span>
-                                        <textarea
-                                            rows="10"
-                                            onChange={handleOnChange}
-                                            name="productDesc"
-                                            value={productDesc}
-                                        ></textarea>
-                                    </label>
-                                    <div className="image">
-                                        <label>
-                                            <input
-                                                type="file"
-                                                onChange={(e) =>
-                                                    previewImage(
-                                                        e,
-                                                        setImageDisplay
-                                                    )
-                                                }
-                                                name="productDisplayImage"
-                                                style={{ display: "none" }}
-                                                accept="image/*"
-                                            />
-                                            <span>
-                                                Choose Product Display Image
-                                            </span>
-                                            <div className="show-img">
-                                                <ShowImage
-                                                    data={imageDisplay}
-                                                    setData={setImageDisplay}
-                                                />
-                                            </div>
-                                        </label>
-                                        <label>
-                                            <input
-                                                type="file"
-                                                multiple
-                                                onChange={(e) =>
-                                                    previewImages(
-                                                        e,
-                                                        setProductImages
-                                                    )
-                                                }
-                                                name="productImage"
-                                                style={{ display: "none" }}
-                                                accept="image/*"
-                                            />
-                                            <span>Choose product images </span>
-                                            <ShowImages
-                                                data={productImages}
-                                                setData={setProductImages}
-                                            />
-                                        </label>
-                                        <label>
-                                            <span>Choose Background Image</span>
-                                            <input
-                                                type="file"
-                                                style={{ display: "none" }}
-                                                accept="image/*"
-                                                onChange={(e) =>
-                                                    previewImage(
-                                                        e,
-                                                        setImgBackground
-                                                    )
-                                                }
-                                            />
-                                            <ShowImage
-                                                data={imgBackground}
-                                                setData={setImgBackground}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="making">
-                                        <label>
-                                            <span>Title Profile</span>
-                                            <input
-                                                type="text"
-                                                name="titleProfile"
-                                                value={titleProfile}
-                                                onChange={handleOnChange}
-                                                autoComplete="off"
-                                            />
-                                        </label>
-                                        <label>
-                                            <span>Choose Profile Image</span>
-                                            <input
-                                                type="file"
-                                                style={{ display: "none" }}
-                                                accept="image/*"
-                                                onChange={(e) =>
-                                                    previewImage(
-                                                        e,
-                                                        setImgProfile
-                                                    )
-                                                }
-                                            />
-                                            <ShowImage
-                                                data={imgProfile}
-                                                setData={setImgProfile}
-                                            />
-                                        </label>
-                                        <label>
-                                            <span>Title Origin</span>
-                                            <input
-                                                type="text"
-                                                name="titleOrigin"
-                                                value={titleOrigin}
-                                                onChange={handleOnChange}
-                                                autoComplete="off"
-                                            />
-                                        </label>
-                                        <label>
-                                            <span>Choose Origin Image</span>
-                                            <input
-                                                type="file"
-                                                style={{ display: "none" }}
-                                                accept="image/*"
-                                                onChange={(e) =>
-                                                    previewImage(
-                                                        e,
-                                                        setImgOrigin
-                                                    )
-                                                }
-                                            />
-                                            <ShowImage
-                                                data={imgOrigin}
-                                                setData={setImgOrigin}
-                                            />
-                                        </label>
-                                        <label>
-                                            <span>Title Roast</span>
-                                            <input
-                                                type="text"
-                                                name="titleRoast"
-                                                value={titleRoast}
-                                                onChange={handleOnChange}
-                                                autoComplete="off"
-                                            />
-                                        </label>
-
-                                        <label>
-                                            <span>Choose Roast Image</span>
-                                            <input
-                                                type="file"
-                                                style={{ display: "none" }}
-                                                accept="image/*"
-                                                onChange={(e) =>
-                                                    previewImage(e, setImgRoast)
-                                                }
-                                            />
-                                            <ShowImage
-                                                data={imgRoast}
-                                                setData={setImgRoast}
-                                            />
-                                        </label>
-                                    </div>
-
-                                    <div className="image-extra">
-                                        <label>
-                                            <span>Choose Bag Image</span>
-                                            <input
-                                                type="file"
-                                                style={{ display: "none" }}
-                                                accept="image/*"
-                                                onChange={(e) =>
-                                                    previewImage(e, setImgBag)
-                                                }
-                                            />
-                                            <ShowImage
-                                                data={imgBag}
-                                                setData={setImgBag}
-                                            />
-                                        </label>
-                                        <label>
-                                            <span>
-                                                Choose Subscription Image
-                                            </span>
-                                            <input
-                                                type="file"
-                                                style={{ display: "none" }}
-                                                accept="image/*"
-                                                onChange={(e) =>
-                                                    previewImage(e, setImgSub)
-                                                }
-                                            />
-                                            <ShowImage
-                                                data={imgSub}
-                                                setData={setImgSub}
-                                            />
-                                        </label>
-                                    </div>
-                                    <div className="color">
-                                        <label>
-                                            <span>Choose Background Color</span>
-                                            <input
-                                                type="color"
-                                                name="colorBackground"
-                                                onChange={handleOnChange}
-                                                value={colorBackground}
-                                            />
-                                        </label>
-                                        <label>
-                                            <span>
-                                                Choose Subscription Color
-                                            </span>
-                                            <input
-                                                type="color"
-                                                onChange={handleOnChange}
-                                                name="colorSubscription"
-                                                value={colorSub}
-                                            />
-                                        </label>
-                                        <label>
-                                            <span>Choose Border Color</span>
-                                            <input
-                                                type="color"
-                                                onChange={handleOnChange}
-                                                name="colorBorder"
-                                                value={colorBorder}
-                                            />
-                                        </label>
-                                    </div>
-
-                                    <label>
-                                        <span>
-                                            Enter Product Discription 1:{" "}
-                                        </span>
-                                        <textarea
-                                            rows="10"
-                                            onChange={handleOnChange}
-                                            name="productDisc1"
-                                            value={disc1}
-                                        ></textarea>
-                                    </label>
-                                    <label>
-                                        <span>
-                                            Enter Product Discription 2:{" "}
-                                        </span>
-                                        <textarea
-                                            rows="10"
-                                            onChange={handleOnChange}
-                                            name="productDisc2"
-                                            value={disc2}
-                                        ></textarea>
-                                    </label>
-
-                                    <button
-                                        type="submit"
-                                        className="theme-btn__black"
+                                <div className="create-product">
+                                    <h3 className="product-title">
+                                        Create New Product
+                                    </h3>
+                                    <form
+                                        onSubmit={handleSubmitProduct}
+                                        className="product-form"
+                                        acceptCharset="UTF-8"
                                     >
-                                        Submit
-                                    </button>
-                                </form>
-                            </div>
+                                        <input
+                                            type="hidden"
+                                            name="utf8"
+                                            value={"✓"}
+                                        />
+                                        <label>
+                                            <span>Enter Name Product: </span>
+                                            <input
+                                                type="text"
+                                                name="productName"
+                                                onChange={handleOnChange}
+                                                value={productName}
+                                                autoComplete="off"
+                                            />
+                                        </label>
+                                        <label>
+                                            <span>Enter Price Product: </span>
+                                            <input
+                                                type="number"
+                                                name="productPrice"
+                                                onChange={handleOnChange}
+                                                step={0.01}
+                                                min={0}
+                                                value={productPrice}
+                                            />
+                                        </label>
+                                        <div className="input-radio">
+                                            <div className="form-group">
+                                                <h4>New Badge</h4>
+                                                <label>
+                                                    <input
+                                                        type="radio"
+                                                        name="newBadge"
+                                                        defaultChecked
+                                                        value={true}
+                                                        onChange={
+                                                            handleOnChange
+                                                        }
+                                                    />
+                                                    <span>Yes</span>
+                                                </label>
+                                                <label>
+                                                    <input
+                                                        type="radio"
+                                                        name="newBadge"
+                                                        value={false}
+                                                        onChange={
+                                                            handleOnChange
+                                                        }
+                                                    />
+                                                    <span>No</span>
+                                                </label>
+                                            </div>
 
-                            {success && (
-                                <PopUp
-                                    message={"Create Product Success! ^.^"}
-                                    setPopUp={setSuccess}
-                                />
-                            )}
-                            {notification && (
-                                <PopUp
-                                    message={"Enter full data, please!"}
-                                    setPopUp={setNotification}
-                                />
-                            )}
-                            {error && (
-                                <PopUp
-                                    message={
-                                        "Error! Please notify the developer :< "
-                                    }
-                                    setPopUp={setError}
-                                />
-                            )}
+                                            <div className="form-group">
+                                                <h4>Bag Size</h4>
+                                                <label>
+                                                    <input
+                                                        type="checkbox"
+                                                        value={12}
+                                                        onChange={
+                                                            handleOnChangeBagSize
+                                                        }
+                                                        checked={bagSize.includes(
+                                                            12
+                                                        )}
+                                                    />
+                                                    <span>12 OZ</span>
+                                                </label>
+                                                <label>
+                                                    <input
+                                                        type="checkbox"
+                                                        value={24}
+                                                        onChange={
+                                                            handleOnChangeBagSize
+                                                        }
+                                                        checked={bagSize.includes(
+                                                            24
+                                                        )}
+                                                    />
+                                                    <span>24 OZ</span>
+                                                </label>
+                                                <label>
+                                                    <input
+                                                        type="checkbox"
+                                                        value={36}
+                                                        onChange={
+                                                            handleOnChangeBagSize
+                                                        }
+                                                        checked={bagSize.includes(
+                                                            36
+                                                        )}
+                                                    />
+                                                    <span>36 OZ</span>
+                                                </label>
+                                                <label>
+                                                    <input
+                                                        type="checkbox"
+                                                        value={48}
+                                                        onChange={
+                                                            handleOnChangeBagSize
+                                                        }
+                                                        checked={bagSize.includes(
+                                                            48
+                                                        )}
+                                                    />
+                                                    <span>48 OZ</span>
+                                                </label>
+                                                <label>
+                                                    <input
+                                                        type="checkbox"
+                                                        value={60}
+                                                        onChange={
+                                                            handleOnChangeBagSize
+                                                        }
+                                                        checked={bagSize.includes(
+                                                            60
+                                                        )}
+                                                    />
+                                                    <span>60 OZ</span>
+                                                </label>
+                                                <label>
+                                                    <input
+                                                        type="checkbox"
+                                                        value={72}
+                                                        onChange={
+                                                            handleOnChangeBagSize
+                                                        }
+                                                        checked={bagSize.includes(
+                                                            72
+                                                        )}
+                                                    />
+                                                    <span>72 OZ</span>
+                                                </label>
+                                                <label>
+                                                    <input
+                                                        type="checkbox"
+                                                        value={84}
+                                                        onChange={
+                                                            handleOnChangeBagSize
+                                                        }
+                                                        checked={bagSize.includes(
+                                                            84
+                                                        )}
+                                                    />
+                                                    <span>84 OZ</span>
+                                                </label>
+                                                <label>
+                                                    <input
+                                                        type="checkbox"
+                                                        value={96}
+                                                        onChange={
+                                                            handleOnChangeBagSize
+                                                        }
+                                                        checked={bagSize.includes(
+                                                            96
+                                                        )}
+                                                    />
+                                                    <span>96 OZ</span>
+                                                </label>
+                                            </div>
+                                            <div className="form-group">
+                                                <h4>Grind</h4>
+                                                <label>
+                                                    <input
+                                                        type="checkbox"
+                                                        value="whole bean"
+                                                        onChange={
+                                                            handleOnChangeGrind
+                                                        }
+                                                        checked={grind.includes(
+                                                            "whole bean"
+                                                        )}
+                                                    />
+                                                    <span>Whole Bean</span>
+                                                </label>
+                                                <label>
+                                                    <input
+                                                        type="checkbox"
+                                                        value="ground"
+                                                        onChange={
+                                                            handleOnChangeGrind
+                                                        }
+                                                        checked={grind.includes(
+                                                            "ground"
+                                                        )}
+                                                    />
+                                                    <span>Ground</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <label>
+                                            <span>
+                                                Enter Product Description:{" "}
+                                            </span>
+                                            <textarea
+                                                rows="10"
+                                                onChange={handleOnChange}
+                                                name="productDesc"
+                                                value={productDesc}
+                                            ></textarea>
+                                        </label>
+                                        <div className="image">
+                                            <label>
+                                                <input
+                                                    type="file"
+                                                    onChange={(e) =>
+                                                        previewImage(
+                                                            e,
+                                                            setImageDisplay
+                                                        )
+                                                    }
+                                                    name="productDisplayImage"
+                                                    style={{ display: "none" }}
+                                                    accept="image/*"
+                                                />
+                                                <span>
+                                                    Choose Product Display Image
+                                                </span>
+                                                <div className="show-img">
+                                                    <ShowImage
+                                                        data={imageDisplay}
+                                                        setData={
+                                                            setImageDisplay
+                                                        }
+                                                    />
+                                                </div>
+                                            </label>
+                                            <label>
+                                                <input
+                                                    type="file"
+                                                    multiple
+                                                    onChange={(e) =>
+                                                        previewImages(
+                                                            e,
+                                                            setProductImages
+                                                        )
+                                                    }
+                                                    name="productImage"
+                                                    style={{ display: "none" }}
+                                                    accept="image/*"
+                                                />
+                                                <span>
+                                                    Choose product images{" "}
+                                                </span>
+                                                <ShowImages
+                                                    data={productImages}
+                                                    setData={setProductImages}
+                                                />
+                                            </label>
+                                            <label>
+                                                <span>
+                                                    Choose Background Image
+                                                </span>
+                                                <input
+                                                    type="file"
+                                                    style={{ display: "none" }}
+                                                    accept="image/*"
+                                                    onChange={(e) =>
+                                                        previewImage(
+                                                            e,
+                                                            setImgBackground
+                                                        )
+                                                    }
+                                                />
+                                                <ShowImage
+                                                    data={imgBackground}
+                                                    setData={setImgBackground}
+                                                />
+                                            </label>
+                                        </div>
+                                        <div className="making">
+                                            <label>
+                                                <span>Title Profile</span>
+                                                <input
+                                                    type="text"
+                                                    name="titleProfile"
+                                                    value={titleProfile}
+                                                    onChange={handleOnChange}
+                                                    autoComplete="off"
+                                                />
+                                            </label>
+                                            <label>
+                                                <span>
+                                                    Choose Profile Image
+                                                </span>
+                                                <input
+                                                    type="file"
+                                                    style={{ display: "none" }}
+                                                    accept="image/*"
+                                                    onChange={(e) =>
+                                                        previewImage(
+                                                            e,
+                                                            setImgProfile
+                                                        )
+                                                    }
+                                                />
+                                                <ShowImage
+                                                    data={imgProfile}
+                                                    setData={setImgProfile}
+                                                />
+                                            </label>
+                                            <label>
+                                                <span>Title Origin</span>
+                                                <input
+                                                    type="text"
+                                                    name="titleOrigin"
+                                                    value={titleOrigin}
+                                                    onChange={handleOnChange}
+                                                    autoComplete="off"
+                                                />
+                                            </label>
+                                            <label>
+                                                <span>Choose Origin Image</span>
+                                                <input
+                                                    type="file"
+                                                    style={{ display: "none" }}
+                                                    accept="image/*"
+                                                    onChange={(e) =>
+                                                        previewImage(
+                                                            e,
+                                                            setImgOrigin
+                                                        )
+                                                    }
+                                                />
+                                                <ShowImage
+                                                    data={imgOrigin}
+                                                    setData={setImgOrigin}
+                                                />
+                                            </label>
+                                            <label>
+                                                <span>Title Roast</span>
+                                                <input
+                                                    type="text"
+                                                    name="titleRoast"
+                                                    value={titleRoast}
+                                                    onChange={handleOnChange}
+                                                    autoComplete="off"
+                                                />
+                                            </label>
+
+                                            <label>
+                                                <span>Choose Roast Image</span>
+                                                <input
+                                                    type="file"
+                                                    style={{ display: "none" }}
+                                                    accept="image/*"
+                                                    onChange={(e) =>
+                                                        previewImage(
+                                                            e,
+                                                            setImgRoast
+                                                        )
+                                                    }
+                                                />
+                                                <ShowImage
+                                                    data={imgRoast}
+                                                    setData={setImgRoast}
+                                                />
+                                            </label>
+                                        </div>
+
+                                        <div className="image-extra">
+                                            <label>
+                                                <span>Choose Bag Image</span>
+                                                <input
+                                                    type="file"
+                                                    style={{ display: "none" }}
+                                                    accept="image/*"
+                                                    onChange={(e) =>
+                                                        previewImage(
+                                                            e,
+                                                            setImgBag
+                                                        )
+                                                    }
+                                                />
+                                                <ShowImage
+                                                    data={imgBag}
+                                                    setData={setImgBag}
+                                                />
+                                            </label>
+                                            <label>
+                                                <span>
+                                                    Choose Subscription Image
+                                                </span>
+                                                <input
+                                                    type="file"
+                                                    style={{ display: "none" }}
+                                                    accept="image/*"
+                                                    onChange={(e) =>
+                                                        previewImage(
+                                                            e,
+                                                            setImgSub
+                                                        )
+                                                    }
+                                                />
+                                                <ShowImage
+                                                    data={imgSub}
+                                                    setData={setImgSub}
+                                                />
+                                            </label>
+                                        </div>
+                                        <div className="color">
+                                            <label>
+                                                <span>
+                                                    Choose Background Color
+                                                </span>
+                                                <input
+                                                    type="color"
+                                                    name="colorBackground"
+                                                    onChange={handleOnChange}
+                                                    value={colorBackground}
+                                                />
+                                            </label>
+                                            <label>
+                                                <span>
+                                                    Choose Subscription Color
+                                                </span>
+                                                <input
+                                                    type="color"
+                                                    onChange={handleOnChange}
+                                                    name="colorSubscription"
+                                                    value={colorSub}
+                                                />
+                                            </label>
+                                            <label>
+                                                <span>Choose Border Color</span>
+                                                <input
+                                                    type="color"
+                                                    onChange={handleOnChange}
+                                                    name="colorBorder"
+                                                    value={colorBorder}
+                                                />
+                                            </label>
+                                        </div>
+
+                                        <label>
+                                            <span>
+                                                Enter Product Discription 1:{" "}
+                                            </span>
+                                            <textarea
+                                                rows="10"
+                                                onChange={handleOnChange}
+                                                name="productDisc1"
+                                                value={disc1}
+                                            ></textarea>
+                                        </label>
+                                        <label>
+                                            <span>
+                                                Enter Product Discription 2:{" "}
+                                            </span>
+                                            <textarea
+                                                rows="10"
+                                                onChange={handleOnChange}
+                                                name="productDisc2"
+                                                value={disc2}
+                                            ></textarea>
+                                        </label>
+
+                                        <button
+                                            type="submit"
+                                            className="theme-btn__black"
+                                        >
+                                            Submit
+                                        </button>
+                                    </form>
+                                </div>
+
+                                {success && (
+                                    <PopUp
+                                        message={"Create Product Success! ^.^"}
+                                        setPopUp={setSuccess}
+                                    />
+                                )}
+                                {notification && (
+                                    <PopUp
+                                        message={"Enter full data, please!"}
+                                        setPopUp={setNotification}
+                                    />
+                                )}
+                                {error && (
+                                    <PopUp
+                                        message={
+                                            "Error! Please notify the developer :< "
+                                        }
+                                        setPopUp={setError}
+                                    />
+                                )}
+                            </div>
                         </div>
-                    </div>
-                )}
-            </div>
+                    )}
+                </section>
+            </main>
         </>
     );
 };

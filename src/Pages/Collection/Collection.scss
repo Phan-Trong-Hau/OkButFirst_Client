@@ -1,0 +1,105 @@
+$coffeeShop: url("../../Assets/img/coffee-shop.png");
+$merchShop: url("../../Assets/img/merch-shop.png");
+
+.collection {
+    .collection-wrapper {
+        padding: 50px 20px;
+        .collection-title {
+            margin-bottom: 63px;
+            h2 {
+                font-size: 3rem;
+                text-align: left;
+            }
+        }
+        .collection-content {
+            .collection-list {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10%;
+                height: 515px;
+
+                .collection-item {
+                    .item-title {
+                        font-size: 5rem;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                        font-family: Milliard;
+                        margin-top: 53px;
+                    }
+
+                    .item-products {
+                        margin-bottom: 70px;
+                        font-size: 1.8rem;
+                    }
+
+                    a {
+                        padding: 15px 20px;
+                        border: 2px solid black;
+                    }
+
+                    &:nth-child(1) {
+                        background: $coffeeShop top center / cover no-repeat;
+                        color: white;
+                    }
+                    &:nth-child(2) {
+                        background: $merchShop top center / cover no-repeat;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .collection {
+        .collection-wrapper {
+            .collection-content {
+                .collection-list {
+                    gap: 4%;
+                    height: 400px;
+                    .collection-item {
+                        .item-title {
+                            font-size: 3rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .collection {
+        .collection-wrapper {
+            padding: 30px;
+            .collection-content {
+                .collection-list {
+                    grid-template-columns: 1fr;
+                    height: 100%;
+                    gap: 0;
+
+                    .collection-item {
+                        height: 500px;
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 445px) {
+    .collection {
+        .collection-wrapper {
+            padding: 0px;
+
+            .collection-content {
+                .collection-list {
+                    .collection-item {
+                        height: 400px;
+                    }
+                }
+            }
+        }
+    }
+}

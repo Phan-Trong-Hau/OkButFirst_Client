@@ -1,0 +1,23 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 84">
+    <polygon points="82 44.7 10.2 44.7 7 27.3 85.2 27.3 82 44.7" fill="#4b2e18" /><text transform="translate(16.5 37.8)"
+        opacity="0.5" font-size="5.59" fill="#fff" font-family="GeneralSans-Bold, General Sans" font-weight="700"
+        style="isolation:isolate">CHOCOL<tspan x="25.4" y="0" letter-spacing="-0.06em">A</tspan>
+        <tspan x="29.3" y="0" letter-spacing="0em">TE</tspan>
+    </text>
+    <path d="M86.3,28.5H7.2V12.6H86.3Z" fill="#fbf2d1" />
+    <polygon points="70.1 70 23.2 69.7 12.4 49.9 10.3 43.2 22.3 43.2 72.6 43.2 81.8 43.2 79.5 50.6 70.1 70"
+        fill="#28180b" />
+    <path
+        d="M96.1,15.7a14.4,14.4,0,0,0-7.5,2.1c.1-1.6.2-3.2.2-4.8v-.9a.6.6,0,0,0-.1-.4H85.4v2.7h0c-.1,3.4-.4,6.8-.8,10.1l-1,4-4.7,19h0c-4.5,13.8-8.4,18.8-11,20.5H25C19.9,64.8,14.3,51.6,9.6,31.8c-.2-1.1-.5-2.2-.7-3.3A90.9,90.9,0,0,1,7.5,15.6h0V12.1a.6.6,0,0,0-.1-.4H4.1v1.2A86.2,86.2,0,0,0,6.3,32.6c3.6,15.2,9.5,34.3,17.4,38.7l.8.2H68.3l.8-.2c3.7-2,7.2-7.3,10.5-15.7a.5.5,0,0,0,.4-.2L86,51a66.6,66.6,0,0,0,16.5-17.8l.6-.8a9.4,9.4,0,0,0,2.2-3.7h.1a20.5,20.5,0,0,0,.5-2.4v-.8A9.8,9.8,0,0,0,96.1,15.7ZM102.5,26a4,4,0,0,1-.3,1.5h0a6.7,6.7,0,0,1-1.6,2.5l-.3.3-.6,1A66.4,66.4,0,0,1,84,48.3l-2.2,1.6.3-1.4,5.7-23.1c.1-.1.1-.2.1-.4l.4-1.6c.6-2.6,4.5-4.3,7.8-4.3a6.4,6.4,0,0,1,6.4,6.4Z"
+        fill="#fff" stroke="#441d1d" stroke-miterlimit="10" stroke-width="0.4" /><text transform="translate(66.3 37.8)"
+        opacity="0.5" font-size="5.59" fill="#fff" font-family="BebasNeue-Regular, Bebas Neue"
+        style="isolation:isolate">2 Oz</text><text transform="translate(66.3 23.2)" opacity="0.5" font-size="5.59"
+        font-family="BebasNeue-Regular, Bebas Neue" style="isolation:isolate">2 Oz</text><text
+        transform="translate(18.1 23.2)" opacity="0.5" font-size="5.59" font-family="GeneralSans-Bold, General Sans"
+        font-weight="700" style="isolation:isolate">HALF &amp; HALF</text><text transform="translate(30.7 54.3)"
+        opacity="0.5" font-size="5.79" fill="#fff" font-family="GeneralSans-Bold, General Sans" font-weight="700">ESPRES
+        <tspan x="22.9" y="0" letter-spacing="-0.02em">S</tspan>
+        <tspan x="26.7" y="0" letter-spacing="0em">O</tspan>
+    </text><text transform="translate(42.3 63.1)" opacity="0.5" font-size="5.79" fill="#fff"
+        font-family="BebasNeue-Regular, Bebas Neue">2 OZ</text>
+</svg>

@@ -1,0 +1,17 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 84">
+    <path d="M84.9,41.8H13.4L10.2,16.1A6.2,6.2,0,0,1,16.4,10H83.3a6.1,6.1,0,0,1,6.1,6.1Z" fill="#ffeee3" />
+    <polygon points="73.3 68.7 26.2 68.3 15.4 48.5 13.3 41.8 25.4 41.8 75.8 41.8 84.9 41.8 82.6 49.2 73.3 68.7"
+        fill="#28180b" />
+    <path
+        d="M99.3,14.3a13.9,13.9,0,0,0-7.5,2.1c.1-1.6.1-3.3.1-4.9v-.9a1.3,1.3,0,0,0-.1-.6H88.6a1.3,1.3,0,0,0-.1.6v.9A86.5,86.5,0,0,1,87.7,23L82,46.1h0c-4.5,13.9-8.4,18.9-11,20.6H28c-5.1-3.4-10.7-16.6-15.4-36.4a84.9,84.9,0,0,1-2.1-18.9v-.9a1.3,1.3,0,0,0-.1-.6H7.2a1.3,1.3,0,0,0-.1.6v.9A92.9,92.9,0,0,0,9.3,31.2c3.6,15.2,9.5,34.3,17.4,38.7l.9.3H71.4a1.1,1.1,0,0,0,.8-.3c3.7-2,7.2-7.3,10.5-15.7l.5-.2,5.9-4.4a67,67,0,0,0,16.6-17.8l.5-.9a9.7,9.7,0,0,0,2.3-3.6h0a6.4,6.4,0,0,0,.5-2.4,1.9,1.9,0,0,0,.1-.8A9.7,9.7,0,0,0,99.3,14.3Zm6.4,10.3-.3,1.4c0,.1-.1.1-.1.2a5.6,5.6,0,0,1-1.6,2.5c-.1.1-.2.2-.2.3l-.7,1A63.1,63.1,0,0,1,87.1,46.9l-2.2,1.6.4-1.3L91,23.9v-.3l.4-1.6c.6-2.6,4.5-4.4,7.9-4.4a6.5,6.5,0,0,1,6.4,6.5Z"
+        fill="#fff" stroke="#441d1d" stroke-miterlimit="10" stroke-width="0.4" /><text transform="translate(16.7 27.8)"
+        opacity="0.5" font-size="5.6" font-family="GeneralSans-Bold, General Sans" font-weight="700"
+        style="isolation:isolate">WHIPPED CREAM</text><text transform="translate(73 27.8)" opacity="0.5" font-size="5.6"
+        font-family="BebasNeue-Regular, Bebas Neue" style="isolation:isolate">3 Oz</text><text
+        transform="translate(34 51.3)" opacity="0.5" font-size="5.79" fill="#fff"
+        font-family="GeneralSans-Bold, General Sans" font-weight="700">ESPRES<tspan x="22.9" y="0"
+            letter-spacing="-0.02em">S</tspan>
+        <tspan x="26.7" y="0" letter-spacing="0em">O</tspan>
+    </text><text transform="translate(45.6 60.1)" opacity="0.5" font-size="5.79" fill="#fff"
+        font-family="BebasNeue-Regular, Bebas Neue">2 OZ</text>
+</svg>

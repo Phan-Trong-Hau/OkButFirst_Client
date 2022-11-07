@@ -1,4 +1,4 @@
-$bg-img:  url("../../Assets/img/footerBg.png");
+$bg-img: url("../../Assets/img/footerBg.png");
 
 .footer {
     overflow: hidden;
@@ -6,7 +6,6 @@ $bg-img:  url("../../Assets/img/footerBg.png");
         background: $bg-img no-repeat;
         background-size: cover;
         background-position: center;
-        background-attachment: fixed;
         padding: 60px 0;
 
         .site-footer__bottom {
@@ -239,6 +238,8 @@ $bg-img:  url("../../Assets/img/footerBg.png");
     .footer {
         .footer-middle {
             padding: 40px 0 !important;
+            background-attachment: fixed;
+
             .footer-row {
                 grid-template-columns: 1fr !important;
 

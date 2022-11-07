@@ -76,7 +76,7 @@ const Login = () => {
         <>
             <main>
                 <section>
-                    <Breadcrumb breadcrumb="Create Account" />
+                    <Breadcrumb breadcrumb="Account" />
                 </section>
                 <section>
                     <div className="container">
@@ -96,7 +96,13 @@ const Login = () => {
                                         <form
                                             className="form-content"
                                             onSubmit={handleLogin}
+                                            acceptCharset="UTF-8"
                                         >
+                                            <input
+                                                type="hidden"
+                                                name="utf8"
+                                                value={"✓"}
+                                            />
                                             <div className="form-group">
                                                 <label htmlFor="username">
                                                     Username or Email *
@@ -164,7 +170,7 @@ const Login = () => {
                                     <div className="page-register__wrapper">
                                         <div className="form-vertical">
                                             <div className="form-title">
-                                                <h3>CREATE ACCOUNT</h3>
+                                                <h3>NEW CUSTOMER</h3>
                                                 <p className="form-title__des">
                                                     Register Account By creating
                                                     an account you will be able
@@ -177,7 +183,13 @@ const Login = () => {
                                             <form
                                                 className="form-content"
                                                 onSubmit={handleSignup}
+                                                acceptCharset='UTF-8'
                                             >
+                                                <input
+                                                    type="hidden"
+                                                    name="utf8"
+                                                    value={"✓"}
+                                                />
                                                 <div className="form-group">
                                                     <label htmlFor="createCustomer_username">
                                                         Username <em>*</em>

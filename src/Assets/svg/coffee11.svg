@@ -1,0 +1,22 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 84">
+    <path d="M86.2,20,81.7,45.6H10.5L7.3,20c0-2.7-2.2-4.6-1.2-5.4H87.4C88.5,15.4,86.2,17.3,86.2,20Z" fill="#d0e5f6" />
+    <polygon points="70.1 72.3 23.3 71.9 12.5 52.2 10.5 45.6 22.4 45.6 72.6 45.6 81.7 45.6 79.4 52.9 70.1 72.3"
+        fill="#28180b" />
+    <path
+        d="M96,18.1a14.5,14.5,0,0,0-7.5,2.2c.1-1.7.2-3.3.2-4.9v-.9a.4.4,0,0,0-.1-.3H85.3v1.2a88.9,88.9,0,0,1-.8,11.5L79.9,45.6l-1.1,4.2h0c-4.5,13.8-8.4,18.8-11,20.5H25.1C21,67.8,16.7,59,12.8,45.6q-1.7-5.2-3-11.4A78.6,78.6,0,0,1,7.6,15.4V14.2H4.3v1.2A86,86,0,0,0,6.5,35C10,50.1,15.9,69.2,23.8,73.6l.8.2H68.3l.8-.2c3.6-2.1,7.1-7.3,10.4-15.7l.5-.2,5.9-4.4a66.2,66.2,0,0,0,16.5-17.7l.5-.8a11,11,0,0,0,2.3-3.7h0a5.9,5.9,0,0,0,.5-2.3v-.8A9.7,9.7,0,0,0,96,18.1Zm6.4,10.3-.3,1.5a.1.1,0,0,0-.1.1,5.6,5.6,0,0,1-1.6,2.5l-.2.3-.6,1A64.4,64.4,0,0,1,83.9,50.6l-2.2,1.6.4-1.3,5.6-23.1a.4.4,0,0,0,.1-.3l.4-1.6c.5-2.7,4.5-4.4,7.8-4.4a6.4,6.4,0,0,1,6.4,6.4Z"
+        fill="#fff" stroke="#441d1d" stroke-miterlimit="10" stroke-width="0.4" /><text transform="translate(18.9 31.6)"
+        opacity="0.5" font-size="5.57" font-family="GeneralSans-Bold, General Sans" font-weight="700"
+        style="isolation:isolate">H<tspan x="4.4" y="0" letter-spacing="-0.01em">o</tspan>
+        <tspan x="7.7" y="0">t </tspan>
+        <tspan x="11.3" y="0" letter-spacing="-0.02em">w</tspan>
+        <tspan x="15.8" y="0" letter-spacing="-0.01em">at</tspan>
+        <tspan x="21.2" y="0">er</tspan>
+    </text><text transform="translate(62.6 31.6)" opacity="0.5" font-size="5.57"
+        font-family="BebasNeue-Regular, Bebas Neue" style="isolation:isolate">3 Oz</text><text
+        transform="translate(31.1 55.6)" opacity="0.5" font-size="5.79" fill="#fff"
+        font-family="GeneralSans-Bold, General Sans" font-weight="700">ESPRES<tspan x="22.9" y="0"
+            letter-spacing="-0.02em">S</tspan>
+        <tspan x="26.7" y="0" letter-spacing="0em">O</tspan>
+    </text><text transform="translate(43 64.4)" opacity="0.5" font-size="5.79" fill="#fff"
+        font-family="BebasNeue-Regular, Bebas Neue">2 OZ</text>
+</svg>

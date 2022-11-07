@@ -1,0 +1,138 @@
+$SubCoffeeOverlay: url("../../Assets/img/sub-coffee-overlay.png");
+$SubscribeOverlay: url("../../Assets/img/subscribe-overlay.png");
+$started: url('../../Assets/svg/started.svg');
+
+.coffee-club {
+    .subscribe-banner {
+        position: relative;
+        background: radial-gradient(
+            48.89% 338.95% at 27.43% 57.35%,
+            #333333 0%,
+            #151515 30%
+        );
+        z-index: 1;
+        padding: 77px 0;
+        .sub-banner-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            .sub-col {
+                .sub-banner {
+                    position: relative;
+                    top: 25px;
+
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        inset: -50px 0 0 -50px;
+                        width: 564px;
+                        height: 536px;
+                        background: url(https://cdn.shopify.com/s/files/1/0592/7298/6810/files/sub-coffee-overlay.png?v=1631172847)
+                            no-repeat;
+                        z-index: 0;
+                    }
+                }
+
+                .sub-content {
+                    color: #fff;
+                    text-align: left;
+                    padding-left: 55px;
+                    .sub-title {
+                        font-family: "Platform";
+                        font-weight: 500;
+                        font-size: 38px;
+                        line-height: 46px;
+                        letter-spacing: 0.04em;
+                        text-transform: uppercase;
+                        color: #ffffff;
+                        margin-bottom: 15px;
+                    }
+
+                    .sub-desc {
+                        font-family: "Milliard";
+                        font-weight: 600;
+                        font-size: 20px;
+                        line-height: 32px;
+                        color: #fff;
+                        margin-bottom: 5px;
+                    }
+
+                    .featuring {
+                        padding-left: 20px;
+                        margin: 25px 0;
+                        li {
+                            list-style: disc;
+                            font-size: 15px;
+                            line-height: 28px;
+                        }
+                    }
+
+                    button {
+                        max-width: 230px;
+                        width: 100%;
+                        font-size: 16px;
+                        height: 50px;
+                    }
+                }
+            }
+        }
+
+        &::before {
+            position: absolute;
+            content: "";
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: $SubscribeOverlay no-repeat;
+            z-index: -1;
+        }
+    }
+
+    .home-club {
+        background-color: #fff;
+        .club-wrapper {
+            .club-title {
+                margin-bottom: 80px;
+                .title {
+                    font-size: 38px;
+                    line-height: 46px;
+                }
+            }
+        }
+    }
+
+    .home-know {
+        .know-wrapper {
+            .title-wrapper {
+                .title {
+                    font-size: 38px;
+                }
+            }
+
+            .coffee-calc {
+                margin: 55px auto 0;
+            }
+
+            .get-start {
+                position: relative;
+                font-weight: bold;
+                font-size: 20px;
+                line-height: 23px;
+                text-transform: uppercase;
+                margin-bottom: 13px;
+
+                &::after {
+                    position: absolute;
+                    content: '';
+                    width: 45px;
+                    height: 170px;
+                    top: 40px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: $started top center / cover no-repeat;
+                    
+                }
+            }
+        }
+    }
+}

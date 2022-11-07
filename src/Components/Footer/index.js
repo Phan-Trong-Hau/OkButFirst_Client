@@ -97,7 +97,7 @@ const Footer = () => {
                                         </h5>
                                         <ul className={"footer-list"}>
                                             <li className="footer-item">
-                                                <Link to="/collections/coffee-shope">
+                                                <Link to="/collections/coffee-shop">
                                                     Coffee Shop
                                                 </Link>
                                             </li>
@@ -204,7 +204,7 @@ const Footer = () => {
                                         </h5>
                                         <ul className="footer-list">
                                             <li className="footer-item">
-                                                <a href="mailto:hello@okbutfirst.com">
+                                                <a href="mailto:phantronghau.dev@gmail.com">
                                                     <img
                                                         src={iconMail}
                                                         alt="icon-mail"

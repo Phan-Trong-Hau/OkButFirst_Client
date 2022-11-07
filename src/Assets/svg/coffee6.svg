@@ -1,0 +1,25 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 84">
+    <rect x="17.7" y="15.9" width="58.5" height="14.21" fill="#fbf2d1" /><text transform="translate(23.9 24.4)"
+        opacity="0.5" font-size="4.55" font-family="GeneralSans-Bold, General Sans" font-weight="700"
+        style="isolation:isolate">He<tspan x="6.3" y="0" letter-spacing="-0.02em">a</tspan>
+        <tspan x="8.7" y="0" letter-spacing="0.01em">v</tspan>
+        <tspan x="11.3" y="0">y C</tspan>
+        <tspan x="18.5" y="0" letter-spacing="-0.01em">r</tspan>
+        <tspan x="20.4" y="0">eam</tspan>
+    </text>
+    <g opacity="0.5">
+        <path d="M64.5,22h-.6v-.4h.7c0-.1.1-.2.1-.3h.4v3.5h-.6V22Z" />
+        <path
+            d="M66.5,24.5a.8.8,0,0,1-.2-.6V22.1a1.4,1.4,0,0,1,.2-.7l.6-.2.7.2a1.4,1.4,0,0,1,.2.7v1.8a.8.8,0,0,1-.2.6.9.9,0,0,1-.7.3Zm.9-.6V22a.3.3,0,0,0-.3-.3c-.1,0-.2.1-.2.3v1.9c0,.3.1.4.2.4S67.4,24.2,67.4,23.9Z" />
+        <path d="M68.2,24.2l1-2.5h-.9v-.5h1.5v.5l-1,2.5h1v.5H68.2v-.5Z" />
+    </g>
+    <polygon points="62.6 70.6 31.1 70.7 15.5 28.8 23 28.8 70.6 28.8 76.1 28.8 62.6 70.6" fill="#28180b" />
+    <path
+        d="M86.1,18.6a14.3,14.3,0,0,0-7.3,2c.1-1.6.1-3.1.1-4.7V15a.7.7,0,0,0-.1-.5h-3a.8.8,0,0,0-.2.5v.9a84.2,84.2,0,0,1-.7,11.2L69.4,49.5h-.1c-4.3,13.5-8.2,18.3-10.7,20H34.7c-5-3.3-10.4-16.1-15-35.4a85.5,85.5,0,0,1-2-18.3V15a.8.8,0,0,0-.2-.5h-3a.7.7,0,0,0-.1.5v.9A87.3,87.3,0,0,0,16.5,35C20,49.8,25.8,68.3,33.4,72.7l.8.2H59.1l.8-.2c3.5-2,6.9-7.1,10.1-15.3l.5-.2,5.8-4.3A66.3,66.3,0,0,0,92.4,35.6l.5-.8a9.5,9.5,0,0,0,2.2-3.6h0a6.8,6.8,0,0,0,.5-2.3v-.8A9.4,9.4,0,0,0,86.1,18.6Zm6.2,10A3.2,3.2,0,0,1,92,30h0a6.4,6.4,0,0,1-1.5,2.5l-.3.3-.6.9A61.3,61.3,0,0,1,74.3,50.2l-2.1,1.6.3-1.3,5.6-22.6v-.3l.4-1.5c.5-2.6,4.4-4.3,7.6-4.3a6.3,6.3,0,0,1,6.3,6.3A.7.7,0,0,0,92.3,28.6Z"
+        fill="#fff" stroke="#441d1d" stroke-miterlimit="10" stroke-width="0.4" /><text transform="translate(31 43.8)"
+        opacity="0.5" font-size="5.79" fill="#fff" font-family="GeneralSans-Bold, General Sans" font-weight="700">ESPRES
+        <tspan x="22.9" y="0" letter-spacing="-0.02em">S</tspan>
+        <tspan x="26.7" y="0" letter-spacing="0em">O</tspan>
+    </text><text transform="translate(42.6 52.6)" opacity="0.5" font-size="5.79" fill="#fff"
+        font-family="BebasNeue-Regular, Bebas Neue">2 OZ</text>
+</svg>

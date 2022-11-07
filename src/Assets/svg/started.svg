@@ -1,0 +1,48 @@
+<svg width="48" height="184" viewBox="0 0 48 184" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path class="line"
+        d="M23.2667 1C19.188 12.4474 7.6761 41.193 17.4651 56.9649C20.0411 61.2047 27.1253 70.9561 41.943 63.3246C45.163 60.7807 47.7337 50.6053 39.3669 42.9737C26.3164 31.0699 2.65824 48.6974 2.01422 69.0482C1.49901 85.329 15.1091 102.542 21.9786 109.114C27.5599 114.414 38.5937 129.211 38.0785 146L38.0785 156L38.0785 174"
+        stroke="black" stroke-width="3" stroke-dasharray="8 5" />
+    <path class="up-down" d="M29.2446 173.608L38.1947 181.605L46.5 173.366" stroke="black" stroke-width="3" />
+
+    <style>
+        .line {
+            stroke-dashoffset: 50;
+            animation: line 2s linear forwards infinite;
+        }
+
+        @keyframes line {
+            from {
+                stroke-dashoffset: 50;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .up-down {
+            animation: up-down 2s infinite;
+            transform-origin: 50% 50%;
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        @keyframes up-down {
+            0% {
+                transform: translate(0, -8px) scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translate(-2px, -8px) scale(1.1);
+                opacity: 0.75;
+            }
+
+            100% {
+                transform: translate(0, -8px) scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+
+</svg>

@@ -1,0 +1,304 @@
+$banner: url("../../../Assets/img/blog-header.png");
+$maskBlog: url("../../../Assets/svg/blogHeaderMask.svg");
+
+.blog {
+    &-banner {
+        position: relative;
+        background: $banner top center / cover no-repeat;
+        opacity: 0.9;
+        width: 100%;
+        height: 100%;
+
+        .blog-content {
+            .blog-row {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .blog-col {
+                    text-align: left;
+                    .heading {
+                        position: relative;
+                        font-family: "Platform";
+                        font-weight: bold;
+                        font-size: 62px;
+                        line-height: 74px;
+                        letter-spacing: 0.04em;
+                        text-transform: uppercase;
+                        color: #ffffff;
+                        padding-bottom: 7px;
+                        margin-bottom: 20px;
+
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            width: 45px;
+                            height: 1px;
+                            bottom: 0;
+                            left: 0;
+                            background-color: #ffffff;
+                        }
+                    }
+
+                    .desc {
+                        font-size: 28px;
+                        line-height: 36px;
+                        color: #ffffff;
+                    }
+                    img {
+                    }
+                }
+            }
+        }
+
+        &::before {
+            position: absolute;
+            content: "";
+            background: radial-gradient(
+                51.47% 66.56% at 67.71% 44.21%,
+                rgba(55, 55, 55, 0.26) 0%,
+                #030303 100%
+            );
+            opacity: 0.9;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        &::after {
+            position: absolute;
+            content: "";
+            background: $maskBlog top center / cover no-repeat;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            z-index: -1;
+        }
+    }
+
+    &-roasting {
+        padding: 80px 0 130px 0;
+        .title-wrapper {
+            max-width: 83%;
+            margin: 0 auto;
+            .title {
+                font-size: 38px;
+            }
+        }
+        .roast-row {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+            .roast-col {
+                .img-wrap {
+                    position: relative;
+                    margin-bottom: 15px;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 100%;
+                        -webkit-box-shadow: 0px 0px 0px 4px #fff,
+                            0px 0px 5px 10px #0000000a;
+                        box-shadow: 0px 0px 0px 4px #fff,
+                            0px 0px 5px 10px #0000000a;
+                        bottom: 0;
+                        left: 50%;
+                        -webkit-transform: translateX(-50%);
+                        transform: translateX(-50%);
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 308px;
+                        height: 4px;
+                        bottom: 3px;
+                    }
+                }
+
+                span {
+                    font-family: "Platform";
+                    font-weight: 500;
+                    font-size: 22px;
+                    line-height: 26px;
+                    text-align: center;
+                    letter-spacing: 0.2em;
+                    text-transform: uppercase;
+                    color: #000000;
+                    margin-bottom: 10px;
+                    display: block;
+                }
+
+                ul {
+                    li {
+                        text-align: left;
+                        font-size: 15px;
+                        line-height: 28px;
+
+                        list-style: disc;
+                    }
+                }
+
+                &:nth-child(1) {
+                    .img-wrap {
+                        &::before {
+                            background: #c6844d;
+                        }
+
+                        &::after {
+                            background: #c6844d;
+                            left: 50%;
+                        }
+                    }
+                }
+
+                &:nth-child(2) {
+                    .img-wrap {
+                        &::before {
+                            background: #81522b;
+                        }
+
+                        &::after {
+                            background: #81522b;
+                            left: 50%;
+                            -webkit-transform: translateX(-50%);
+                            transform: translateX(-50%);
+                        }
+                    }
+                }
+                &:nth-child(3) {
+                    .img-wrap {
+                        &::before {
+                            background: #693b14;
+                        }
+
+                        &::after {
+                            background: #693b14;
+                            left: 50%;
+                            -webkit-transform: translateX(-50%);
+                            transform: translateX(-50%);
+                        }
+                    }
+                }
+                &:nth-child(4) {
+                    .img-wrap {
+                        &::before {
+                            background: #2c0903;
+                        }
+
+                        &::after {
+                            background: #2c0903;
+                            right: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-drinks {
+        padding-bottom: 80px;
+
+        .slider-drinks {
+            .slide-row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding-bottom: 40px;
+                .slide-col {
+                    display: flex;
+                    flex: 0 0 calc(33.33%);
+                    img {
+                        width: 140px;
+                        transition: all 0.3s linear;
+
+                        &:hover {
+                            scale: 1.1;
+                        }
+                    }
+                    .content {
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        margin-bottom: 20px;
+                        margin-top: 20px;
+                        text-align: left;
+
+                        h5 {
+                            font-family: "Platform";
+                            font-weight: 500;
+                            font-size: 20px;
+                            line-height: 24px;
+                            letter-spacing: 0.04em;
+                            text-transform: uppercase;
+                            margin-bottom: 10px;
+                        }
+
+                        p {
+                            font-size: 15px;
+                            line-height: 17px;
+                        }
+                    }
+                }
+            }
+
+            .swiper-pagination-bullet {
+                width: 22px;
+                height: 4px;
+                border-radius: 0;
+                background: rgba(0, 0, 0, 1);
+                border: none;
+            }
+        }
+    }
+
+    &-grind {
+        padding-bottom: 80px;
+
+        .grind-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 55px;
+
+            .grind-col {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+
+                .img-wrap {
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .grind-group {
+                    h5 {
+                        font-family: "Platform";
+                        font-weight: 500;
+                        font-size: 20px;
+                        line-height: 24px;
+                        letter-spacing: 0.04em;
+                        text-transform: uppercase;
+                        margin-bottom: 10px;
+                    }
+                    p {
+                        font-size: 15px;
+                        line-height: 28px;
+                    }
+                }
+            }
+        }
+    }
+
+    .title-wrapper {
+        .title {
+            font-size: 38px;
+        }
+    }
+}

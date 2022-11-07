@@ -28,7 +28,7 @@
                         font-size: 1.6rem;
                     }
 
-                    input[type=color] {
+                    input[type="color"] {
                         padding: 1px;
                         max-width: 50px;
                     }
@@ -36,11 +36,9 @@
                     textarea {
                         padding: 10px;
                         width: 100%;
-                        resize: none;
+                        resize: vertical;
                         font-size: 1.6rem;
                     }
-
-
                 }
 
                 .input-radio {
@@ -72,11 +70,11 @@
 
                 .making {
                     display: grid;
-                    grid-template-columns: repeat(2,1fr);
+                    grid-template-columns: repeat(2, 1fr);
                     gap: 20px;
                 }
 
-                button[type=submit] {
+                button[type="submit"] {
                     padding: 10px;
                     max-width: 270px;
                     width: 100%;

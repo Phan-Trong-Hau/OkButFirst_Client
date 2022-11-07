@@ -8,7 +8,7 @@ import "./Card.scss";
 const Card = ({
     title,
     img,
-    isNew = false,
+    newBadge = false,
     desc,
     price,
     idProduct,
@@ -16,9 +16,12 @@ const Card = ({
 }) => {
     return (
         <>
-            <div className="card" data-id={idProduct}>
+            <div
+                className={desc ? "card has-description" : "card"}
+                data-id={idProduct}
+            >
                 <div className="card-img">
-                    {isNew ? (
+                    {newBadge ? (
                         <div className="card-badges">
                             <span>New</span>
                         </div>

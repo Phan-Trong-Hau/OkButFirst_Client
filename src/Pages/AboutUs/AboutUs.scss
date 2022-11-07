@@ -1,0 +1,163 @@
+$aboutBg: url("../../Assets/img/about-background.png");
+$ourJourneyBefore: url("../../Assets/svg/ourJourneyBefore.svg");
+$ourJourneyAfter: url("../../Assets/svg/ourJourneyAfter.svg");
+
+.about-us {
+    margin-bottom: 85px;
+    .about-wrapper {
+        padding: 85px 0 0;
+        .about-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            .about-col {
+                text-align: left;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+
+                .about-title {
+                    font-family: "Platform";
+                    font-weight: bold;
+                    font-size: 3.8rem;
+                    line-height: 4.6rem;
+                    letter-spacing: 0.04em;
+                    text-transform: uppercase;
+                    margin-bottom: 20px;
+                }
+
+                .about-content {
+                    font-size: 1.8rem;
+                    line-height: 2.8rem;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+
+    .about-who {
+        position: relative;
+
+        .about-wrapper {
+            padding: 120px 0;
+            .about-row {
+                margin-bottom: 85px;
+
+                .about-col {
+                    .about-content {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .title-bottom {
+                position: absolute;
+                font-family: "Platform";
+                font-weight: bold;
+                font-size: 10vw;
+                line-height: 130px;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                color: #f4f4f4;
+                bottom: 0;
+                width: 100%;
+                left: 0;
+                right: 0;
+                z-index: -1;
+            }
+        }
+    }
+
+    .about-journey {
+        position: relative;
+        background: $aboutBg top center / cover no-repeat, #f4f4f4;
+        z-index: 0;
+
+        .about-wrapper {
+            padding: 85px 0;
+            max-width: 930px;
+            width: 100%;
+            margin: 0 auto;
+
+            .about-title {
+                font-family: "Platform";
+                font-weight: bold;
+                font-size: 3.8rem;
+                line-height: 4.6rem;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+            }
+
+            .about-content {
+                font-size: 1.8rem;
+                line-height: 2.8rem;
+                margin-bottom: 25px;
+            }
+        }
+
+        &::before {
+            position: absolute;
+            content: "";
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+            background: $ourJourneyBefore;
+            width: 150px;
+            height: 424px;
+        }
+
+        &::after {
+            position: absolute;
+            content: "";
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background: $ourJourneyAfter;
+            width: 150px;
+            height: 424px;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .about-us {
+        .about-content {
+            font-size: 1.5rem !important;
+            line-height: 2rem !important;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .about-us {
+        .about-title {
+            font-size: 3rem !important;
+            line-height: 3rem !important;
+        }
+
+        .about-content {
+            font-size: 1.3rem !important;
+            line-height: 1.5rem !important;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .about-us {
+        .about-wrapper {
+            .about-row {
+                grid-template-rows: 1fr;
+                grid-template-columns: 1fr;
+
+                .grid-rows {
+                    &:nth-child(2) {
+                        grid-row: 1/2;
+                    }
+                }
+            }
+        }
+    }
+}
