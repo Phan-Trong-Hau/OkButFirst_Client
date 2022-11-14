@@ -3,12 +3,34 @@
         padding: 30px 20px 100px;
 
         .list-products {
-            margin-bottom: 50px;
             .product-table {
+                .theme-btn__black {
+                    width: 40%;
+                    border-radius: 3px;
+                    padding: 3px;
+                    border: 0;
+
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.75);
+                        color: white;
+                    }
+                }
+                .actions {
+                    max-width: 70px;
+                    button {
+                        margin-left: 2%;
+                        img {
+                            width: 15px;
+                        }
+                    }
+                }
             }
         }
 
-        .create-product {
+        .create-product,
+        .update-product {
+            padding-top: 100px;
+
             .product-form {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);

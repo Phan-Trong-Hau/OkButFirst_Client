@@ -1,8 +1,9 @@
-import './ShowImage.scss'
+import { Image } from "cloudinary-react";
+
+import "./ShowImage.scss";
 import iconClose from "../../../../Assets/svg/iconClose.svg";
 
-
-export const ShowImages = ({ data, setData }) => {
+export const ShowImages = ({ data, setData}) => {
     const handleDeleteImg = (e, index) => {
         e.preventDefault();
 
@@ -13,7 +14,15 @@ export const ShowImages = ({ data, setData }) => {
 
     const listImg = data?.map((e, index) => (
         <div className="img-wrapper" key={index}>
-            <img src={e} alt="choose" />
+            {e.length > 40 ? (
+                <img src={e} alt="chose" />
+            ) : (
+                <Image
+                    cloudName="ok-but-first-coffee"
+                    publicId={e}
+                    crop="scale"
+                ></Image>
+            )}
             <button
                 className="delete-img"
                 type="button"
@@ -37,7 +46,16 @@ export const ShowImage = ({ data, setData }) => {
         <div className="show-image">
             {data && (
                 <div className="img-wrapper">
-                    <img src={data} alt="chose" />
+                    {data.length > 40 ? (
+                        <img src={data} alt="chose" />
+                    ) : (
+                        <Image
+                            cloudName="ok-but-first-coffee"
+                            publicId={data}
+                            crop="scale"
+                        ></Image>
+                    )}
+
                     <button
                         className="delete-img"
                         type="button"
@@ -50,4 +68,3 @@ export const ShowImage = ({ data, setData }) => {
         </div>
     );
 };
-

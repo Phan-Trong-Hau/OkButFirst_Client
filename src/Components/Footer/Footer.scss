@@ -7,6 +7,7 @@ $bg-img: url("../../Assets/img/footerBg.png");
         background-size: cover;
         background-position: center;
         padding: 60px 0;
+        width: calc(100% + 10px);
 
         .site-footer__bottom {
             .footer-row {

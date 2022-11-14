@@ -17,7 +17,7 @@ import LoadingSpinner from "./Components/Loading";
 import NotFound from "./Pages/NotFound";
 import Admin from "./Pages/Admin";
 import CoffeeShopManager from "./Pages/Manager/CoffeeShop";
-import { fetchAllProducts } from "./redux/reducer/products";
+import { fetchAllProducts } from "./redux/slice/products";
 import Collection from "./Pages/Collection";
 import CoffeeShop from "./Pages/CoffeeShop";
 import MerchShop from "./Pages/MerchShop";

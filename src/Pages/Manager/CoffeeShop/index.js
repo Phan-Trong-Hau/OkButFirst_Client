@@ -1,17 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Image } from "cloudinary-react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import { createProduct, updateProduct } from "../../../redux/slice/products";
+import { previewImage, previewImages } from "../../../utils/previewImage";
+import { ShowImage, ShowImages } from "../Components/ShowImage";
 
 import Breadcrumb from "../../../Components/Breadcrumb";
 import LoadingSpinner from "../../../Components/Loading";
 import PopUp from "../../../Components/PopUp";
-import api from "../../../utils/apiCaller";
-import { previewImage, previewImages } from "../../../utils/previewImage";
-import { ShowImage, ShowImages } from "../Components/ShowImage";
+
 import "./CoffeeShop.scss";
+
+import recycleBin from "../../../Assets/svg/recycleBin.svg";
+import editPen from "../../../Assets/svg/editPen.svg";
 
 const ProductManager = () => {
     const selector = useSelector((state) => state.products);
+    const dispatch = useDispatch();
+
+    const productRef = useRef(null);
 
     const [productName, setProductName] = useState("");
     const [productPrice, setProductPrice] = useState(0);
@@ -33,13 +41,48 @@ const ProductManager = () => {
     const [colorBackground, setColorBackground] = useState("#000000");
     const [colorSub, setColorSub] = useState("#000000");
     const [colorBorder, setColorBorder] = useState("#000000");
+    const [colorBorderRoast, setColorBorderRoast] = useState("#000000");
+    const [colorBgRoast, setColorBgRoast] = useState("#000000");
+    const [imgMiddleRoast, setImgMiddleRoast] = useState();
     const [disc1, setDisc1] = useState("");
     const [disc2, setDisc2] = useState("");
+    const [productId, setProductId] = useState();
     const [busy, setBusy] = useState(false);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);
     const [notification, setNotification] = useState(false);
     const [fetchProducts, setFetchProducts] = useState();
+    const [flag, setFlag] = useState(true);
+
+    const handleOnClickCreateProduct = () => {
+        setFlag(true);
+        setProductName("");
+        setProductPrice(0);
+        setNewBadge(true);
+        setBagSize(["12"]);
+        setGrind(["whole bean"]);
+        setImageDisplay();
+        setProductDesc("");
+        setProductImages([]);
+        setTitleProfile("");
+        setImgProfile();
+        setTitleOrigin("");
+        setImgOrigin();
+        setTitleRoast("");
+        setImgRoast();
+        setImgBackground();
+        setImgBag();
+        setImgSub();
+        setColorBackground("#000000");
+        setColorSub("#000000");
+        setColorBorder("#000000");
+        setDisc1("");
+        setDisc2("");
+        setColorBorderRoast("#000000");
+        setColorBgRoast("#000000");
+        setImgMiddleRoast();
+        productRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
 
     const handleOnChange = (e) => {
         const { name, value } = e.target;
@@ -55,6 +98,8 @@ const ProductManager = () => {
         if (name === "colorBackground") setColorBackground(value);
         if (name === "colorSubscription") setColorSub(value);
         if (name === "colorBorder") setColorBorder(value);
+        if (name === "colorBorderRoast") setColorBorderRoast(value);
+        if (name === "colorBackgroundRoast") setColorBgRoast(value);
     };
 
     const handleOnChangeBagSize = (e) => {
@@ -67,6 +112,36 @@ const ProductManager = () => {
         }
     };
 
+    const handleOnClickUpdateProduct = (e, index) => {
+        setFlag(false);
+        const product = fetchProducts[index];
+        setProductId(product._id);
+        setProductName(product.name);
+        setProductPrice(product.price);
+        setProductDesc(product.description);
+        setDisc1(product.discription[0]);
+        setDisc2(product.discription[1]);
+        setNewBadge(product.newBadge);
+        setTitleProfile(product.making[0].title);
+        setTitleOrigin(product.making[1].title);
+        setTitleRoast(product.making[2].title);
+        setColorBackground(product.color.colorBackground);
+        setColorSub(product.color.colorSub);
+        setColorBorder(product.color.colorBorder);
+        setImageDisplay(product.imageDisplay);
+        setProductImages(product.productImages);
+        setImgBackground(product.imageBackground);
+        setImgBag(product.imageExtra.imgBag);
+        setImgSub(product.imageExtra.imgSub);
+        setImgProfile(product.making[0].img);
+        setImgOrigin(product.making[1].img);
+        setImgRoast(product.making[2].img);
+        setImgMiddleRoast(product.imageMiddleRoast);
+        setColorBorderRoast(product.color.colorBorderRoast);
+        setColorBgRoast(product.color.colorBgRoast);
+        productRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
+
     const handleOnChangeGrind = (e) => {
         const { checked, value } = e.target;
         if (checked) {
@@ -74,7 +149,7 @@ const ProductManager = () => {
         } else setGrind(grind.filter((e) => e !== value));
     };
 
-    const handleSubmitProduct = (e) => {
+    const handleSubmitCreateProduct = (e) => {
         e.preventDefault();
 
         if (
@@ -94,82 +169,111 @@ const ProductManager = () => {
             !imgRoast ||
             !imgOrigin ||
             !imgProfile ||
-            !imageDisplay
+            !imageDisplay ||
+            !imgMiddleRoast
         ) {
             setNotification(true);
-            return;
-        }
-        uploadData();
+        } else uploadData(createProduct);
     };
 
-    const uploadData = async () => {
-        setBusy(true);
-        try {
-            const res = await api.post("/v1/products", {
-                productName,
-                productPrice,
-                productDesc,
-                discription: [disc1, disc2],
-                imageDisplay,
-                imgBackground,
-                productImages,
-                newBadge,
-                bagSize,
-                grind,
-                making: [
-                    {
-                        title: titleProfile,
-                        img: imgProfile,
-                    },
-                    {
-                        title: titleOrigin,
-                        img: imgOrigin,
-                    },
-                    {
-                        title: titleRoast,
-                        img: imgRoast,
-                    },
-                ],
-                imgExtra: {
-                    imgBag,
-                    imgSub,
-                },
-                color: {
-                    colorBackground,
-                    colorSub,
-                    colorBorder,
-                },
-            });
-            if (res.data?.message === "Create product success!") {
-                setSuccess(true);
+    const handleSubmitUpdateProduct = (e) => {
+        e.preventDefault();
 
-                setProductName("");
-                setProductPrice(0);
-                setNewBadge(true);
-                setBagSize(["12"]);
-                setGrind(["whole bean"]);
-                setImageDisplay();
-                setProductDesc("");
-                setProductImages([]);
-                setTitleProfile("");
-                setImgProfile();
-                setTitleOrigin("");
-                setImgOrigin();
-                setTitleRoast("");
-                setImgRoast();
-                setImgBackground();
-                setImgBag();
-                setImgSub();
-                setColorBackground("#000000");
-                setColorSub("#000000");
-                setColorBorder("#000000");
-                setDisc1("");
-                setDisc2("");
-            } else setError(true);
-        } catch (error) {
-            setError(true);
-        }
-        setBusy(false);
+        if (
+            productName.trim() === "" ||
+            productDesc.trim() === "" ||
+            titleProfile.trim() === "" ||
+            titleOrigin.trim() === "" ||
+            titleRoast.trim() === "" ||
+            disc1.trim() === "" ||
+            disc2.trim() === "" ||
+            bagSize.length === 0 ||
+            grind.length === 0 ||
+            productImages.length === 0 ||
+            !imgSub ||
+            !imgBag ||
+            !imgBackground ||
+            !imgRoast ||
+            !imgOrigin ||
+            !imgProfile ||
+            !imageDisplay ||
+            !imgMiddleRoast
+        ) {
+            setNotification(true);
+        } else uploadData(updateProduct);
+    };
+
+    const uploadData = (actionProduct) => {
+        const data = {
+            productId,
+            productName,
+            productPrice,
+            productDesc,
+            discription: [disc1, disc2],
+            imageDisplay,
+            imgBackground,
+            productImages,
+            newBadge,
+            bagSize,
+            grind,
+            making: [
+                {
+                    title: titleProfile,
+                    img: imgProfile,
+                },
+                {
+                    title: titleOrigin,
+                    img: imgOrigin,
+                },
+                {
+                    title: titleRoast,
+                    img: imgRoast,
+                },
+            ],
+            imgExtra: {
+                imgBag,
+                imgSub,
+            },
+            color: {
+                colorBackground,
+                colorSub,
+                colorBorder,
+                colorBgRoast,
+                colorBorderRoast,
+            },
+            imageMiddleRoast: imgMiddleRoast,
+        };
+        dispatch(actionProduct(data))
+            .then((res) => {
+                setBusy(false);
+                if (res.payload) {
+                    setSuccess(true);
+                    setProductName("");
+                    setProductPrice(0);
+                    setNewBadge(true);
+                    setBagSize(["12"]);
+                    setGrind(["whole bean"]);
+                    setImageDisplay();
+                    setProductDesc("");
+                    setProductImages([]);
+                    setTitleProfile("");
+                    setImgProfile();
+                    setTitleOrigin("");
+                    setImgOrigin();
+                    setTitleRoast("");
+                    setImgRoast();
+                    setImgBackground();
+                    setImgBag();
+                    setImgSub();
+                    setColorBackground("#000000");
+                    setColorSub("#000000");
+                    setColorBorder("#000000");
+                    setDisc1("");
+                    setDisc2("");
+                } else setError(true);
+            })
+            .catch((err) => setError(true))
+            .finally(setBusy(true));
     };
 
     useEffect(() => {
@@ -178,11 +282,10 @@ const ProductManager = () => {
 
     const data = fetchProducts?.map((product, index) => {
         return (
-            <tr key={index}>
+            <tr key={product._id}>
                 <td>{index + 1}</td>
                 <td>{product.name}</td>
                 <td>{product.price}</td>
-                <td>{product.bagSize} OZ</td>
                 <td>
                     <Image
                         cloudName="ok-but-first-coffee"
@@ -191,7 +294,20 @@ const ProductManager = () => {
                         crop="scale"
                     />
                 </td>
-                <td></td>
+                <td>
+                    <div className="table-desc">{product.description}</div>
+                </td>
+                <td className="actions">
+                    <button
+                        onClick={(e) => handleOnClickUpdateProduct(e, index)}
+                        className="theme-btn__black"
+                    >
+                        <img src={editPen} alt="edit-pen" />
+                    </button>
+                    <button className="theme-btn__black">
+                        <img src={recycleBin} alt="recycle-bin" />
+                    </button>
+                </td>
             </tr>
         );
     });
@@ -222,24 +338,54 @@ const ProductManager = () => {
                                                     <th>STT</th>
                                                     <th>Name Product</th>
                                                     <th>Price</th>
-                                                    <th>Description</th>
                                                     <th>Image</th>
-                                                    <th>New</th>
+                                                    <th>Description</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {fetchProducts && data}
+                                                <tr>
+                                                    <td>
+                                                        <button
+                                                            onClick={
+                                                                handleOnClickCreateProduct
+                                                            }
+                                                            className="theme-btn__black"
+                                                        >
+                                                            +
+                                                        </button>
+                                                    </td>
+                                                    <td>...</td>
+                                                    <td>...</td>
+                                                    <td>...</td>
+                                                    <td>...</td>
+                                                    <td>...</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
 
-                                <div className="create-product">
+                                <div
+                                    className={
+                                        flag
+                                            ? "create-product"
+                                            : "update-product"
+                                    }
+                                    ref={productRef}
+                                >
                                     <h3 className="product-title">
-                                        Create New Product
+                                        {flag
+                                            ? "Create New Product"
+                                            : "Update Product"}
                                     </h3>
                                     <form
-                                        onSubmit={handleSubmitProduct}
+                                        onSubmit={
+                                            flag
+                                                ? handleSubmitCreateProduct
+                                                : handleSubmitUpdateProduct
+                                        }
                                         className="product-form"
                                         acceptCharset="UTF-8"
                                     >
@@ -701,12 +847,60 @@ const ProductManager = () => {
                                                 value={disc2}
                                             ></textarea>
                                         </label>
+                                        <label>
+                                            <input
+                                                type="file"
+                                                onChange={(e) =>
+                                                    previewImage(
+                                                        e,
+                                                        setImgMiddleRoast
+                                                    )
+                                                }
+                                                name="ImageMiddleRoast"
+                                                style={{ display: "none" }}
+                                                accept="image/*"
+                                            />
+                                            <span>
+                                                Choose Image Middle Roast
+                                            </span>
+                                            <div className="show-img">
+                                                <ShowImage
+                                                    data={imgMiddleRoast}
+                                                    setData={setImgMiddleRoast}
+                                                />
+                                            </div>
+                                        </label>
+                                        <div className="roast">
+                                            <label>
+                                                <span>
+                                                    Choose Color Border Roast
+                                                </span>
+                                                <input
+                                                    type="color"
+                                                    name="colorBorderRoast"
+                                                    onChange={handleOnChange}
+                                                    value={colorBorderRoast}
+                                                />
+                                            </label>
+                                            <label>
+                                                <span>
+                                                    Choose Color Background
+                                                    Roast
+                                                </span>
+                                                <input
+                                                    type="color"
+                                                    name="colorBackgroundRoast"
+                                                    onChange={handleOnChange}
+                                                    value={colorBgRoast}
+                                                />
+                                            </label>
+                                        </div>
 
                                         <button
                                             type="submit"
                                             className="theme-btn__black"
                                         >
-                                            Submit
+                                            {flag ? "Create" : "Update"}
                                         </button>
                                     </form>
                                 </div>
