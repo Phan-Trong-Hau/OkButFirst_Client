@@ -6,6 +6,7 @@ import {
     Route,
     Navigate,
 } from "react-router-dom";
+import { fetchAllProducts } from "./redux/slice/products";
 
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
@@ -17,19 +18,22 @@ import LoadingSpinner from "./Components/Loading";
 import NotFound from "./Pages/NotFound";
 import Admin from "./Pages/Admin";
 import CoffeeShopManager from "./Pages/Manager/CoffeeShop";
-import { fetchAllProducts } from "./redux/slice/products";
+import MerchShopManager from "./Pages/Manager/MerchShop";
+
 import Collection from "./Pages/Collection";
 import CoffeeShop from "./Pages/CoffeeShop";
-import MerchShop from "./Pages/MerchShop";
 import AboutUs from "./Pages/AboutUs";
 import ContactUs from "./Pages/ContactUs";
 import CoffeeClub from "./Pages/CoffeeClub";
 import Policies from "./Pages/Policies";
 import BlogCoffee from "./Pages/Blogs/BlogCoffee";
+import MerchShop from "./Pages/MerchShop";
+import { fetchAllMerch } from "./redux/slice/merch";
 
 function App() {
     const { auth, isBusy } = useContext(AuthContext);
     const dispatch = useDispatch();
+
 
     const role = auth?.user?.role === "admin";
 
@@ -39,6 +43,7 @@ function App() {
 
     useEffect(() => {
         dispatch(fetchAllProducts());
+        dispatch(fetchAllMerch());
     }, [dispatch]);
 
     return (
@@ -94,6 +99,14 @@ function App() {
                                 element={
                                     <ProtectedRoute check={role} path="/">
                                         <CoffeeShopManager />
+                                    </ProtectedRoute>
+                                }
+                            ></Route>
+                            <Route
+                                path="merch-shop"
+                                element={
+                                    <ProtectedRoute check={role} path="/">
+                                        <MerchShopManager />
                                     </ProtectedRoute>
                                 }
                             ></Route>

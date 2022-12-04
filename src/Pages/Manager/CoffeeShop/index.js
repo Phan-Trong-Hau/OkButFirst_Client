@@ -2,7 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { Image } from "cloudinary-react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { createProduct, updateProduct } from "../../../redux/slice/products";
+import {
+    createProduct,
+    deleteProduct,
+    updateProduct,
+} from "../../../redux/slice/products";
 import { previewImage, previewImages } from "../../../utils/previewImage";
 import { ShowImage, ShowImages } from "../Components/ShowImage";
 
@@ -50,6 +54,8 @@ const ProductManager = () => {
     const [busy, setBusy] = useState(false);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);
+    const [update, setUpdate] = useState(false);
+    const [remove, setRemove] = useState(false);
     const [notification, setNotification] = useState(false);
     const [fetchProducts, setFetchProducts] = useState();
     const [flag, setFlag] = useState(true);
@@ -59,7 +65,7 @@ const ProductManager = () => {
         setProductName("");
         setProductPrice(0);
         setNewBadge(true);
-        setBagSize(["12"]);
+        setBagSize([12]);
         setGrind(["whole bean"]);
         setImageDisplay();
         setProductDesc("");
@@ -82,6 +88,74 @@ const ProductManager = () => {
         setColorBgRoast("#000000");
         setImgMiddleRoast();
         productRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
+    const handleOnClickUpdateProduct = (product) => {
+        setFlag(false);
+        setProductId(product._id);
+        setProductName(product.name);
+        setProductPrice(product.price.toFixed(2));
+        setProductDesc(product.description);
+        setDisc1(product.discription[0]);
+        setDisc2(product.discription[1]);
+        setBagSize(product.bagSize);
+        setGrind(product.grind);
+        setNewBadge(product.newBadge);
+        setTitleProfile(product.making[0].title);
+        setTitleOrigin(product.making[1].title);
+        setTitleRoast(product.making[2].title);
+        setColorBackground(product.color.colorBackground || "#000000");
+        setColorSub(product.color.colorSub || "#000000");
+        setColorBorder(product.color.colorBorder || "#000000");
+        setImageDisplay(product.imageDisplay);
+        setProductImages(product.productImages);
+        setImgBackground(product.imageBackground);
+        setImgBag(product.imageExtra.imgBag);
+        setImgSub(product.imageExtra.imgSub);
+        setImgProfile(product.making[0].img);
+        setImgOrigin(product.making[1].img);
+        setImgRoast(product.making[2].img);
+        setImgMiddleRoast(product.imageMiddleRoast);
+        setColorBorderRoast(product.color.colorBorderRoast || "#000000");
+        setColorBgRoast(product.color.colorBgRoast || "#000000");
+        productRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
+    const handleOnClickDeleteProduct = (e) => {
+        dispatch(deleteProduct(e))
+            .then((res) => {
+                setRemove(true);
+                setBusy(false);
+                setFlag(true);
+                setProductName("");
+                setProductPrice(0);
+                setNewBadge(true);
+                setBagSize([12]);
+                setGrind(["whole bean"]);
+                setImageDisplay();
+                setProductDesc("");
+                setProductImages([]);
+                setTitleProfile("");
+                setImgProfile();
+                setTitleOrigin("");
+                setImgOrigin();
+                setTitleRoast("");
+                setImgRoast();
+                setImgBackground();
+                setImgBag();
+                setImgSub();
+                setColorBackground("#000000");
+                setColorSub("#000000");
+                setColorBorder("#000000");
+                setColorBgRoast("#000000");
+                setColorBorderRoast("#000000");
+                setImgMiddleRoast();
+                setDisc1("");
+                setDisc2("");
+            })
+            .catch((err) => {
+                console.log(err);
+                setError(true);
+            })
+            .finally(setBusy(true));
     };
 
     const handleOnChange = (e) => {
@@ -110,36 +184,6 @@ const ProductManager = () => {
         } else {
             setBagSize(bagSize.filter((e) => e !== value));
         }
-    };
-
-    const handleOnClickUpdateProduct = (e, index) => {
-        setFlag(false);
-        const product = fetchProducts[index];
-        setProductId(product._id);
-        setProductName(product.name);
-        setProductPrice(product.price);
-        setProductDesc(product.description);
-        setDisc1(product.discription[0]);
-        setDisc2(product.discription[1]);
-        setNewBadge(product.newBadge);
-        setTitleProfile(product.making[0].title);
-        setTitleOrigin(product.making[1].title);
-        setTitleRoast(product.making[2].title);
-        setColorBackground(product.color.colorBackground);
-        setColorSub(product.color.colorSub);
-        setColorBorder(product.color.colorBorder);
-        setImageDisplay(product.imageDisplay);
-        setProductImages(product.productImages);
-        setImgBackground(product.imageBackground);
-        setImgBag(product.imageExtra.imgBag);
-        setImgSub(product.imageExtra.imgSub);
-        setImgProfile(product.making[0].img);
-        setImgOrigin(product.making[1].img);
-        setImgRoast(product.making[2].img);
-        setImgMiddleRoast(product.imageMiddleRoast);
-        setColorBorderRoast(product.color.colorBorderRoast);
-        setColorBgRoast(product.color.colorBgRoast);
-        productRef.current?.scrollIntoView({ behavior: "smooth" });
     };
 
     const handleOnChangeGrind = (e) => {
@@ -200,10 +244,10 @@ const ProductManager = () => {
             !imgMiddleRoast
         ) {
             setNotification(true);
-        } else uploadData(updateProduct);
+        } else uploadData(updateProduct, true);
     };
 
-    const uploadData = (actionProduct) => {
+    const uploadData = (actionProduct, update = false) => {
         const data = {
             productId,
             productName,
@@ -247,11 +291,12 @@ const ProductManager = () => {
             .then((res) => {
                 setBusy(false);
                 if (res.payload) {
-                    setSuccess(true);
+                    if (update) setUpdate(true);
+                    else setSuccess(true);
                     setProductName("");
                     setProductPrice(0);
                     setNewBadge(true);
-                    setBagSize(["12"]);
+                    setBagSize([12]);
                     setGrind(["whole bean"]);
                     setImageDisplay();
                     setProductDesc("");
@@ -268,6 +313,9 @@ const ProductManager = () => {
                     setColorBackground("#000000");
                     setColorSub("#000000");
                     setColorBorder("#000000");
+                    setColorBgRoast("#000000");
+                    setColorBorderRoast("#000000");
+                    setImgMiddleRoast();
                     setDisc1("");
                     setDisc2("");
                 } else setError(true);
@@ -280,12 +328,12 @@ const ProductManager = () => {
         setFetchProducts(selector);
     }, [selector]);
 
-    const data = fetchProducts?.map((product, index) => {
+    const listProduct = fetchProducts?.map((product, index) => {
         return (
             <tr key={product._id}>
                 <td>{index + 1}</td>
                 <td>{product.name}</td>
-                <td>{product.price}</td>
+                <td>{product.price.toFixed(2)}</td>
                 <td>
                     <Image
                         cloudName="ok-but-first-coffee"
@@ -299,12 +347,15 @@ const ProductManager = () => {
                 </td>
                 <td className="actions">
                     <button
-                        onClick={(e) => handleOnClickUpdateProduct(e, index)}
+                        onClick={(e) => handleOnClickUpdateProduct(product)}
                         className="theme-btn__black"
                     >
                         <img src={editPen} alt="edit-pen" />
                     </button>
-                    <button className="theme-btn__black">
+                    <button
+                        onClick={(e) => handleOnClickDeleteProduct(product)}
+                        className="theme-btn__black"
+                    >
                         <img src={recycleBin} alt="recycle-bin" />
                     </button>
                 </td>
@@ -344,7 +395,7 @@ const ProductManager = () => {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {fetchProducts && data}
+                                                {fetchProducts && listProduct}
                                                 <tr>
                                                     <td>
                                                         <button
@@ -422,7 +473,13 @@ const ProductManager = () => {
                                                     <input
                                                         type="radio"
                                                         name="newBadge"
-                                                        defaultChecked
+                                                        checked={
+                                                            newBadge ===
+                                                                "true" ||
+                                                            newBadge === true
+                                                                ? true
+                                                                : false
+                                                        }
                                                         value={true}
                                                         onChange={
                                                             handleOnChange
@@ -437,6 +494,13 @@ const ProductManager = () => {
                                                         value={false}
                                                         onChange={
                                                             handleOnChange
+                                                        }
+                                                        checked={
+                                                            newBadge ===
+                                                                "false" ||
+                                                            newBadge === false
+                                                                ? true
+                                                                : false
                                                         }
                                                     />
                                                     <span>No</span>
@@ -909,6 +973,18 @@ const ProductManager = () => {
                                     <PopUp
                                         message={"Create Product Success! ^.^"}
                                         setPopUp={setSuccess}
+                                    />
+                                )}
+                                {update && (
+                                    <PopUp
+                                        message={"Update Product Success! ^.^"}
+                                        setPopUp={setUpdate}
+                                    />
+                                )}
+                                {remove && (
+                                    <PopUp
+                                        message={"Delete Product Success! ^.^"}
+                                        setPopUp={setRemove}
                                     />
                                 )}
                                 {notification && (

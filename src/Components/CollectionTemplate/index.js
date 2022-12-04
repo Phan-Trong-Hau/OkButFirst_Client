@@ -5,9 +5,9 @@ import "./CollectionTemplate.scss";
 
 import GridSVG from "../../Assets/svg/grid.svg";
 
-const CollectionTemplate = ({ data }) => {
+const CollectionTemplate = ({ data, defineSort = "title-ascending" }) => {
     const [view, setView] = useState("grid");
-    const [sortBy, setSortBy] = useState("title-ascending");
+    const [sortBy, setSortBy] = useState(defineSort);
     const [products, setProducts] = useState(data);
 
     const handleOnChangeSort = (e) => {
@@ -35,7 +35,8 @@ const CollectionTemplate = ({ data }) => {
                 setProducts((prev) => {
                     const list = [...prev];
                     return list?.sort((a, b) => {
-                        return b.name.toLowerCase() < a.name.toLowerCase()
+                        return b.name.trim().toLowerCase() <
+                            a.name.trim().toLowerCase()
                             ? 1
                             : -1;
                     });
@@ -45,7 +46,8 @@ const CollectionTemplate = ({ data }) => {
                 setProducts((prev) => {
                     const list = [...prev];
                     return list?.sort((a, b) => {
-                        return b.name.toLowerCase() > a.name.toLowerCase()
+                        return b.name.trim().toLowerCase() >
+                            a.name.trim().toLowerCase()
                             ? 1
                             : -1;
                     });
@@ -80,13 +82,11 @@ const CollectionTemplate = ({ data }) => {
     };
 
     useEffect(() => {
-        changeSort(sortBy, data);
-    }, [data, sortBy]);
-
-    useEffect(() => {
         setProducts(data);
     }, [data]);
-
+    useEffect(() => {
+        changeSort(sortBy, data);
+    }, [data, sortBy]);
     const productItems = products?.map((product, index) => {
         return (
             <div className="product-item" key={index}>
@@ -95,7 +95,13 @@ const CollectionTemplate = ({ data }) => {
                     title={product.name}
                     price={product.price}
                     newBadge={product.newBadge}
-                    desc={view === "list" ? product.discription[0] : ""}
+                    desc={
+                        view === "list" && product.discription
+                            ? product.discription[0]
+                            : view === "list"
+                            ? product.description
+                            : ""
+                    }
                 />
             </div>
         );

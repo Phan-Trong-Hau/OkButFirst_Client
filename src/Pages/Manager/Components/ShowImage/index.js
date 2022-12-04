@@ -3,7 +3,7 @@ import { Image } from "cloudinary-react";
 import "./ShowImage.scss";
 import iconClose from "../../../../Assets/svg/iconClose.svg";
 
-export const ShowImages = ({ data, setData}) => {
+export const ShowImages = ({ data, setData }) => {
     const handleDeleteImg = (e, index) => {
         e.preventDefault();
 
@@ -14,7 +14,7 @@ export const ShowImages = ({ data, setData}) => {
 
     const listImg = data?.map((e, index) => (
         <div className="img-wrapper" key={index}>
-            {e.length > 40 ? (
+            {e?.length > 40 ? (
                 <img src={e} alt="chose" />
             ) : (
                 <Image
@@ -46,7 +46,7 @@ export const ShowImage = ({ data, setData }) => {
         <div className="show-image">
             {data && (
                 <div className="img-wrapper">
-                    {data.length > 40 ? (
+                    {data?.length > 40 ? (
                         <img src={data} alt="chose" />
                     ) : (
                         <Image

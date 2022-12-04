@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import api from "../../utils/apiCaller";
-// import * as Types from "../constants/ActionTypes";
+
 export const fetchAllProducts = createAsyncThunk(
     "/products/fetchAllProducts",
     async (params, thunkAPI) => {
@@ -21,7 +21,7 @@ export const createProduct = createAsyncThunk(
 export const updateProduct = createAsyncThunk(
     "products/updateProduct",
     async (params, thunkAPI) => {
-        const res = await api.put("v1/products", params);
+        const res = await api.put(`v1/products/${params.productId}`, params);
         return res.data;
     }
 );
@@ -29,7 +29,9 @@ export const updateProduct = createAsyncThunk(
 export const deleteProduct = createAsyncThunk(
     "products/deleteProduct",
     async (params, thunkAPI) => {
-        const res = await api.delete("v1/products");
+        console.log(params);
+
+        const res = await api.delete(`v1/products/${params._id}`);
         return res.data;
     }
 );
@@ -46,10 +48,16 @@ const productsSlice = createSlice({
             state.push(action.payload);
         });
         builder.addCase(updateProduct.fulfilled, (state, action) => {
-            state.push(action.payload);
+            const index = state.findIndex(
+                (product) => product._id === action.payload._id
+            );
+            state[index] = action.payload;
         });
         builder.addCase(deleteProduct.fulfilled, (state, action) => {
-            state.push(action.payload);
+            let index = state.findIndex(
+                ({ _id }) => _id === action.payload._id
+            );
+            state.splice(index, 1);
         });
     },
 });
