@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useCallback, useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 
 import "./Header.scss";
 import api from "../../utils/apiCaller";
@@ -32,10 +32,9 @@ const Header = () => {
     const updateDimensions = () => {
         setWidth(window.innerWidth);
     };
-    const handleNavigation = useCallback((e) => {
-        const window = e.currentTarget;
+    const handleNavigation = () => {
         setY(window.scrollY);
-    }, []);
+    };
 
     const handleShowMenu = () => {
         if (width < 1024) {
@@ -110,14 +109,11 @@ const Header = () => {
     }, []);
 
     useEffect(() => {
-        setY(window.scrollY);
         window.addEventListener("scroll", handleNavigation);
+        return () => window.removeEventListener("scroll", handleNavigation);
+    }, []);
 
-        return () => {
-            window.removeEventListener("scroll", handleNavigation);
-        };
-    }, [handleNavigation]);
-
+    console.log(window.scrollY);
     return (
         <>
             <header>
@@ -140,13 +136,7 @@ const Header = () => {
                         <div className="container">
                             <div className="header-middle">
                                 <div className="header-middle__left">
-                                    <div
-                                        className={
-                                            showMenu
-                                                ? "header-aside is-show"
-                                                : "header-aside"
-                                        }
-                                    >
+                                    <div className="header-aside hide_mb">
                                         <ul className="list">
                                             <li className="item">
                                                 <Link
@@ -358,7 +348,7 @@ const Header = () => {
                                             <img src={user} alt="user-icon" />
                                         </Link>
                                         <div
-                                            className="header-middle__login"
+                                            className="header-middle__login hide_mb"
                                             style={
                                                 showLogin
                                                     ? {
@@ -528,6 +518,276 @@ const Header = () => {
                     </div>
                     <div
                         className={
+                            showMenu
+                                ? "header-aside-mb hide_pc is-show"
+                                : "header-aside-mb hide_pc"
+                        }
+                    >
+                        <ul className="list">
+                            <li className="item">
+                                <Link
+                                    to="/collections/coffee-shop"
+                                    onClick={handleShowMenu}
+                                >
+                                    Coffee
+                                </Link>
+                            </li>
+                            <li className="item">
+                                <Link
+                                    to="/collections/merch-shop"
+                                    onClick={handleShowMenu}
+                                >
+                                    Merch
+                                </Link>
+                            </li>
+                            <li className="item">
+                                <Link
+                                    to="/products/coffee-club-subscription"
+                                    onClick={handleShowMenu}
+                                >
+                                    Coffee Club
+                                </Link>
+                            </li>
+                            <li className="item">
+                                <Link
+                                    to="/blogs/coffee-101"
+                                    onClick={handleShowMenu}
+                                >
+                                    Coffee 101
+                                </Link>
+                            </li>
+                            <li className="item">
+                                <Link to="#" onClick={handleShowMore}>
+                                    More
+                                    <img
+                                        src={arrowDown}
+                                        alt="arrow-down-icon"
+                                    ></img>
+                                </Link>
+                                <div
+                                    className={
+                                        showMore ? "menu is-show" : "menu"
+                                    }
+                                >
+                                    <ul className="menu-list">
+                                        <li className="menu-item ">
+                                            <Link
+                                                to="#"
+                                                onClick={handleShowMore}
+                                            >
+                                                <img
+                                                    src={arrowDown}
+                                                    alt="arrow-down-icon"
+                                                />
+                                                <span>More</span>
+                                            </Link>
+                                        </li>
+                                        <li className="menu-item ">
+                                            <Link to="#">
+                                                <span>All More</span>
+                                            </Link>
+                                        </li>
+                                        <li className="menu-item">
+                                            <Link
+                                                to="/pages/about-us"
+                                                onClick={handleShowMenu}
+                                            >
+                                                <span>About Us</span>
+                                            </Link>
+                                        </li>
+                                        <li className="menu-item">
+                                            <Link
+                                                to="/pages/contact-us"
+                                                onClick={handleShowMenu}
+                                            >
+                                                <span>Contact Us</span>
+                                            </Link>
+                                        </li>
+                                        <li className="menu-item">
+                                            <Link
+                                                to="/pages/faqs"
+                                                onClick={handleShowMenu}
+                                            >
+                                                <span>FAQ</span>
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li className="item ">
+                                <Link to="/login" onClick={handleShowMenu}>
+                                    <img
+                                        className="icon-start"
+                                        src={iconUser}
+                                        alt="icon-user"
+                                    />
+                                    Customer Login
+                                </Link>
+                            </li>
+                            <li className="item ">
+                                <Link
+                                    to="/pages/wishlist"
+                                    onClick={handleShowMenu}
+                                >
+                                    <img
+                                        className="icon-start"
+                                        src={iconHeart}
+                                        alt="icon-user"
+                                    />
+                                    Wishlist
+                                </Link>
+                            </li>
+                        </ul>
+                        <div className="icon-close " onClick={handleShowMenu}>
+                            <img src={iconClose} alt="icon-close" />
+                        </div>
+                    </div>
+                    <div
+                        className="header-middle__login hide_pc"
+                        style={
+                            showLogin
+                                ? {
+                                      visibility: "visible",
+                                      opacity: 1,
+                                  }
+                                : {}
+                        }
+                    >
+                        <div
+                            className={
+                                showLogin
+                                    ? "login-wrapper is-show"
+                                    : "login-wrapper"
+                            }
+                        >
+                            <div className="login-header">
+                                <h2 className="title">My Account</h2>
+                                <button onClick={handleShowLogin}>
+                                    <img src={iconClose} alt="icon-close" />
+                                </button>
+                            </div>
+                            <div className="login-content">
+                                <form
+                                    className="login-form"
+                                    onSubmit={handleLogin}
+                                    acceptCharset="UTF-8"
+                                >
+                                    <input
+                                        type="hidden"
+                                        name="utf8"
+                                        value={"✓"}
+                                    />
+                                    <div className="login-input">
+                                        <input
+                                            id="customer_username"
+                                            type="text"
+                                            name="username"
+                                            placeholder="Enter Username or Email"
+                                            autoComplete="off"
+                                            onChange={handleOnChange}
+                                            value={username}
+                                        />
+                                    </div>
+                                    <div className="login-input">
+                                        <input
+                                            id="customer_password"
+                                            type="password"
+                                            name="password"
+                                            placeholder="Enter Password"
+                                            autoComplete="off"
+                                            onChange={handleOnChange}
+                                            value={password}
+                                        />
+                                    </div>
+                                    <div className="login-actions">
+                                        <div className="action-group">
+                                            <div className="action__remember">
+                                                <input
+                                                    type="checkbox"
+                                                    id="customCheck1"
+                                                    onClick={
+                                                        handleOnClickRemember
+                                                    }
+                                                />
+                                                <label htmlFor="customCheck1">
+                                                    Remember me
+                                                </label>
+                                            </div>
+                                            <Link to="/login#recover">
+                                                Forgot your password?
+                                            </Link>
+                                        </div>
+                                        <div className="action-group">
+                                            <p className="message">{post}</p>
+                                        </div>
+                                        <div className="action-group">
+                                            <input
+                                                type="submit"
+                                                className="theme-btn__white"
+                                                value="Login"
+                                            ></input>
+                                        </div>
+                                        <div className="action-group">
+                                            <Link
+                                                to="/register"
+                                                className="theme-btn__black"
+                                                onClick={handleShowLogin}
+                                            >
+                                                Create Account
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {y <= 60 && (
+                        <div
+                            className="header-middle__search hide_pc"
+                            style={
+                                showSearch
+                                    ? {
+                                          visibility: "visible",
+                                          opacity: 1,
+                                      }
+                                    : {}
+                            }
+                        >
+                            <div className="search-wrapper">
+                                <form
+                                    action="/"
+                                    className="search-form wrapper-input"
+                                    acceptCharset="UTF-8"
+                                >
+                                    <input
+                                        type="hidden"
+                                        name="utf8"
+                                        value={"✓"}
+                                    />
+                                    <input
+                                        type="text"
+                                        name="q"
+                                        placeholder="Search for a product..."
+                                        className="search-form__input"
+                                        aria-label="Search Site"
+                                        autoComplete="off"
+                                    ></input>
+                                    <span className="focus-border">
+                                        <i></i>
+                                    </span>
+                                    <button
+                                        type="submit"
+                                        className="btn-search"
+                                    >
+                                        <img src={search} alt="icon-search" />
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    )}
+
+                    <div
+                        className={
                             showMenu || showSearch || showLogin
                                 ? "background-overlay"
                                 : ""
@@ -536,7 +796,6 @@ const Header = () => {
                     ></div>
                 </div>
             </header>
-            
         </>
     );
 };

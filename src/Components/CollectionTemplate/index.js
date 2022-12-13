@@ -93,7 +93,7 @@ const CollectionTemplate = ({ data, defineSort = "title-ascending" }) => {
                 <Card
                     img={product.imageDisplay}
                     title={product.name}
-                    price={product.price}
+                    price={product.price.toFixed(2)}
                     newBadge={product.newBadge}
                     desc={
                         view === "list" && product.discription

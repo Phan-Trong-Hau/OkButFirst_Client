@@ -323,6 +323,12 @@ body {
             }
         }
     }
+
+    input[type="checkbox"] {
+        filter: sepia(100%) brightness(80%) hue-rotate(170deg) saturate(0%)
+            contrast(400%);
+        width: 12px;
+    }
 }
 
 .container {
