@@ -113,7 +113,6 @@ const Header = () => {
         return () => window.removeEventListener("scroll", handleNavigation);
     }, []);
 
-    console.log(window.scrollY);
     return (
         <>
             <header>
@@ -679,7 +678,6 @@ const Header = () => {
                                     />
                                     <div className="login-input">
                                         <input
-                                            id="customer_username"
                                             type="text"
                                             name="username"
                                             placeholder="Enter Username or Email"
@@ -690,7 +688,6 @@ const Header = () => {
                                     </div>
                                     <div className="login-input">
                                         <input
-                                            id="customer_password"
                                             type="password"
                                             name="password"
                                             placeholder="Enter Password"
@@ -704,12 +701,12 @@ const Header = () => {
                                             <div className="action__remember">
                                                 <input
                                                     type="checkbox"
-                                                    id="customCheck1"
+                                                    id="customCheck2"
                                                     onClick={
                                                         handleOnClickRemember
                                                     }
                                                 />
-                                                <label htmlFor="customCheck1">
+                                                <label htmlFor="customCheck2">
                                                     Remember me
                                                 </label>
                                             </div>

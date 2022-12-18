@@ -26,6 +26,7 @@
                             text-transform: uppercase;
                             color: #000000;
                             margin-bottom: 23px;
+                            white-space: nowrap;
                         }
                         img {
                             width: 13px;
@@ -38,6 +39,8 @@
                     .sidebar-content {
                         .sidebar-list {
                             .sidebar-item {
+                                white-space: nowrap;
+
                                 span {
                                     font-family: Milliard;
                                     font-style: normal;
@@ -73,6 +76,8 @@
                 &-wrapper {
                     position: relative;
                     top: 0;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
                 }
             }
         }

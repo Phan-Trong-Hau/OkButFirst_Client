@@ -22,6 +22,16 @@
                 rotate: -90deg;
                 margin: 0 8px;
             }
+
+            span {
+                white-space: break-spaces;
+            }
         }
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .breadcrumb {
+        flex-direction: column;
     }
 }
