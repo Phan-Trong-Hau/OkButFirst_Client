@@ -1,6 +1,6 @@
 $SubCoffeeOverlay: url("../../Assets/img/sub-coffee-overlay.png");
 $SubscribeOverlay: url("../../Assets/img/subscribe-overlay.png");
-$started: url('../../Assets/svg/started.svg');
+$started: url("../../Assets/svg/started.svg");
 
 .coffee-club {
     .subscribe-banner {
@@ -123,15 +123,39 @@ $started: url('../../Assets/svg/started.svg');
 
                 &::after {
                     position: absolute;
-                    content: '';
+                    content: "";
                     width: 45px;
-                    height: 170px;
+                    height: 180px;
                     top: 40px;
                     left: 50%;
                     transform: translateX(-50%);
                     background: $started top center / cover no-repeat;
-                    
                 }
+            }
+        }
+    }
+
+    .product-single {
+        .calc-title {
+            font-family: "Milliard";
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 25px;
+            color: #000000;
+            margin-bottom: 20px;
+            margin-top: 73px;
+        }
+        .calc-step-one {
+            .title {
+                font-family: "Platform";
+                font-weight: bold;
+                font-size: 38px;
+                line-height: 40px;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                color: #000;
+                text-align: center;
+                margin-bottom: 40px;
             }
         }
     }

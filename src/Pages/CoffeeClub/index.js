@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Image } from "cloudinary-react";
 
 import "./CoffeeClub.scss";
 import CoffeeClubProduct from "../../Assets/img/coffee-club-product.png";
@@ -13,6 +15,9 @@ import bag from "../../Assets/svg/bag.svg";
 import coffeeCup from "../../Assets/svg/coffeeCup.svg";
 
 const CoffeeClub = () => {
+    const selector = useSelector((state) => state.products);
+    const [products, setProducts] = useState([]);
+
     const [cupSize, setCupSize] = useState(null);
     const [numberOfCoffee, setNumberOfCoffee] = useState(null);
     const [frequency, setFrequency] = useState(null);
@@ -86,6 +91,12 @@ const CoffeeClub = () => {
             setValid(true);
         } else setValid(false);
     };
+
+    useEffect(() => {
+        setProducts(selector);
+    }, [selector]);
+
+    console.log(products);
 
     return (
         <>
@@ -426,11 +437,52 @@ const CoffeeClub = () => {
                 </section>
                 <section className="product-single">
                     <div className="container">
-                        <div className="product-single-detail">
-                            <div className="product-tile title-wrapper">
-                                
-                                <h2 className="title">1. SELECT YOUR ROAST</h2>
-                            </div>
+                        <h3 className="calc-title">
+                            “A yawn is a silent scream for coffee.”
+                        </h3>
+                        <div className="calc-step-one">
+                            <form acceptCharset="UTF-8">
+                                <input
+                                    type="hidden"
+                                    name="form_type"
+                                    value="product"
+                                />
+                                <input type="hidden" name="utf8" value={"✓"} />
+                                <div className="title-wrapper">
+                                    <h2 className="title">
+                                        1. SELECT YOUR ROAST
+                                    </h2>
+                                </div>
+                                <div className="attribute-roast">
+                                    <div className="roast-group">
+                                        <div className="roast-box">
+                                            <h5>
+                                                {products[0]?.making[2]?.title}
+                                            </h5>
+                                            <h4>{products[0]?.name}</h4>
+                                            <div className="middle">
+                                                <span>L</span>
+                                                <Image
+                                                    cloudName="ok-but-first-coffee"
+                                                    publicId={
+                                                        products[0]
+                                                            ?.imageMiddleRoast
+                                                    }
+                                                    crop="scale"
+                                                    className="product-img"
+                                                />
+                                                <span>D</span>
+                                            </div>
+                                            <div className="custom-calc-radio">
+                                                <label>
+                                                    <span>Selected</span>
+                                                    <input type="checkbox" />
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </section>
