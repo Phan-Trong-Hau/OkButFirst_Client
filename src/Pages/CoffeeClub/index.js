@@ -92,9 +92,60 @@ const CoffeeClub = () => {
         } else setValid(false);
     };
 
+    const attributeRoastList = products.map((product, index) => (
+        <div
+            className="roast-group"
+            style={{
+                background: `${product?.color.colorBgRoast}`,
+                outline: `2px solid ${product?.color.colorBorderRoast}`,
+            }}
+            key={index}
+        >
+            <div className="roast-box">
+                <h5>{product?.making[2]?.title}</h5>
+                <h4>{product?.name}</h4>
+                <div className="middle">
+                    <span>L</span>
+                    <Image
+                        cloudName="ok-but-first-coffee"
+                        publicId={product?.imageMiddleRoast}
+                        crop="scale"
+                        className="product-img"
+                    />
+                    <span>D</span>
+                </div>
+                <div className="custom-calc-radio">
+                    <label>
+                        <span>Select</span>
+                        <input
+                            type="radio"
+                            name="productName"
+                            value={product?.name}
+                        />
+                    </label>
+                </div>
+            </div>
+        </div>
+    ));
+
+    const bagQuantityList = [1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+        <div className="quantity-box">
+            <div className="offLabel">
+                <label>5% OFF</label>
+            </div>
+            <div className="custom-calc-radio">
+                <h5>{item === 1 ? `${item} bag` : `${item} bags`}</h5>
+            </div>
+        </div>
+    ));
+
     useEffect(() => {
         setProducts(selector);
     }, [selector]);
+    useEffect(() => {
+        document.title =
+            "Coffee Club Subscription For Roasted Coffee Beans Online | OKBF";
+    }, []);
 
     console.log(products);
 
@@ -437,53 +488,37 @@ const CoffeeClub = () => {
                 </section>
                 <section className="product-single">
                     <div className="container">
-                        <h3 className="calc-title">
-                            “A yawn is a silent scream for coffee.”
-                        </h3>
-                        <div className="calc-step-one">
-                            <form acceptCharset="UTF-8">
-                                <input
-                                    type="hidden"
-                                    name="form_type"
-                                    value="product"
-                                />
-                                <input type="hidden" name="utf8" value={"✓"} />
+                        <form acceptCharset="UTF-8">
+                            <input
+                                type="hidden"
+                                name="form_type"
+                                value="product"
+                            />
+                            <input type="hidden" name="utf8" value={"✓"} />
+                            <h3 className="calc-title">
+                                “A yawn is a silent scream for coffee.”
+                            </h3>
+                            <div className="calc-step-one">
                                 <div className="title-wrapper">
                                     <h2 className="title">
                                         1. SELECT YOUR ROAST
                                     </h2>
                                 </div>
                                 <div className="attribute-roast">
-                                    <div className="roast-group">
-                                        <div className="roast-box">
-                                            <h5>
-                                                {products[0]?.making[2]?.title}
-                                            </h5>
-                                            <h4>{products[0]?.name}</h4>
-                                            <div className="middle">
-                                                <span>L</span>
-                                                <Image
-                                                    cloudName="ok-but-first-coffee"
-                                                    publicId={
-                                                        products[0]
-                                                            ?.imageMiddleRoast
-                                                    }
-                                                    crop="scale"
-                                                    className="product-img"
-                                                />
-                                                <span>D</span>
-                                            </div>
-                                            <div className="custom-calc-radio">
-                                                <label>
-                                                    <span>Selected</span>
-                                                    <input type="checkbox" />
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {attributeRoastList}
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                            <div className="calc-step-two">
+                                <div className="title-wrapper">
+                                    <h2 className="title">
+                                        2. CHOOSE YOUR BAG QUANTITY
+                                    </h2>
+                                </div>
+                                <div className="bag-quantity">
+                                    {bagQuantityList}
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </section>
             </main>

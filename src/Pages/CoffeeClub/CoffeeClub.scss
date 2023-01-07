@@ -145,17 +145,120 @@ $started: url("../../Assets/svg/started.svg");
             margin-bottom: 20px;
             margin-top: 73px;
         }
-        .calc-step-one {
-            .title {
-                font-family: "Platform";
-                font-weight: bold;
-                font-size: 38px;
-                line-height: 40px;
-                letter-spacing: 0.04em;
-                text-transform: uppercase;
-                color: #000;
-                text-align: center;
-                margin-bottom: 40px;
+        .title {
+            font-family: "Platform";
+            font-weight: bold;
+            font-size: 38px;
+            line-height: 40px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #000;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .attribute-roast {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 65px;
+            margin: 0 20px;
+            margin-bottom: 75px;
+            .roast-group {
+                position: relative;
+                padding: 20px;
+                outline-offset: -12px;
+                .roast-box {
+                    h5 {
+                        padding-top: 50px;
+                        display: block;
+                        font-family: "Milliard";
+                        font-weight: 500;
+                        font-size: 18px;
+                        line-height: 21px;
+                        color: #fff;
+                        margin-bottom: 5px;
+                    }
+
+                    h4 {
+                        position: relative;
+                        font-family: "Milliard";
+                        font-weight: bold;
+                        font-size: 24px;
+                        line-height: 27px;
+                        color: #fff;
+                        padding-bottom: 5px;
+                        margin-bottom: 15px;
+                        text-transform: uppercase;
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            bottom: 0;
+                            left: calc(50% - 45px / 2);
+                            width: 45px;
+                            height: 0.5px;
+                            background-color: #ffffff;
+                        }
+                    }
+
+                    .middle {
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -webkit-box-align: end;
+                        -ms-flex-align: end;
+                        align-items: flex-end;
+                        -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                        justify-content: center;
+                        margin-bottom: 17px;
+                        span {
+                            font-family: "Milliard";
+                            font-weight: 600;
+                            font-size: 22px;
+                            line-height: 16px;
+                            color: #000000;
+                            padding: 0 10px;
+                        }
+
+                        img {
+                        }
+                    }
+                    .custom-calc-radio {
+                        label {
+                            input {
+                                display: none;
+                            }
+
+                            span {
+                                cursor: pointer;
+                                height: 55px;
+                                line-height: 55px;
+                                color: #000;
+                                display: block;
+                                text-align: center;
+                                text-transform: uppercase;
+                                margin-top: 10px;
+                                background: #fff;
+                                font-weight: 500;
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 12px;
+                    background: url(https://cdn.shopify.com/s/files/1/0592/7298/6810/files/roast-back.png?v=1631188170)
+                        no-repeat;
+                    background-position: center;
+                    left: 50%;
+                    -webkit-transform: translateX(-50%);
+                    transform: translateX(-50%);
+                    width: 119px;
+                    height: 200px;
+                }
             }
         }
     }
