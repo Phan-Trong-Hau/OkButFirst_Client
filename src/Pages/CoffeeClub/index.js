@@ -12,12 +12,23 @@ import cupSize8 from "../../Assets/img/cup-size-8.png";
 import cupSize10 from "../../Assets/img/cup-size-10.png";
 import cupSize12 from "../../Assets/img/cup-size-12.png";
 import bag from "../../Assets/svg/bag.svg";
+import bag1 from "../../Assets/svg/bag-size-1.svg";
+import bag2 from "../../Assets/svg/bag-size-2.svg";
+import bag3 from "../../Assets/svg/bag-size-3.svg";
+import bag4 from "../../Assets/svg/bag-size-4.svg";
+import bag5 from "../../Assets/svg/bag-size-5.svg";
+import bag6 from "../../Assets/svg/bag-size-6.svg";
+import bag7 from "../../Assets/svg/bag-size-7.svg";
+import bag8 from "../../Assets/svg/bag-size-8.svg";
+import fourWeek from "../../Assets/svg/every-four-weeks.svg";
+import threeWeek from "../../Assets/svg/every-three-weeks.svg";
+import twoWeek from "../../Assets/svg/every-two-weeks.svg";
+import everyWeek from "../../Assets/svg/every-week.svg";
 import coffeeCup from "../../Assets/svg/coffeeCup.svg";
 
 const CoffeeClub = () => {
     const selector = useSelector((state) => state.products);
     const [products, setProducts] = useState([]);
-
     const [cupSize, setCupSize] = useState(null);
     const [numberOfCoffee, setNumberOfCoffee] = useState(null);
     const [frequency, setFrequency] = useState(null);
@@ -26,7 +37,8 @@ const CoffeeClub = () => {
     const [error3, setError3] = useState(null);
     const [data, setData] = useState({});
     const [valid, setValid] = useState();
-
+    const bagSize = [bag1, bag2, bag3, bag4, bag5, bag6, bag7, bag8];
+    const weekList = [everyWeek, twoWeek, threeWeek, fourWeek]
     const handleOnChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -129,12 +141,45 @@ const CoffeeClub = () => {
     ));
 
     const bagQuantityList = [1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-        <div className="quantity-box">
+        <div className="quantity-box" key={item}>
             <div className="offLabel">
                 <label>5% OFF</label>
             </div>
             <div className="custom-calc-radio">
                 <h5>{item === 1 ? `${item} bag` : `${item} bags`}</h5>
+                <img src={bagSize[item - 1]} alt="bag" />
+                <h4> {item * 12} OZ</h4>
+                <p>About {item * 30} cups per shipment.</p>
+                <label>
+                    <span>Select</span>
+                    <input
+                        type="radio"
+                        name="SingleOptionSelector"
+                        value={`${item * 12} OZ`}
+                    />
+                </label>
+            </div>
+        </div>
+    ));
+
+    const shippingFrequency = [
+        "Every Week",
+        "Every Two Weeks",
+        "Every Three Weeks",
+        "Every Four Weeks",
+    ].map((item, index) => (
+        <div className="quantity-box" key={index}>
+            <div className="custom-calc-radio">
+                <img src={weekList[index]} alt="week" />
+                <p className="shipping-frequency">{item}</p>
+                <label>
+                    <span>Select</span>
+                    <input
+                        type="radio"
+                        name="shippingFrequency"
+                        value={`${item * 12} OZ`}
+                    />
+                </label>
             </div>
         </div>
     ));
@@ -517,6 +562,22 @@ const CoffeeClub = () => {
                                 <div className="bag-quantity">
                                     {bagQuantityList}
                                 </div>
+                            </div>
+                            <div className="calc-step-three">
+                                <div className="title-wrapper">
+                                    <h2 className="title">
+                                        3. CHOOSE YOUR SHIPPING FREQUENCY
+                                    </h2>
+                                </div>
+                                <div className="bag-quantity">
+                                    {shippingFrequency}
+                                </div>
+                            </div>
+                            <div className="calc-step-four">
+                                <div className="title-wrapper">
+                                    <h2 className="title">4. ORDER SUMMARY</h2>
+                                </div>
+                                <div className="order-summery"></div>
                             </div>
                         </form>
                     </div>

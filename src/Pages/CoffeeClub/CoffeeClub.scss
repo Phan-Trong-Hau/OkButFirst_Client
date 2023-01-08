@@ -1,7 +1,11 @@
 $SubCoffeeOverlay: url("../../Assets/img/sub-coffee-overlay.png");
 $SubscribeOverlay: url("../../Assets/img/subscribe-overlay.png");
 $started: url("../../Assets/svg/started.svg");
-
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
 .coffee-club {
     .subscribe-banner {
         position: relative;
@@ -258,6 +262,134 @@ $started: url("../../Assets/svg/started.svg");
                     transform: translateX(-50%);
                     width: 119px;
                     height: 200px;
+                }
+            }
+        }
+
+        .bag-quantity {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 55px;
+            margin: 0 20px;
+            margin-bottom: 75px;
+
+            .quantity-box {
+                position: relative;
+                max-width: 237px;
+                width: 100%;
+                margin: 0 auto;
+                padding: 20px;
+                margin-bottom: 20px;
+                border: 2px solid #e9e9e9;
+
+                .offLabel {
+                    display: flex;
+                    justify-content: right;
+                    position: absolute;
+                    top: 5px;
+                    left: -10px;
+                    z-index: 1;
+                    background: #93cb7c;
+                    align-items: center;
+                    box-shadow: 0 0 0 1px rgb(0 0 0 / 6%),
+                        0 1px 2px 0 rgb(0 0 0 / 10%);
+                    height: 20px;
+                    line-height: 20px;
+                    padding: 0 5px;
+                    text-transform: uppercase;
+                    -webkit-font-feature-settings: "tnum" on, "onum" on;
+                    font-feature-settings: "tnum" on, "onum" on;
+                    color: #000;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        border-width: 0px 9px 5px 0px;
+                        border-color: transparent #728769 #62484800 #00808000;
+                        bottom: -5px;
+                        top: auto;
+                        left: 0;
+                        border-style: solid;
+                        z-index: -1;
+                    }
+
+                    label {
+                        display: block;
+                        animation: blinker 1s linear infinite;
+                        margin: 0;
+                        font-size: 12px;
+                        font-weight: 600;
+                    }
+                }
+
+                .custom-calc-radio {
+                    h5 {
+                        display: block;
+                        font-family: "Milliard";
+                        font-weight: 600;
+                        font-size: 18px;
+                        line-height: 21px;
+                        text-transform: uppercase;
+                        -webkit-font-feature-settings: "tnum" on, "onum" on;
+                        font-feature-settings: "tnum" on, "onum" on;
+                        margin-bottom: 13px;
+                        color: #000;
+                    }
+
+                    h4 {
+                        font-family: "Milliard";
+                        font-weight: 500;
+                        font-size: 20px;
+                        line-height: 23px;
+                        color: #000;
+                        margin-top: 17px;
+                        margin-bottom: 5px;
+                        text-transform: uppercase;
+                    }
+                    p {
+                        font-family: "Milliard";
+                        font-weight: normal;
+                        font-size: 12px;
+                        line-height: 14px;
+                        -webkit-font-feature-settings: "tnum" on, "onum" on;
+                        font-feature-settings: "tnum" on, "onum" on;
+                        color: #000000;
+                        margin-top: 5px;
+                        margin-bottom: 15px;
+                    }
+
+                    label {
+                        span {
+                            height: 45px;
+                            line-height: 45px;
+                            color: #fff;
+                            display: block;
+                            text-align: center;
+                            text-transform: uppercase;
+                            margin-top: 10px;
+                            background: #000;
+                            font-weight: 500;
+                            font-size: 16px;
+                            cursor: pointer;
+                        }
+
+                        input {
+                            display: none;
+                        }
+                    }
+                    .shipping-frequency {
+                        display: block;
+                        font-family: "Milliard";
+                        font-weight: 600;
+                        font-size: 18px;
+                        line-height: 21px;
+                        text-transform: uppercase;
+                        font-feature-settings: "tnum" on, "onum" on;
+                        margin-bottom: 13px;
+                        color: #000;
+                        margin: 15px 0;
+                        white-space: nowrap;
+                    }
                 }
             }
         }
