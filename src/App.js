@@ -1,10 +1,10 @@
 import { useContext, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Navigate,
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
 } from "react-router-dom";
 import { fetchAllProducts } from "./redux/slice/products";
 
@@ -31,145 +31,115 @@ import MerchShop from "./Pages/MerchShop";
 import { fetchAllMerch } from "./redux/slice/merch";
 
 function App() {
-    const { auth, isBusy } = useContext(AuthContext);
-    const dispatch = useDispatch();
+  const { auth, isBusy } = useContext(AuthContext);
+  const dispatch = useDispatch();
 
+  const isAdmin = auth?.user?.isAdmin;
 
-    const role = auth?.user?.role === "admin";
+  const ProtectedRoute = ({ check, path, children }) => {
+    return check ? children : <Navigate to={path} replace />;
+  };
 
-    const ProtectedRoute = ({ check, path, children }) => {
-        return check ? children : <Navigate to={path} replace />;
-    };
+  useEffect(() => {
+    dispatch(fetchAllProducts());
+    dispatch(fetchAllMerch());
+  }, [dispatch]);
 
-    useEffect(() => {
-        dispatch(fetchAllProducts());
-        dispatch(fetchAllMerch());
-    }, [dispatch]);
-
-    return (
-        <div className="App">
-            {isBusy ? (
-                <LoadingSpinner />
-            ) : (
-                <Router>
-                    <Header />
-                    <Routes>
-                        <Route path="/" element={<Home />}></Route>
-                        <Route
-                            path="/account"
-                            element={
-                                <ProtectedRoute
-                                    check={auth.loggedIn}
-                                    path={"/login"}
-                                >
-                                    <ProtectedRoute
-                                        check={!role}
-                                        path={"/admin"}
-                                    >
-                                        <Account />
-                                    </ProtectedRoute>
-                                </ProtectedRoute>
-                            }
-                        ></Route>
-                        <Route
-                            path="/login"
-                            element={
-                                <ProtectedRoute
-                                    check={!auth.loggedIn}
-                                    path="/account"
-                                >
-                                    <Login />
-                                </ProtectedRoute>
-                            }
-                        ></Route>
-                        <Route
-                            path="/register"
-                            element={
-                                <ProtectedRoute
-                                    check={!auth.loggedIn}
-                                    path="/account"
-                                >
-                                    <Login />
-                                </ProtectedRoute>
-                            }
-                        ></Route>
-                        <Route path="/admin">
-                            <Route
-                                path="coffee-shop"
-                                element={
-                                    <ProtectedRoute check={role} path="/">
-                                        <CoffeeShopManager />
-                                    </ProtectedRoute>
-                                }
-                            ></Route>
-                            <Route
-                                path="merch-shop"
-                                element={
-                                    <ProtectedRoute check={role} path="/">
-                                        <MerchShopManager />
-                                    </ProtectedRoute>
-                                }
-                            ></Route>
-                            <Route
-                                index
-                                element={
-                                    <ProtectedRoute check={role} path="/">
-                                        <Admin />
-                                    </ProtectedRoute>
-                                }
-                            ></Route>
-                        </Route>
-                        <Route path="/products">
-                            <Route
-                                path="coffee-club-subscription"
-                                element={<CoffeeClub />}
-                            ></Route>
-                            <Route index element={<Collection />}></Route>
-                        </Route>
-                        <Route path="/collections">
-                            <Route
-                                path="coffee-shop"
-                                element={<CoffeeShop />}
-                            ></Route>
-                            <Route
-                                path="merch-shop"
-                                element={<MerchShop />}
-                            ></Route>
-                            <Route index element={<Collection />}></Route>
-                        </Route>
-                        <Route path="/pages">
-                            <Route
-                                path="about-us"
-                                element={<AboutUs />}
-                            ></Route>
-                            <Route
-                                path="contact-us"
-                                element={<ContactUs />}
-                            ></Route>
-                            <Route
-                                path="policies"
-                                element={<Policies title={"Policies"} />}
-                            ></Route>
-                            <Route
-                                path="terms-conditions"
-                                element={
-                                    <Policies title={"Terms Conditions"} />
-                                }
-                            ></Route>
-                        </Route>
-                        <Route path="/blogs">
-                            <Route
-                                path="coffee-101"
-                                element={<BlogCoffee />}
-                            ></Route>
-                        </Route>
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
-                    <Footer />
-                </Router>
-            )}
-        </div>
-    );
+  return (
+    <div className="App">
+      {isBusy ? (
+        <LoadingSpinner />
+      ) : (
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route
+              path="/account"
+              element={
+                <ProtectedRoute check={auth.loggedIn} path={"/login"}>
+                  <ProtectedRoute check={!isAdmin} path={"/admin"}>
+                    <Account />
+                  </ProtectedRoute>
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path="/login"
+              element={
+                <ProtectedRoute check={!auth.loggedIn} path="/account">
+                  <Login />
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path="/register"
+              element={
+                <ProtectedRoute check={!auth.loggedIn} path="/account">
+                  <Login />
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route path="/admin">
+              <Route
+                path="coffee-shop"
+                element={
+                  <ProtectedRoute check={isAdmin} path="/">
+                    <CoffeeShopManager />
+                  </ProtectedRoute>
+                }
+              ></Route>
+              <Route
+                path="merch-shop"
+                element={
+                  <ProtectedRoute check={isAdmin} path="/">
+                    <MerchShopManager />
+                  </ProtectedRoute>
+                }
+              ></Route>
+              <Route
+                index
+                element={
+                  <ProtectedRoute check={isAdmin} path="/">
+                    <Admin />
+                  </ProtectedRoute>
+                }
+              ></Route>
+            </Route>
+            <Route path="/products">
+              <Route
+                path="coffee-club-subscription"
+                element={<CoffeeClub />}
+              ></Route>
+              <Route index element={<Collection />}></Route>
+            </Route>
+            <Route path="/collections">
+              <Route path="coffee-shop" element={<CoffeeShop />}></Route>
+              <Route path="merch-shop" element={<MerchShop />}></Route>
+              <Route index element={<Collection />}></Route>
+            </Route>
+            <Route path="/pages">
+              <Route path="about-us" element={<AboutUs />}></Route>
+              <Route path="contact-us" element={<ContactUs />}></Route>
+              <Route
+                path="policies"
+                element={<Policies title={"Policies"} />}
+              ></Route>
+              <Route
+                path="terms-conditions"
+                element={<Policies title={"Terms Conditions"} />}
+              ></Route>
+            </Route>
+            <Route path="/blogs">
+              <Route path="coffee-101" element={<BlogCoffee />}></Route>
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </Router>
+      )}
+    </div>
+  );
 }
 
 export default App;
