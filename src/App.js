@@ -19,6 +19,7 @@ import NotFound from "./Pages/NotFound";
 import Admin from "./Pages/Admin";
 import CoffeeShopManager from "./Pages/Manager/CoffeeShop";
 import MerchShopManager from "./Pages/Manager/MerchShop";
+import AccountsManager from "./Pages/Manager/Accounts";
 
 import Collection from "./Pages/Collection";
 import CoffeeShop from "./Pages/CoffeeShop";
@@ -81,6 +82,14 @@ function App() {
               }
             ></Route>
             <Route path="/admin">
+              <Route
+                path="accounts"
+                element={
+                  <ProtectedRoute check={isAdmin} path="/">
+                    <AccountsManager />
+                  </ProtectedRoute>
+                }
+              ></Route>
               <Route
                 path="coffee-shop"
                 element={
