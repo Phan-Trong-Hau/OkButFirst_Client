@@ -34,10 +34,10 @@ const UsersManager = () => {
 
   return (
     <>
-      <main className="users-manager">
+      <main className="accounts-manager">
         <section>
           <Breadcrumb
-            breadcrumb="Users"
+            breadcrumb="Accounts"
             list={[{ title: "Admin", path: "/admin" }]}
           />
         </section>
@@ -48,7 +48,7 @@ const UsersManager = () => {
             <div className="container">
               <div className="users-manager-wrapper">
                 <div className="list-user">
-                  <h3 className="user-title">Users Manager</h3>
+                  <h3 className="user-title">Accounts Manager</h3>
                   <div className="user-table">
                     <table>
                       <thead>
