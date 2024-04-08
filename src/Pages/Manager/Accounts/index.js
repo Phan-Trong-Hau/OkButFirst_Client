@@ -8,25 +8,25 @@ import PopUp from "../../../Components/PopUp";
 import "./Account.scss";
 
 const UsersManager = () => {
-  const selector = useSelector((state) => state.products);
+  const selector = useSelector((state) => state.account);
   const dispatch = useDispatch();
 
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
-  const [fetchProducts, setFetchProducts] = useState();
-
+  const [fetchAccounts, setFetchAccounts] = useState();
   useEffect(() => {
-    setFetchProducts(selector);
+    setFetchAccounts(selector);
+    console.log({ selector });
   }, [selector]);
 
-  const listProduct = fetchProducts?.map((product, index) => {
+  const listProduct = fetchAccounts?.map((account, index) => {
     return (
-      <tr key={product._id}>
+      <tr key={account._id}>
         <td>{index + 1}</td>
-        <td>{product.name}</td>
-        <td>{product.price.toFixed(2)}</td>
+        <td>{account.username}</td>
+        <td>{account.email}</td>
         <td>
-          <div className="table-desc">{product.description}</div>
+          <div className="table-desc">{account.isAdmin ? "Admin" : "User"}</div>
         </td>
       </tr>
     );
@@ -42,7 +42,7 @@ const UsersManager = () => {
           />
         </section>
         <section>
-          {busy || !fetchProducts ? (
+          {busy || !fetchAccounts ? (
             <LoadingSpinner />
           ) : (
             <div className="container">
@@ -59,7 +59,7 @@ const UsersManager = () => {
                           <th>Rule</th>
                         </tr>
                       </thead>
-                      <tbody>{fetchProducts && listProduct}</tbody>
+                      <tbody>{fetchAccounts && listProduct}</tbody>
                     </table>
                   </div>
                 </div>

@@ -30,6 +30,7 @@ import Policies from "./Pages/Policies";
 import BlogCoffee from "./Pages/Blogs/BlogCoffee";
 import MerchShop from "./Pages/MerchShop";
 import { fetchAllMerch } from "./redux/slice/merch";
+import { fetchAllAccount } from "./redux/slice/account";
 
 function App() {
   const { auth, isBusy } = useContext(AuthContext);
@@ -42,6 +43,7 @@ function App() {
   };
 
   useEffect(() => {
+    dispatch(fetchAllAccount());
     dispatch(fetchAllProducts());
     dispatch(fetchAllMerch());
   }, [dispatch]);
