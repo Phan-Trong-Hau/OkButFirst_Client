@@ -37,7 +37,6 @@ function App() {
     return check ? children : <Navigate to={path} replace />;
   };
 
-
   return (
     <div className="App">
       {isBusy ? (

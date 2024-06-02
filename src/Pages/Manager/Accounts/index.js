@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 
 import Breadcrumb from "../../../Components/Breadcrumb";
 import LoadingSpinner from "../../../Components/Loading";
@@ -8,15 +8,15 @@ import PopUp from "../../../Components/PopUp";
 import "./Account.scss";
 
 const UsersManager = () => {
-  const selector = useSelector((state) => state.account);
-  const dispatch = useDispatch();
+  // const selector = useSelector((state) => state.account);
+  // const dispatch = useDispatch();
 
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
   const [fetchAccounts, setFetchAccounts] = useState();
-  useEffect(() => {
-    setFetchAccounts(selector);
-  }, [selector]);
+  // useEffect(() => {
+  //   setFetchAccounts(selector);
+  // }, [selector]);
 
   const handleSetAccounts = async (account) => {
     setBusy(true);
