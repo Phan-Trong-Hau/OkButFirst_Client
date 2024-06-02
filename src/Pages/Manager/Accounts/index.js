@@ -26,7 +26,10 @@ const UsersManager = () => {
         <td>{account.username}</td>
         <td>{account.email}</td>
         <td>
-          <div className="table-desc">{account.isAdmin ? "Admin" : "User"}</div>
+          <label className="switch">
+            <input type="checkbox" defaultChecked={account.isAdmin} />
+            <span className="slider round"></span>
+          </label>
         </td>
       </tr>
     );
@@ -56,7 +59,7 @@ const UsersManager = () => {
                           <th>STT</th>
                           <th>User Name</th>
                           <th>Email</th>
-                          <th>Rule</th>
+                          <th>Is Admin</th>
                         </tr>
                       </thead>
                       <tbody>{fetchAccounts && listProduct}</tbody>
