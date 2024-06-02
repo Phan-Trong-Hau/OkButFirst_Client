@@ -7,11 +7,6 @@ import Breadcrumb from "../../../Components/Breadcrumb";
 import "./MerchShop.scss";
 
 import { previewImage, previewImages } from "../../../utils/previewImage";
-import {
-    createMerch,
-    deleteMerch,
-    updateMerch,
-} from "../../../redux/slice/merch";
 import { ShowImage, ShowImages } from "../Components/ShowImage";
 
 import recycleBin from "../../../Assets/svg/recycleBin.svg";
@@ -107,28 +102,28 @@ const MerchShop = () => {
     };
 
     const handleOnClickDeleteMerch = (e) => {
-        dispatch(deleteMerch(e))
-            .then((res) => {
-                setRemove(true);
-                setBusy(false);
-                setFlag(true);
-                setMerchName("");
-                setMerchPrice(0);
-                setNewBadge(true);
-                setSize(["S"]);
-                setAvailability("Many In Stock");
-                setColor([]);
-                setBrand("Okbutfirst");
-                setImageDisplay();
-                setMerchImages([]);
-                setMerchDesc("");
-                setFeatures("");
-            })
-            .catch((err) => {
-                console.log(err);
-                setError(true);
-            })
-            .finally(setBusy(true));
+        // dispatch(deleteMerch(e))
+        //     .then((res) => {
+        //         setRemove(true);
+        //         setBusy(false);
+        //         setFlag(true);
+        //         setMerchName("");
+        //         setMerchPrice(0);
+        //         setNewBadge(true);
+        //         setSize(["S"]);
+        //         setAvailability("Many In Stock");
+        //         setColor([]);
+        //         setBrand("Okbutfirst");
+        //         setImageDisplay();
+        //         setMerchImages([]);
+        //         setMerchDesc("");
+        //         setFeatures("");
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //         setError(true);
+        //     })
+        //     .finally(setBusy(true));
     };
 
     const handleSubmitCreateMerch = (e) => {
@@ -146,7 +141,9 @@ const MerchShop = () => {
             !imageDisplay
         ) {
             setNotification(true);
-        } else uploadData(createMerch);
+        } else {
+            // await api create merch
+        }
     };
 
     const handleSubmitUpdateMerch = (e) => {
@@ -164,7 +161,9 @@ const MerchShop = () => {
             !imageDisplay
         ) {
             setNotification(true);
-        } else uploadData(updateMerch, true);
+        } else {
+            // await api update merch
+        }
     };
 
     const uploadData = (actionProduct, update = false) => {
@@ -182,32 +181,29 @@ const MerchShop = () => {
             merchDesc,
             features,
         };
-        dispatch(actionProduct(data))
-            .then((res) => {
-                setBusy(false);
-                if (res.payload) {
-                    if (update) setUpdate(true);
-                    else setSuccess(true);
-                    setMerchName("");
-                    setMerchPrice(0);
-                    setNewBadge(true);
-                    setSize(["S"]);
-                    setAvailability("Many In Stock");
-                    setColor([]);
-                    setBrand("Okbutfirst");
-                    setImageDisplay();
-                    setMerchImages([]);
-                    setMerchDesc("");
-                    setFeatures("");
-                } else setError(true);
-            })
-            .catch((err) => setError(true))
-            .finally(setBusy(true));
+        // dispatch(actionProduct(data))
+        //     .then((res) => {
+        //         setBusy(false);
+        //         if (res.payload) {
+        //             if (update) setUpdate(true);
+        //             else setSuccess(true);
+        //             setMerchName("");
+        //             setMerchPrice(0);
+        //             setNewBadge(true);
+        //             setSize(["S"]);
+        //             setAvailability("Many In Stock");
+        //             setColor([]);
+        //             setBrand("Okbutfirst");
+        //             setImageDisplay();
+        //             setMerchImages([]);
+        //             setMerchDesc("");
+        //             setFeatures("");
+        //         } else setError(true);
+        //     })
+        //     .catch((err) => setError(true))
+        //     .finally(setBusy(true));
     };
 
-    useEffect(() => {
-        setFetchMerch(selector);
-    }, [selector]);
 
     const listProduct = fetchMerch?.map((merch, index) => {
         return (

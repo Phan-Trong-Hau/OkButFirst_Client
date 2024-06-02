@@ -2,11 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Image } from "cloudinary-react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-    createProduct,
-    deleteProduct,
-    updateProduct,
-} from "../../../redux/slice/products";
+
 import { previewImage, previewImages } from "../../../utils/previewImage";
 import { ShowImage, ShowImages } from "../Components/ShowImage";
 
@@ -120,42 +116,42 @@ const ProductManager = () => {
         productRef.current?.scrollIntoView({ behavior: "smooth" });
     };
     const handleOnClickDeleteProduct = (e) => {
-        dispatch(deleteProduct(e))
-            .then((res) => {
-                setRemove(true);
-                setBusy(false);
-                setFlag(true);
-                setProductName("");
-                setProductPrice(0);
-                setNewBadge(true);
-                setBagSize([12]);
-                setGrind(["whole bean"]);
-                setImageDisplay();
-                setProductDesc("");
-                setProductImages([]);
-                setTitleProfile("");
-                setImgProfile();
-                setTitleOrigin("");
-                setImgOrigin();
-                setTitleRoast("");
-                setImgRoast();
-                setImgBackground();
-                setImgBag();
-                setImgSub();
-                setColorBackground("#000000");
-                setColorSub("#000000");
-                setColorBorder("#000000");
-                setColorBgRoast("#000000");
-                setColorBorderRoast("#000000");
-                setImgMiddleRoast();
-                setDisc1("");
-                setDisc2("");
-            })
-            .catch((err) => {
-                console.log(err);
-                setError(true);
-            })
-            .finally(setBusy(true));
+        // dispatch(deleteProduct(e))
+        //     .then((res) => {
+        //         setRemove(true);
+        //         setBusy(false);
+        //         setFlag(true);
+        //         setProductName("");
+        //         setProductPrice(0);
+        //         setNewBadge(true);
+        //         setBagSize([12]);
+        //         setGrind(["whole bean"]);
+        //         setImageDisplay();
+        //         setProductDesc("");
+        //         setProductImages([]);
+        //         setTitleProfile("");
+        //         setImgProfile();
+        //         setTitleOrigin("");
+        //         setImgOrigin();
+        //         setTitleRoast("");
+        //         setImgRoast();
+        //         setImgBackground();
+        //         setImgBag();
+        //         setImgSub();
+        //         setColorBackground("#000000");
+        //         setColorSub("#000000");
+        //         setColorBorder("#000000");
+        //         setColorBgRoast("#000000");
+        //         setColorBorderRoast("#000000");
+        //         setImgMiddleRoast();
+        //         setDisc1("");
+        //         setDisc2("");
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //         setError(true);
+        //     })
+        //     .finally(setBusy(true));
     };
 
     const handleOnChange = (e) => {
@@ -217,7 +213,9 @@ const ProductManager = () => {
             !imgMiddleRoast
         ) {
             setNotification(true);
-        } else uploadData(createProduct);
+        } else {
+            // await api create product
+        }
     };
 
     const handleSubmitUpdateProduct = (e) => {
@@ -244,7 +242,9 @@ const ProductManager = () => {
             !imgMiddleRoast
         ) {
             setNotification(true);
-        } else uploadData(updateProduct, true);
+        } else {
+            // await api update product
+        }
     };
 
     const uploadData = (actionProduct, update = false) => {
@@ -324,10 +324,7 @@ const ProductManager = () => {
             .finally(setBusy(true));
     };
 
-    useEffect(() => {
-        setFetchProducts(selector);
-    }, [selector]);
-
+    
     const listProduct = fetchProducts?.map((product, index) => {
         return (
             <tr key={product._id}>

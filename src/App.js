@@ -1,12 +1,10 @@
-import { useContext, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useContext } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
-import { fetchAllProducts } from "./redux/slice/products";
 
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
@@ -29,12 +27,9 @@ import CoffeeClub from "./Pages/CoffeeClub";
 import Policies from "./Pages/Policies";
 import BlogCoffee from "./Pages/Blogs/BlogCoffee";
 import MerchShop from "./Pages/MerchShop";
-import { fetchAllMerch } from "./redux/slice/merch";
-import { fetchAllAccount } from "./redux/slice/account";
 
 function App() {
   const { auth, isBusy } = useContext(AuthContext);
-  const dispatch = useDispatch();
 
   const isAdmin = auth?.user?.isAdmin;
 
@@ -42,11 +37,6 @@ function App() {
     return check ? children : <Navigate to={path} replace />;
   };
 
-  useEffect(() => {
-    dispatch(fetchAllAccount());
-    dispatch(fetchAllProducts());
-    dispatch(fetchAllMerch());
-  }, [dispatch]);
 
   return (
     <div className="App">

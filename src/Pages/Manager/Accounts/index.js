@@ -6,7 +6,6 @@ import LoadingSpinner from "../../../Components/Loading";
 import PopUp from "../../../Components/PopUp";
 
 import "./Account.scss";
-import { fetchAllAccount, updateAccount } from "../../../redux/slice/account";
 
 const UsersManager = () => {
   const selector = useSelector((state) => state.account);
@@ -29,10 +28,7 @@ const UsersManager = () => {
         isAdmin: !account.isAdmin,
       };
 
-      await dispatch(updateAccount(newAccountData));
-
-      // dispatch(fetchAllAccount());
-      // setFetchAccounts(selector);
+      // await api update account
     } catch (error) {
       setError(true);
     } finally {
