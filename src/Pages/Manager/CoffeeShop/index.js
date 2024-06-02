@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Image } from "cloudinary-react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 
 
 import { previewImage, previewImages } from "../../../utils/previewImage";
@@ -16,8 +16,8 @@ import recycleBin from "../../../Assets/svg/recycleBin.svg";
 import editPen from "../../../Assets/svg/editPen.svg";
 
 const ProductManager = () => {
-    const selector = useSelector((state) => state.products);
-    const dispatch = useDispatch();
+    // const selector = useSelector((state) => state.products);
+    // const dispatch = useDispatch();
 
     const productRef = useRef(null);
 
@@ -287,41 +287,41 @@ const ProductManager = () => {
             },
             imageMiddleRoast: imgMiddleRoast,
         };
-        dispatch(actionProduct(data))
-            .then((res) => {
-                setBusy(false);
-                if (res.payload) {
-                    if (update) setUpdate(true);
-                    else setSuccess(true);
-                    setProductName("");
-                    setProductPrice(0);
-                    setNewBadge(true);
-                    setBagSize([12]);
-                    setGrind(["whole bean"]);
-                    setImageDisplay();
-                    setProductDesc("");
-                    setProductImages([]);
-                    setTitleProfile("");
-                    setImgProfile();
-                    setTitleOrigin("");
-                    setImgOrigin();
-                    setTitleRoast("");
-                    setImgRoast();
-                    setImgBackground();
-                    setImgBag();
-                    setImgSub();
-                    setColorBackground("#000000");
-                    setColorSub("#000000");
-                    setColorBorder("#000000");
-                    setColorBgRoast("#000000");
-                    setColorBorderRoast("#000000");
-                    setImgMiddleRoast();
-                    setDisc1("");
-                    setDisc2("");
-                } else setError(true);
-            })
-            .catch((err) => setError(true))
-            .finally(setBusy(true));
+        // dispatch(actionProduct(data))
+        //     .then((res) => {
+        //         setBusy(false);
+        //         if (res.payload) {
+        //             if (update) setUpdate(true);
+        //             else setSuccess(true);
+        //             setProductName("");
+        //             setProductPrice(0);
+        //             setNewBadge(true);
+        //             setBagSize([12]);
+        //             setGrind(["whole bean"]);
+        //             setImageDisplay();
+        //             setProductDesc("");
+        //             setProductImages([]);
+        //             setTitleProfile("");
+        //             setImgProfile();
+        //             setTitleOrigin("");
+        //             setImgOrigin();
+        //             setTitleRoast("");
+        //             setImgRoast();
+        //             setImgBackground();
+        //             setImgBag();
+        //             setImgSub();
+        //             setColorBackground("#000000");
+        //             setColorSub("#000000");
+        //             setColorBorder("#000000");
+        //             setColorBgRoast("#000000");
+        //             setColorBorderRoast("#000000");
+        //             setImgMiddleRoast();
+        //             setDisc1("");
+        //             setDisc2("");
+        //         } else setError(true);
+        //     })
+        //     .catch((err) => setError(true))
+        //     .finally(setBusy(true));
     };
 
     

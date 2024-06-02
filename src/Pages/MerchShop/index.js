@@ -1,14 +1,13 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import Breadcrumb from "../../Components/Breadcrumb";
 import CollectionTemplate from "../../Components/CollectionTemplate";
 import "./MerchShop.scss";
 
 import arrowDown from "../../Assets/svg/arrowDown.svg";
+import { MerchApi } from "../../Api/merch";
 
 const MerchShop = () => {
-    const selector = useSelector((state) => state.merch);
     const [products, setProducts] = useState([]);
     const [productsShow, setProductsShow] = useState([]);
     const [minPrice, setMinPrice] = useState();
@@ -23,9 +22,17 @@ const MerchShop = () => {
             : setFilter(filter.filter((e) => e !== value));
     };
 
-    useEffect(() => {
-        setProducts(selector);
-    }, [selector]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await MerchApi.getAllMerch();
+        setProducts(result);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
     useEffect(() => {
         if (products.length) {

@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import { Image } from "cloudinary-react";
 import { useEffect, useRef, useState } from "react";
 
@@ -12,8 +12,8 @@ import { ShowImage, ShowImages } from "../Components/ShowImage";
 import recycleBin from "../../../Assets/svg/recycleBin.svg";
 import editPen from "../../../Assets/svg/editPen.svg";
 const MerchShop = () => {
-    const selector = useSelector((state) => state.merch);
-    const dispatch = useDispatch();
+    // const selector = useSelector((state) => state.merch);
+    // const dispatch = useDispatch();
 
     const productRef = useRef(null);
 

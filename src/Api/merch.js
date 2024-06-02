@@ -1,21 +1,28 @@
 import api from "../utils/apiCaller";
 
-export const fetchAllMerch = async () => {
-  const res = await api.get("/merch");
+const getAllMerch = async () => {
+  const res = await api.get("v1/merch");
   return res.data;
 };
 
-export const createMerch = async (merch) => {
-  const res = await api.post("/merch", merch);
+const createMerch = async (merch) => {
+  const res = await api.post("v1/merch", merch);
   return res.data;
 };
 
-export const updateMerch = async (merch) => {
-  const res = await api.put(`/merch/${merch.merchId}`, merch);
+const updateMerch = async (merch) => {
+  const res = await api.put(`v1/merch/${merch.merchId}`, merch);
   return res.data;
 };
 
-export const deleteMerch = async (merch) => {
-  const res = await api.delete(`/merch/${merch._id}`);
+const deleteMerch = async (merch) => {
+  const res = await api.delete(`v1/merch/${merch._id}`);
   return res.data;
+};
+
+export const MerchApi = {
+  getAllMerch,
+  createMerch,
+  updateMerch,
+  deleteMerch,
 };
