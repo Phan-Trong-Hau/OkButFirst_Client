@@ -41,6 +41,7 @@ const merchSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(fetchAllMerch.fulfilled, (state, action) => {
+            state.length = 0;
             state.push(...action.payload);
         });
         builder.addCase(createMerch.fulfilled, (state, action) => {

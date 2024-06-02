@@ -25,6 +25,7 @@ const accountSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchAllAccount.fulfilled, (state, action) => {
+      state.length = 0;
       state.push(...action.payload);
     });
     builder.addCase(updateAccount.fulfilled, (state, action) => {
@@ -32,6 +33,10 @@ const accountSlice = createSlice({
         (product) => product._id === action.payload._id
       );
       state[index] = action.payload;
+
+      console.log({ action });
+
+      console.log({ state });
     });
   },
 });

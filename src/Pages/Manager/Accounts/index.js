@@ -6,6 +6,7 @@ import LoadingSpinner from "../../../Components/Loading";
 import PopUp from "../../../Components/PopUp";
 
 import "./Account.scss";
+import { fetchAllAccount, updateAccount } from "../../../redux/slice/account";
 
 const UsersManager = () => {
   const selector = useSelector((state) => state.account);
@@ -16,8 +17,28 @@ const UsersManager = () => {
   const [fetchAccounts, setFetchAccounts] = useState();
   useEffect(() => {
     setFetchAccounts(selector);
-    console.log({ selector });
   }, [selector]);
+
+  const handleSetAccounts = async (account) => {
+    setBusy(true);
+    try {
+      console.log({ account });
+
+      const newAccountData = {
+        ...account,
+        isAdmin: !account.isAdmin,
+      };
+
+      await dispatch(updateAccount(newAccountData));
+
+      // dispatch(fetchAllAccount());
+      // setFetchAccounts(selector);
+    } catch (error) {
+      setError(true);
+    } finally {
+      setBusy(false);
+    }
+  };
 
   const listProduct = fetchAccounts?.map((account, index) => {
     return (
@@ -27,7 +48,11 @@ const UsersManager = () => {
         <td>{account.email}</td>
         <td>
           <label className="switch">
-            <input type="checkbox" defaultChecked={account.isAdmin} />
+            <input
+              type="checkbox"
+              defaultChecked={account.isAdmin}
+              onClick={() => handleSetAccounts(account)}
+            />
             <span className="slider round"></span>
           </label>
         </td>
