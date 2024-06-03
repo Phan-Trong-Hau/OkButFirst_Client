@@ -1,34 +1,36 @@
 import { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-
 import Breadcrumb from "../../../Components/Breadcrumb";
 import LoadingSpinner from "../../../Components/Loading";
 import PopUp from "../../../Components/PopUp";
-
+import { AccountApi } from "../../../Api/account";
 import "./Account.scss";
 
 const UsersManager = () => {
-  // const selector = useSelector((state) => state.account);
-  // const dispatch = useDispatch();
-
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
   const [fetchAccounts, setFetchAccounts] = useState();
-  // useEffect(() => {
-  //   setFetchAccounts(selector);
-  // }, [selector]);
+
+  const fetchData = async () => {
+    try {
+      const result = await AccountApi.getAllAccounts();
+      setFetchAccounts(result);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleSetAccounts = async (account) => {
-    setBusy(true);
     try {
-      console.log({ account });
-
       const newAccountData = {
         ...account,
         isAdmin: !account.isAdmin,
       };
-
-      // await api update account
+      setBusy(true);
+      await AccountApi.updateAccount(newAccountData);
+      await fetchData();
     } catch (error) {
       setError(true);
     } finally {

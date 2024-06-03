@@ -1,6 +1,6 @@
 import api from "../utils/apiCaller";
 
-const getAllAccount = async () => {
+const getAllAccounts = async () => {
   const res = await api.get("v1/accounts");
   return res.data;
 };
@@ -11,6 +11,6 @@ const updateAccount = async (account) => {
 };
 
 export const AccountApi = {
-  getAllAccount,
+  getAllAccounts,
   updateAccount,
 };
