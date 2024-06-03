@@ -100,7 +100,6 @@ const MerchShop = () => {
                         }
                     });
                 }
-                console.log(filter);
 
                 setProductsShow(temp);
             });
