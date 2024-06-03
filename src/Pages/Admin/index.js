@@ -4,12 +4,18 @@ import Breadcrumb from "../../Components/Breadcrumb";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../../Context/AuthProvider";
+import { Auth } from "../../Api/auth";
 
 const Admin = () => {
   const { setAuth } = useContext(AuthContext);
 
-  const handleLogout = () => {
-    setAuth("");
+  const handleLogout = async () => {
+    try {
+      await Auth.logout();
+      setAuth("");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {

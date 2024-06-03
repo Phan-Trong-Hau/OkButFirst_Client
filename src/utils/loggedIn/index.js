@@ -1,14 +1,12 @@
-import api from "../apiCaller";
+import { Auth } from "../../Api/auth";
 
-const checkLoggedIn = (setAuth) => {
-    api.get("/auth/login")
-        .then((res) => {
-            setAuth(res.data);
-        })
-        .catch((error) => {
-            console.log(error);
-        })
-        .finally();
+const checkLoggedIn = async (setAuth) => {
+  try {
+    const result = await Auth.getLogin();
+    setAuth(result);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default checkLoggedIn;
