@@ -12,7 +12,7 @@ const Card = ({
     desc,
     price,
     idProduct,
-    path = "/",
+    path = "#",
 }) => {
     return (
         <>
