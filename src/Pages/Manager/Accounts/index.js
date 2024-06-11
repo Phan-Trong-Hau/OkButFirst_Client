@@ -1,14 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Breadcrumb from "../../../Components/Breadcrumb";
 import LoadingSpinner from "../../../Components/Loading";
 import PopUp from "../../../Components/PopUp";
 import { AccountApi } from "../../../Api/account";
 import "./Account.scss";
+import AuthContext from "../../../Context/AuthProvider";
 
 const UsersManager = () => {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
   const [fetchAccounts, setFetchAccounts] = useState();
+  const [openPopup, setOpenPopup] = useState(false);
+  const [account, setAccount] = useState(null);
+
+  const { auth } = useContext(AuthContext);
 
   const fetchData = async () => {
     try {
@@ -18,11 +23,17 @@ const UsersManager = () => {
       console.error("Error:", error);
     }
   };
+
   useEffect(() => {
     fetchData();
   }, []);
 
-  const handleSetAccounts = async (account) => {
+  const handleClick = (account) => {
+    setOpenPopup(true);
+    setAccount(account);
+  };
+
+  const handleSetAccounts = async () => {
     try {
       const newAccountData = {
         ...account,
@@ -36,6 +47,7 @@ const UsersManager = () => {
     } finally {
       setBusy(false);
     }
+    setOpenPopup(false);
   };
 
   const listProduct = fetchAccounts?.map((account, index) => {
@@ -48,8 +60,9 @@ const UsersManager = () => {
           <label className="switch">
             <input
               type="checkbox"
-              defaultChecked={account.isAdmin}
-              onClick={() => handleSetAccounts(account)}
+              onClick={() => handleClick(account)}
+              checked={account.isAdmin}
+              disabled={auth.user.username === account.username}
             />
             <span className="slider round"></span>
           </label>
@@ -95,6 +108,28 @@ const UsersManager = () => {
                     message={"Error! Please notify the developer :< "}
                     setPopUp={setError}
                   />
+                )}
+                {openPopup && (
+                  <PopUp setPopUp={setOpenPopup}>
+                    <div className="desc">
+                      Are you sure you want to change the permissions of{" "}
+                      <span style={{ color: "red" }}> {account.username}</span>{" "}
+                      account ?
+                    </div>
+                    <button
+                      className="theme-btn__black"
+                      onClick={() => setOpenPopup(false)}
+                    >
+                      No
+                    </button>
+                    &nbsp; &nbsp;
+                    <button
+                      className="theme-btn__white"
+                      onClick={() => handleSetAccounts(account)}
+                    >
+                      Yes
+                    </button>
+                  </PopUp>
                 )}
               </div>
             </div>
