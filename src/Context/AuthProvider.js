@@ -1,32 +1,34 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { createContext } from "react";
 
 import { Auth } from "../Api/auth";
+import LoadingContext from "./LoadingProvider";
 
 const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({});
-  const [isBusy, setIsBusy] = useState(true);
+  const { setLoading } = useContext(LoadingContext);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const result = await Auth.getLogin();
+        setAuth(result);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const fetchData = async () => {
-    try {
-      const result = await Auth.getLogin();
-      setAuth(result);
-      setIsBusy(false);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsBusy(false);
-    }
-  };
+    fetchData();
+  }, [setLoading]);
 
   return (
-    <AuthContext.Provider value={{ auth, setAuth, isBusy, setIsBusy }}>
+    <AuthContext.Provider value={{ auth, setAuth }}>
       {children}
     </AuthContext.Provider>
   );

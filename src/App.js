@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -27,9 +27,14 @@ import CoffeeClub from "./Pages/CoffeeClub";
 import Policies from "./Pages/Policies";
 import BlogCoffee from "./Pages/Blogs/BlogCoffee";
 import MerchShop from "./Pages/MerchShop";
+import LoadingContext from "./Context/LoadingProvider";
+import ProductContext from "./Context/ProductProvider";
 
 function App() {
-  const { auth, isBusy } = useContext(AuthContext);
+  const { loading } = useContext(LoadingContext);
+  const { auth } = useContext(AuthContext);
+  const { products, merch } = useContext(ProductContext);
+  const [ids, setIds] = useState([]);
 
   const isAdmin = auth?.user?.isAdmin;
 
@@ -37,9 +42,17 @@ function App() {
     return check ? children : <Navigate to={path} replace />;
   };
 
+  useEffect(() => {
+    const merchIds = merch?.map((m) => m._id) || [];
+    const productIds = products?.map((p) => p._id) || [];
+    setIds([...merchIds, ...productIds]);
+  }, [merch, products]);
+
+  console.log({ ids });
+
   return (
     <div className="App">
-      {isBusy ? (
+      {loading ? (
         <LoadingSpinner />
       ) : (
         <Router>
@@ -114,7 +127,14 @@ function App() {
               <Route index element={<Collection />}></Route>
             </Route>
             <Route path="/collections">
-              <Route path="coffee-shop" element={<CoffeeShop />}></Route>
+              <Route path="coffee-shop">
+                {ids.map((id) => {
+                  return (
+                    <Route path={id} key={id} element={<Collection />}></Route>
+                  );
+                })}
+                <Route index element={<CoffeeShop />}></Route>
+              </Route>
               <Route path="merch-shop" element={<MerchShop />}></Route>
               <Route index element={<Collection />}></Route>
             </Route>
