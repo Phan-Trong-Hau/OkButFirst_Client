@@ -6,7 +6,7 @@ import { AccountApi } from "../../../Api/account";
 import "./Account.scss";
 import AuthContext from "../../../Context/AuthProvider";
 
-const UsersManager = () => {
+const AccountManagement = () => {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
   const [fetchAccounts, setFetchAccounts] = useState();
@@ -73,7 +73,7 @@ const UsersManager = () => {
 
   return (
     <>
-      <main className="accounts-manager">
+      <main className="accounts-management">
         <section>
           <Breadcrumb
             breadcrumb="Accounts"
@@ -85,9 +85,9 @@ const UsersManager = () => {
             <LoadingSpinner />
           ) : (
             <div className="container">
-              <div className="users-manager-wrapper">
+              <div className="users-management-wrapper">
                 <div className="list-user">
-                  <h3 className="user-title">Accounts Manager</h3>
+                  <h3 className="user-title">Accounts Management</h3>
                   <div className="user-table">
                     <table>
                       <thead>
@@ -140,4 +140,4 @@ const UsersManager = () => {
   );
 };
 
-export default UsersManager;
+export default AccountManagement;

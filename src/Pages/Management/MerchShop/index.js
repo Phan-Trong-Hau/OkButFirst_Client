@@ -281,7 +281,7 @@ const MerchShop = () => {
 
   return (
     <>
-      <main className="merch-manager">
+      <main className="merch-management">
         <section>
           <Breadcrumb
             breadcrumb="Merch Shop"
@@ -290,7 +290,7 @@ const MerchShop = () => {
         </section>
         <section>
           <div className="container">
-            <div className="product-manager-wrapper">
+            <div className="product-management-wrapper">
               <div className="list-products">
                 <h3 className="product-title">List Of Merch</h3>
                 <div className="product-table">
