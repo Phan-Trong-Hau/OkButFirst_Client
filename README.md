@@ -3,7 +3,7 @@
 - Create a `.env` file with the following content:
 
 ```
-REACT_APP_URL_BACKEND=http://localhost:8080/api
+REACT_APP_URL_BACKEND=http://localhost:8080
 REACT_APP_URL_FONTEND=http://localhost:3000
 ```
 
