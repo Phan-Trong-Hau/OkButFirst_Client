@@ -11,9 +11,9 @@ import Collection from "../Pages/Collection";
 import MerchShop from "../Pages/MerchShop";
 import CoffeeShop from "../Pages/CoffeeShop";
 import Admin from "../Pages/Admin";
-import CoffeeShopManager from "../Pages/Manager/CoffeeShop";
-import MerchShopManager from "../Pages/Manager/MerchShop";
-import AccountsManager from "../Pages/Manager/Accounts";
+import CoffeeShopManagement from "../Pages/Management/CoffeeShop";
+import MerchShopManagement from "../Pages/Management/MerchShop";
+import AccountManagement from "../Pages/Management/Account";
 import CoffeeClub from "../Pages/CoffeeClub";
 import { useContext } from "react";
 import AuthContext from "../Context/AuthProvider";
@@ -73,9 +73,9 @@ const RouterApp = () => {
 
   // private methods
   const routersPrivate = [
-    { path: "/admin/account-management", element: <AccountsManager /> },
-    { path: "/admin/coffee-shop", element: <CoffeeShopManager /> },
-    { path: "/admin/merch-shop", element: <MerchShopManager /> },
+    { path: "/admin/account-management", element: <AccountManagement /> },
+    { path: "/admin/coffee-shop", element: <CoffeeShopManagement /> },
+    { path: "/admin/merch-shop", element: <MerchShopManagement /> },
     { path: "/admin", element: <Admin /> },
   ];
 

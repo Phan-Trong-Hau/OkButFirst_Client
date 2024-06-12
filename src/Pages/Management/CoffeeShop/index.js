@@ -14,7 +14,7 @@ import recycleBin from "../../../Assets/svg/recycleBin.svg";
 import editPen from "../../../Assets/svg/editPen.svg";
 import { ProductApi } from "../../../Api/product";
 
-const ProductManager = () => {
+const ProductManagement = () => {
   const productRef = useRef(null);
 
   const [productName, setProductName] = useState("");
@@ -444,7 +444,7 @@ const ProductManager = () => {
 
   return (
     <>
-      <main className="product-manager">
+      <main className="product-management">
         <section>
           <Breadcrumb
             breadcrumb="Coffee Shop"
@@ -456,7 +456,7 @@ const ProductManager = () => {
             <LoadingSpinner />
           ) : (
             <div className="container">
-              <div className="product-manager-wrapper">
+              <div className="product-management-wrapper">
                 <div className="list-products">
                   <h3 className="product-title">List Of Products</h3>
                   <div className="product-table">
@@ -933,4 +933,4 @@ const ProductManager = () => {
   );
 };
 
-export default ProductManager;
+export default ProductManagement;

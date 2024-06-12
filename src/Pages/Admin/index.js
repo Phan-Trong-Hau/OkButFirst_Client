@@ -48,7 +48,7 @@ const Admin = () => {
                   <Link to="/admin/blog">New Blog</Link>
                 </li>
                 <li className="item">
-                  <Link to="/admin/account-management">Accounts Manager</Link>
+                  <Link to="/admin/account-management">Account Management</Link>
                 </li>
                 <li className="item">
                   <Link to="#" onClick={handleLogout}>
