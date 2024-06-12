@@ -1,147 +1,24 @@
 import { useContext } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
-import AuthContext from "./Context/AuthProvider";
-import Account from "./Pages/Account";
-import Login from "./Pages/Login";
-import Home from "./Pages/Home";
-import LoadingSpinner from "./Components/Loading";
-import NotFound from "./Pages/NotFound";
-import Admin from "./Pages/Admin";
-import CoffeeShopManager from "./Pages/Manager/CoffeeShop";
-import MerchShopManager from "./Pages/Manager/MerchShop";
-import AccountsManager from "./Pages/Manager/Accounts";
 
-import Collection from "./Pages/Collection";
-import CoffeeShop from "./Pages/CoffeeShop";
-import AboutUs from "./Pages/AboutUs";
-import ContactUs from "./Pages/ContactUs";
-import CoffeeClub from "./Pages/CoffeeClub";
-import Policies from "./Pages/Policies";
-import BlogCoffee from "./Pages/Blogs/BlogCoffee";
-import MerchShop from "./Pages/MerchShop";
+import LoadingSpinner from "./Components/Loading";
+
 import LoadingContext from "./Context/LoadingProvider";
+import RouterApp from "./routes";
 
 function App() {
   const { loading } = useContext(LoadingContext);
-  const { auth } = useContext(AuthContext);
-
-  const isAdmin = auth?.user?.isAdmin;
-
-  const ProtectedRoute = ({ check, path, children }) => {
-    return check ? children : <Navigate to={path} replace />;
-  };
 
   return (
     <div className="App">
-      {loading ? (
-        <LoadingSpinner />
-      ) : (
-        <Router>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route
-              path="/account"
-              element={
-                <ProtectedRoute check={auth.loggedIn} path={"/login"}>
-                  <ProtectedRoute check={!isAdmin} path={"/admin"}>
-                    <Account />
-                  </ProtectedRoute>
-                </ProtectedRoute>
-              }
-            ></Route>
-            <Route
-              path="/login"
-              element={
-                <ProtectedRoute check={!auth.loggedIn} path="/account">
-                  <Login />
-                </ProtectedRoute>
-              }
-            ></Route>
-            <Route
-              path="/register"
-              element={
-                <ProtectedRoute check={!auth.loggedIn} path="/account">
-                  <Login />
-                </ProtectedRoute>
-              }
-            ></Route>
-            <Route path="/admin">
-              <Route
-                path="accounts"
-                element={
-                  <ProtectedRoute check={isAdmin} path="/">
-                    <AccountsManager />
-                  </ProtectedRoute>
-                }
-              ></Route>
-              <Route
-                path="coffee-shop"
-                element={
-                  <ProtectedRoute check={isAdmin} path="/">
-                    <CoffeeShopManager />
-                  </ProtectedRoute>
-                }
-              ></Route>
-              <Route
-                path="merch-shop"
-                element={
-                  <ProtectedRoute check={isAdmin} path="/">
-                    <MerchShopManager />
-                  </ProtectedRoute>
-                }
-              ></Route>
-              <Route
-                index
-                element={
-                  <ProtectedRoute check={isAdmin} path="/">
-                    <Admin />
-                  </ProtectedRoute>
-                }
-              ></Route>
-            </Route>
-            <Route path="/products">
-              <Route
-                path="coffee-club-subscription"
-                element={<CoffeeClub />}
-              ></Route>
-              <Route index element={<Collection />}></Route>
-            </Route>
-            <Route path="/collections">
-              <Route path="coffee-shop">
-                <Route index element={<CoffeeShop />}></Route>
-              </Route>
-              <Route path="merch-shop" element={<MerchShop />}></Route>
-              <Route index element={<Collection />}></Route>
-            </Route>
-            <Route path="/pages">
-              <Route path="about-us" element={<AboutUs />}></Route>
-              <Route path="contact-us" element={<ContactUs />}></Route>
-              <Route
-                path="policies"
-                element={<Policies title={"Policies"} />}
-              ></Route>
-              <Route
-                path="terms-conditions"
-                element={<Policies title={"Terms Conditions"} />}
-              ></Route>
-            </Route>
-            <Route path="/blogs">
-              <Route path="coffee-101" element={<BlogCoffee />}></Route>
-            </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer />
-        </Router>
-      )}
+      <Router>
+        <Header />
+        {loading ? <LoadingSpinner /> : <RouterApp />}
+        <Footer />
+      </Router>
     </div>
   );
 }
