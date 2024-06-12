@@ -191,13 +191,11 @@ const CoffeeClub = () => {
     };
     fetchData();
   }, []);
-    
-    
+
   useEffect(() => {
     document.title =
       "Coffee Club Subscription For Roasted Coffee Beans Online | OKBF";
   }, []);
-
 
   return (
     <>

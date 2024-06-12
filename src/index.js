@@ -14,5 +14,5 @@ root.render(
         <App />
       </AuthProvider>
     </LoadingProvider>
-  </GlobalStyles>
+  </GlobalStyles>,
 );

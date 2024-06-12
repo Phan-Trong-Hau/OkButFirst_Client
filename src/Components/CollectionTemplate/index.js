@@ -96,8 +96,8 @@ const CollectionTemplate = ({ data, defineSort = "title-ascending" }) => {
             view === "list" && product.discription
               ? product.discription[0]
               : view === "list"
-              ? product.description
-              : ""
+                ? product.description
+                : ""
           }
           path={`/collections/coffee-shop/${product._id}`}
         />

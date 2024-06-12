@@ -58,8 +58,8 @@ const AboutUs = () => {
             <div className="about-wrapper">
               <h2 className="about-title"> our mission</h2>
               <p className="about-content">
-                Coffee plays a major role in our lives, and the center point
-                of our connections. As such, having quality coffee is vital to
+                Coffee plays a major role in our lives, and the center point of
+                our connections. As such, having quality coffee is vital to
                 helping create those experiences and memories. Back in the day,
                 great coffee was not easy to come by. Options were limited, from
                 the mass-produced brands stocked on grocery shelves, to the
