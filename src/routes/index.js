@@ -85,8 +85,10 @@ const RouterApp = () => {
 
   return (
     <Routes>
-      {routers.map((router) => {
-        return <Route path={router.path} element={router.element} />;
+      {routers.map((router, index) => {
+        return (
+          <Route path={router.path} element={router.element} key={index} />
+        );
       })}
     </Routes>
   );
