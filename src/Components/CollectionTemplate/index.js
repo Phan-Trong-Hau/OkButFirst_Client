@@ -5,7 +5,11 @@ import "./CollectionTemplate.scss";
 
 import GridSVG from "../../Assets/svg/grid.svg";
 
-const CollectionTemplate = ({ data, defineSort = "title-ascending" }) => {
+const CollectionTemplate = ({
+  data,
+  defineSort = "title-ascending",
+  shopName,
+}) => {
   const [view, setView] = useState("grid");
   const [sortBy, setSortBy] = useState(defineSort);
   const [products, setProducts] = useState(data);
@@ -99,7 +103,7 @@ const CollectionTemplate = ({ data, defineSort = "title-ascending" }) => {
                 ? product.description
                 : ""
           }
-          path={`/collections/coffee-shop/${product._id}`}
+          path={`/collections/${shopName}/${product._id}`}
         />
       </div>
     );

@@ -311,6 +311,7 @@ const MerchShop = () => {
               <CollectionTemplate
                 data={productsShow}
                 defineSort={"best-selling"}
+                shopName={"merch-shop"}
               />
             </div>
           </div>

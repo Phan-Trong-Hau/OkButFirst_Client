@@ -29,7 +29,7 @@ const CoffeeShop = () => {
         <section>
           <div className="container">
             <div className="coffee-shop-wrapper">
-              <CollectionTemplate data={products} />
+              <CollectionTemplate data={products} shopName={"coffee-shop"} />
             </div>
           </div>
         </section>
