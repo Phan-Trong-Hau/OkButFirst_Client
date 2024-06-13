@@ -6,11 +6,11 @@ import Header from "./Components/Header";
 
 import LoadingSpinner from "./Components/Loading";
 
-import LoadingContext from "./Context/LoadingProvider";
 import RouterApp from "./routes";
+import AuthContext from "./Context/AuthProvider";
 
 function App() {
-  const { loading } = useContext(LoadingContext);
+  const { loading } = useContext(AuthContext);
 
   return (
     <div className="App">
