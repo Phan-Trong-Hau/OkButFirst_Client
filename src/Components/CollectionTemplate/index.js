@@ -90,22 +90,21 @@ const CollectionTemplate = ({
   }, [data, sortBy]);
   const productItems = products?.map((product, index) => {
     return (
-      <div className="product-item" key={index}>
-        <Card
-          img={product.imageDisplay}
-          title={product.name}
-          price={product.price.toFixed(2)}
-          newBadge={product.newBadge}
-          desc={
-            view === "list" && product.discription
-              ? product.discription[0]
-              : view === "list"
-                ? product.description
-                : ""
-          }
-          path={`/collections/${shopName}/${product._id}`}
-        />
-      </div>
+      <Card
+        img={product.imageDisplay}
+        title={product.name}
+        price={product.price.toFixed(2)}
+        newBadge={product.newBadge}
+        desc={
+          view === "list" && product.discription
+            ? product.discription[0]
+            : view === "list"
+              ? product.description
+              : ""
+        }
+        path={`/collections/${shopName}/${product._id}`}
+        key={index}
+      />
     );
   });
 
