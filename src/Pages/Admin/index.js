@@ -1,18 +1,19 @@
 import { useEffect } from "react";
 import "./Admin.scss";
 import Breadcrumb from "../../Components/Breadcrumb";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../../Context/AuthProvider";
 import { Auth } from "../../Api/auth";
 
 const Admin = () => {
   const { setAuth } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const handleLogout = async () => {
     try {
       await Auth.logout();
       setAuth("");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
