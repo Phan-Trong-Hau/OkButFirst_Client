@@ -1,563 +1,586 @@
 @font-face {
-    font-family: "Platform";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Regular.eot");
-    src: local("Platform Regular"), local("Platform-Regular"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Regular.eot?#iefix")
-            format("embedded-opentype"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Regular.woff2")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Regular.woff")
-            format("woff"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Regular.ttf")
-            format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Platform";
+  src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Regular.eot");
+  src:
+    local("Platform Regular"),
+    local("Platform-Regular"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Regular.woff2")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Regular.woff")
+      format("woff"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Regular.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Platform Hairline";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Hairline.eot");
-    src: local("Platform Hairline"), local("Platform-Hairline"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Hairline.eot?#iefix")
-            format("embedded-opentype"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Hairline.woff2")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Hairline.woff")
-            format("woff");
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Platform Hairline";
+  src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Hairline.eot");
+  src:
+    local("Platform Hairline"),
+    local("Platform-Hairline"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Hairline.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Hairline.woff2")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Hairline.woff")
+      format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Platform";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Medium.eot");
-    src: local("Platform Medium"), local("Platform-Medium"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/fonts/Platform-Medium.eot?#iefix")
-            format("embedded-opentype"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Medium.woff")
-            format("woff");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Platform";
+  src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Medium.eot");
+  src:
+    local("Platform Medium"),
+    local("Platform-Medium"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/fonts/Platform-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Medium.woff")
+      format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Platform";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Bold.eot");
-    src: local("Platform Bold"), local("Platform-Bold"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Bold.eot?#iefix")
-            format("embedded-opentype"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Bold.woff2")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Bold.woff")
-            format("woff");
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Platform";
+  src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Bold.eot");
+  src:
+    local("Platform Bold"),
+    local("Platform-Bold"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Bold.woff2")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Bold.woff")
+      format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Platform";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Light.eot");
-    src: local("Platform Light"), local("Platform-Light"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Light.woff2")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Light.woff")
-            format("woff");
-    font-weight: 300;
-    font-style: normal;
+  font-family: "Platform";
+  src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Light.eot");
+  src:
+    local("Platform Light"),
+    local("Platform-Light"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Light.woff2")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Platform-Light.woff")
+      format("woff");
+  font-weight: 300;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Milliard";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Light.woff2")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Light.woff")
-            format("woff");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Milliard";
+  src:
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Light.woff2")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Light.woff")
+      format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Milliard";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Heavy.woff2")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Heavy.woff")
-            format("woff");
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Milliard";
+  src:
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Heavy.woff2")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Heavy.woff")
+      format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Milliard";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Medium.woff2")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Medium.woff")
-            format("woff");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Milliard";
+  src:
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Medium.woff2")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Medium.woff")
+      format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Milliard";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Thin.woff2")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Thin.woff")
-            format("woff");
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Milliard";
+  src:
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Thin.woff2")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Thin.woff")
+      format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Milliard";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-SemiBold.woff2")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-SemiBold.woff")
-            format("woff");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Milliard";
+  src:
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-SemiBold.woff2")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-SemiBold.woff")
+      format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Milliard";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Black.woff2")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Black.woff")
-            format("woff");
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Milliard";
+  src:
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Black.woff2")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Black.woff")
+      format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Milliard Book";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Bold.woff2")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Bold.woff")
-            format("woff");
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Milliard Book";
+  src:
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Bold.woff2")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Bold.woff")
+      format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Milliard Book";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Book.woff2")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Book.woff")
-            format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Milliard Book";
+  src:
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Book.woff2")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-Book.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Milliard";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-ExtraLight.woff2")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-ExtraLight.woff")
-            format("woff");
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Milliard";
+  src:
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-ExtraLight.woff2")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-ExtraLight.woff")
+      format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Milliard";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-ExtraBold.woff2")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-ExtraBold.woff")
-            format("woff");
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Milliard";
+  src:
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-ExtraBold.woff2")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Milliard-ExtraBold.woff")
+      format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "DK Lemon Yellow Sun";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/DKLemonYellowSun.woff2")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/DKLemonYellowSun.woff")
-            format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "DK Lemon Yellow Sun";
+  src:
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/DKLemonYellowSun.woff2")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/DKLemonYellowSun.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Bebas";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Bebas-Regular.woff2?v=1629799401")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Bebas-Regular.woff?v=1629799401")
-            format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Bebas";
+  src:
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Bebas-Regular.woff2?v=1629799401")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Bebas-Regular.woff?v=1629799401")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Gotham";
-    src: url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Gotham-Bold.woff2")
-            format("woff2"),
-        url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Gotham-Bold.woff")
-            format("woff");
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Gotham";
+  src:
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Gotham-Bold.woff2")
+      format("woff2"),
+    url("https://cdn.shopify.com/s/files/1/0592/7298/6810/files/Gotham-Bold.woff")
+      format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 :root {
-    --blue: #007bff;
-    --indigo: #6610f2;
-    --purple: #6f42c1;
-    --pink: #e83e8c;
-    --red: #dc3545;
-    --orange: #fd7e14;
-    --yellow: #ffc107;
-    --green: #28a745;
-    --teal: #20c997;
-    --cyan: #17a2b8;
-    --white: #fff;
-    --gray: #6c757d;
-    --gray-dark: #343a40;
-    --primary: #007bff;
-    --secondary: #6c757d;
-    --success: #28a745;
-    --info: #17a2b8;
-    --warning: #ffc107;
-    --danger: #dc3545;
-    --light: #f8f9fa;
-    --dark: #343a40;
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
-        "Segoe UI Emoji", "Segoe UI Symbol";
-    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-        "Liberation Mono", "Courier New", monospace;
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-    outline: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  outline: none;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    overflow: auto;
-    font-size: 1.4rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    text-rendering: optimizeSpeed;
-    text-align: center;
-    font-family: Milliard;
-    background-color: #fff;
-    overflow-x: hidden;
+  overflow: auto;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-rendering: optimizeSpeed;
+  text-align: center;
+  font-family: Milliard;
+  background-color: #fff;
+  overflow-x: hidden;
 
-    a {
-        color: #000000;
-    }
+  a {
+    color: #000000;
+  }
 
-    table {
+  table {
+    width: 100%;
+    border-spacing: 1px;
+    border: 1.5px solid #000;
+    background-color: #000;
+    thead {
+      position: relative;
+      tr {
+        background-color: #cfcfcf;
+        th {
+          padding: 20px 10px;
+          white-space: nowrap;
+        }
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
         width: 100%;
-        border-spacing: 1px;
-        border: 1.5px solid #000;
+        height: 1px;
         background-color: #000;
-        thead {
-            position: relative;
-            tr {
-                background-color: #cfcfcf;
-                th {
-                    padding: 20px 10px;
-                    white-space: nowrap;
-                }
-            }
-
-            &::after {
-                position: absolute;
-                content: "";
-                width: 100%;
-                height: 1px;
-                background-color: #000;
-                left: 0;
-            }
-        }
-
-        tbody {
-            tr {
-                background-color: white;
-                td {
-                    padding: 5px;
-                    max-width: 150px;
-                    .table-desc {
-                        width: 100%;
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        word-break: break-word;
-                    }
-                }
-            }
-        }
+        left: 0;
+      }
     }
 
-    input[type="checkbox"] {
-        filter: sepia(100%) brightness(80%) hue-rotate(170deg) saturate(0%)
-            contrast(400%);
-        width: 12px;
+    tbody {
+      tr {
+        background-color: white;
+        td {
+          padding: 5px;
+          max-width: 150px;
+          .table-desc {
+            width: 100%;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-word;
+          }
+        }
+      }
     }
+  }
+
+  input[type="checkbox"] {
+    filter: sepia(100%) brightness(80%) hue-rotate(170deg) saturate(0%)
+      contrast(400%);
+    width: 12px;
+  }
 }
 
 .container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  &-custom {
+    max-width: 1284px;
+    width: 100%;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+  }
 
-    &-custom {
-        max-width: 1284px;
-        width: 100%;
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-    }
-
-    &-main {
-        width: 100%;
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-    }
+  &-main {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 .wrapper-input {
-    position: relative;
-    display: inline-block;
-    margin: 3px;
+  position: relative;
+  display: inline-block;
+  margin: 3px;
 
-    input::placeholder {
-        transition: all 0.5s;
-    }
+  input::placeholder {
+    transition: all 0.5s;
+  }
 
-    input:focus::placeholder {
-        opacity: 0;
-        transform: translateX(5%);
-    }
+  input:focus::placeholder {
+    opacity: 0;
+    transform: translateX(5%);
+  }
 
-    input:focus {
-        ~ .focus-border {
-            i {
-                &::before {
-                    height: 100%;
-                    transition-delay: 0.8s;
-                }
-
-                &::after {
-                    height: 100%;
-                    transition-delay: 0.4s;
-                }
-            }
-
-            &::before {
-                width: 100%;
-                transition-delay: 0.6s;
-            }
-
-            &::after {
-                width: 100%;
-                transition-delay: 0s;
-            }
-        }
-    }
-
-    .focus-border {
-        i {
-            &::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: -1px;
-                width: 2px;
-                height: 0;
-                background-color: #000000;
-                transition: 0.2s;
-                transition-delay: 0.4s;
-            }
-
-            &::after {
-                content: "";
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                width: 2px;
-                height: 0;
-                background-color: #000000;
-                transition: 0.2s;
-                transition-delay: 0.8s;
-            }
-        }
-
+  input:focus {
+    ~ .focus-border {
+      i {
         &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background-color: #000000;
-            transition: 0.2s;
-            transition-delay: 0.6s;
+          height: 100%;
+          transition-delay: 0.8s;
         }
 
         &::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #000000;
-            transition: 0.2s;
+          height: 100%;
+          transition-delay: 0.4s;
         }
+      }
+
+      &::before {
+        width: 100%;
+        transition-delay: 0.6s;
+      }
+
+      &::after {
+        width: 100%;
+        transition-delay: 0s;
+      }
     }
+  }
+
+  .focus-border {
+    i {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -1px;
+        width: 2px;
+        height: 0;
+        background-color: #000000;
+        transition: 0.2s;
+        transition-delay: 0.4s;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 2px;
+        height: 0;
+        background-color: #000000;
+        transition: 0.2s;
+        transition-delay: 0.8s;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background-color: #000000;
+      transition: 0.2s;
+      transition-delay: 0.6s;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #000000;
+      transition: 0.2s;
+    }
+  }
 }
 
 .theme-btn__black {
-    cursor: pointer;
-    background-color: black;
-    color: white;
-    font-family: "Milliard";
-    font-weight: 500;
-    font-size: 16px;
-    text-transform: uppercase;
-    text-align: center;
-    transition: all 0.3s linear;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  font-family: "Milliard";
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.3s linear;
 
-    &:hover {
-        background-color: rgba(0, 0, 0, 0.2);
-        color: rgb(0, 0, 0);
-    }
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: rgb(0, 0, 0);
+  }
 }
 
 .theme-btn__white {
-    cursor: pointer;
-    background-color: white;
-    color: black;
-    font-family: "Milliard";
-    font-weight: 500;
-    font-size: 16px;
-    text-transform: uppercase;
-    text-align: center;
-    transition: all 0.3s linear;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  font-family: "Milliard";
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.3s linear;
 
-    &:hover {
-        background-color: rgba(0, 0, 0, 0.6);
-        color: white;
-    }
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+  }
 }
 
 .title-wrapper {
-    text-align: center;
-    z-index: 1;
+  text-align: center;
+  z-index: 1;
 
-    .title {
-        position: relative;
-        font-family: Platform;
-        font-weight: 700;
-        font-size: 4rem;
-        line-height: 4rem;
-        letter-spacing: 0.04em;
-        color: #1a1a1a;
-        padding-bottom: 10px;
-        text-transform: uppercase;
+  .title {
+    position: relative;
+    font-family: Platform;
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 4rem;
+    letter-spacing: 0.04em;
+    color: #1a1a1a;
+    padding-bottom: 10px;
+    text-transform: uppercase;
 
-        &::after {
-            position: absolute;
-            content: "";
-            width: 45px;
-            height: 1px;
-            background-color: #000;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+    &::after {
+      position: absolute;
+      content: "";
+      width: 45px;
+      height: 1px;
+      background-color: #000;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
     }
+  }
 
-    .desc {
-        font-family: Milliard;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.4rem;
-        line-height: 2.5rem;
-        color: #000;
-        margin: 20px 0 60px 0;
-        width: 100%;
-    }
+  .desc {
+    font-family: Milliard;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+    color: #000;
+    margin: 20px 0 60px 0;
+    width: 100%;
+  }
 
-    a {
-        display: block;
-        border: 3px solid #000;
-        line-height: 5.5rem;
-        max-width: 250px;
-        width: 100%;
-        margin: 0 auto;
-    }
+  a {
+    display: block;
+    border: 3px solid #000;
+    line-height: 5.5rem;
+    max-width: 250px;
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 
 @media (min-width: 992px) {
-    .container {
-        width: 970px;
-    }
+  .container {
+    width: 970px;
+  }
 }
 
 @media (min-width: 1023px) {
-    .title-wrapper {
-        .title {
-            font-size: 55px;
-            line-height: 66px;
-        }
-
-        .desc {
-            font-size: 1.8rem;
-            line-height: 3.2rem;
-        }
-        a {
-            display: block;
-            border: 3px solid #000;
-            line-height: 5.5rem;
-            max-width: 250px;
-            width: 100%;
-        }
+  .title-wrapper {
+    .title {
+      font-size: 55px;
+      line-height: 66px;
     }
+
+    .desc {
+      font-size: 1.8rem;
+      line-height: 3.2rem;
+    }
+    a {
+      display: block;
+      border: 3px solid #000;
+      line-height: 5.5rem;
+      max-width: 250px;
+      width: 100%;
+    }
+  }
 }
 
 @media (min-width: 1200px) {
-    .container {
-        width: 1170px;
-    }
+  .container {
+    width: 1170px;
+  }
 }

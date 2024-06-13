@@ -1,85 +1,85 @@
 .merch-shop {
-    overflow-x: hidden;
-    &-wrapper {
-        display: grid;
-        grid-template-columns: 270px 1fr;
+  overflow-x: hidden;
+  &-wrapper {
+    display: grid;
+    grid-template-columns: 270px 1fr;
 
-        .sidebar {
-            margin-right: 20px;
-            &-wrapper {
-                position: sticky;
-                top: 120px;
+    .sidebar {
+      margin-right: 20px;
+      &-wrapper {
+        position: sticky;
+        top: 120px;
 
-                .sidebar-group {
-                    padding-bottom: 30px;
-                    border-bottom: 1px solid black;
-                    margin-bottom: 32px;
-                    text-align: left;
+        .sidebar-group {
+          padding-bottom: 30px;
+          border-bottom: 1px solid black;
+          margin-bottom: 32px;
+          text-align: left;
 
-                    .sidebar-heading {
-                        h3 {
-                            font-family: Milliard;
-                            font-style: normal;
-                            font-weight: 600;
-                            font-size: 20px;
-                            line-height: 23px;
-                            text-transform: uppercase;
-                            color: #000000;
-                            margin-bottom: 23px;
-                            white-space: nowrap;
-                        }
-                        img {
-                            width: 13px;
-                            margin-right: 10px;
-                            rotate: 180deg;
-                            transition: all 0.2s linear;
-                        }
-                    }
-
-                    .sidebar-content {
-                        .sidebar-list {
-                            .sidebar-item {
-                                white-space: nowrap;
-
-                                span {
-                                    font-family: Milliard;
-                                    font-style: normal;
-                                    font-weight: 500;
-                                    font-size: 12px;
-                                    line-height: 14px;
-                                    text-transform: uppercase;
-                                    color: #000000;
-                                    margin: 0 0 10px 0;
-                                }
-                                input {
-                                    width: 20px;
-                                    height: 12px;
-                                    margin-right: 10px;
-                                }
-                            }
-                        }
-                    }
-                }
+          .sidebar-heading {
+            h3 {
+              font-family: Milliard;
+              font-style: normal;
+              font-weight: 600;
+              font-size: 20px;
+              line-height: 23px;
+              text-transform: uppercase;
+              color: #000000;
+              margin-bottom: 23px;
+              white-space: nowrap;
             }
+            img {
+              width: 13px;
+              margin-right: 10px;
+              rotate: 180deg;
+              transition: all 0.2s linear;
+            }
+          }
+
+          .sidebar-content {
+            .sidebar-list {
+              .sidebar-item {
+                white-space: nowrap;
+
+                span {
+                  font-family: Milliard;
+                  font-style: normal;
+                  font-weight: 500;
+                  font-size: 12px;
+                  line-height: 14px;
+                  text-transform: uppercase;
+                  color: #000000;
+                  margin: 0 0 10px 0;
+                }
+                input {
+                  width: 20px;
+                  height: 12px;
+                  margin-right: 10px;
+                }
+              }
+            }
+          }
         }
+      }
     }
+  }
 }
 
 @media screen and (max-width: 700px) {
-    .merch-shop {
-        &-wrapper {
-            display: grid;
-            grid-template-columns: 1fr;
+  .merch-shop {
+    &-wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
 
-            .sidebar {
-                margin-right: 20px;
-                &-wrapper {
-                    position: relative;
-                    top: 0;
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                }
-            }
+      .sidebar {
+        margin-right: 20px;
+        &-wrapper {
+          position: relative;
+          top: 0;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
         }
+      }
     }
+  }
 }

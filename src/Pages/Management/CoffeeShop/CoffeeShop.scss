@@ -1,114 +1,114 @@
 .product-management {
-    &-wrapper {
-        padding: 30px 20px 100px;
+  &-wrapper {
+    padding: 30px 20px 100px;
 
-        .list-products {
-            .product-table {
-                .theme-btn__black {
-                    width: 40%;
-                    border-radius: 3px;
-                    padding: 3px;
-                    border: 0;
+    .list-products {
+      .product-table {
+        .theme-btn__black {
+          width: 40%;
+          border-radius: 3px;
+          padding: 3px;
+          border: 0;
 
-                    &:hover {
-                        background-color: rgba(0, 0, 0, 0.75);
-                        color: white;
-                    }
-                }
-                .actions {
-                    max-width: 70px;
-                    button {
-                        margin-left: 2%;
-                        img {
-                            width: 15px;
-                        }
-                    }
-                }
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.75);
+            color: white;
+          }
+        }
+        .actions {
+          max-width: 70px;
+          button {
+            margin-left: 2%;
+            img {
+              width: 15px;
             }
+          }
         }
-
-        .create-product,
-        .update-product {
-            padding-top: 100px;
-
-            .product-form {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-                label {
-                    display: block;
-                    text-align: left;
-                    span {
-                        display: block;
-                        margin-bottom: 7px;
-                        font-size: 1.6rem;
-                    }
-
-                    input {
-                        padding: 10px;
-                        width: 100%;
-                        font-size: 1.6rem;
-                    }
-
-                    input[type="color"] {
-                        padding: 1px;
-                        max-width: 50px;
-                    }
-
-                    textarea {
-                        padding: 10px;
-                        width: 100%;
-                        resize: vertical;
-                        font-size: 1.6rem;
-                    }
-                }
-
-                .input-radio {
-                    text-align: left;
-                    font-size: 1.6rem;
-
-                    label {
-                        cursor: pointer;
-                        display: inline-block;
-                        min-width: 100px;
-                        margin-right: 20px;
-                        white-space: nowrap;
-                        span {
-                            display: inline;
-                            margin-left: 5px;
-                        }
-                        input {
-                            width: 10px;
-                            transform: translateY(15%);
-                            filter: sepia(100%) brightness(80%)
-                                hue-rotate(170deg) saturate(0%) contrast(400%);
-                        }
-                    }
-
-                    .form-group {
-                        margin-bottom: 10px;
-                    }
-                }
-
-                .making {
-                    display: grid;
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 20px;
-                }
-
-                button[type="submit"] {
-                    padding: 10px;
-                    max-width: 270px;
-                    width: 100%;
-                }
-            }
-        }
-
-        .product-title {
-            text-align: left;
-            font-size: 3rem;
-            white-space: 0.4rem;
-            margin-bottom: 30px;
-        }
+      }
     }
+
+    .create-product,
+    .update-product {
+      padding-top: 100px;
+
+      .product-form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        label {
+          display: block;
+          text-align: left;
+          span {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 1.6rem;
+          }
+
+          input {
+            padding: 10px;
+            width: 100%;
+            font-size: 1.6rem;
+          }
+
+          input[type="color"] {
+            padding: 1px;
+            max-width: 50px;
+          }
+
+          textarea {
+            padding: 10px;
+            width: 100%;
+            resize: vertical;
+            font-size: 1.6rem;
+          }
+        }
+
+        .input-radio {
+          text-align: left;
+          font-size: 1.6rem;
+
+          label {
+            cursor: pointer;
+            display: inline-block;
+            min-width: 100px;
+            margin-right: 20px;
+            white-space: nowrap;
+            span {
+              display: inline;
+              margin-left: 5px;
+            }
+            input {
+              width: 10px;
+              transform: translateY(15%);
+              filter: sepia(100%) brightness(80%) hue-rotate(170deg)
+                saturate(0%) contrast(400%);
+            }
+          }
+
+          .form-group {
+            margin-bottom: 10px;
+          }
+        }
+
+        .making {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+
+        button[type="submit"] {
+          padding: 10px;
+          max-width: 270px;
+          width: 100%;
+        }
+      }
+    }
+
+    .product-title {
+      text-align: left;
+      font-size: 3rem;
+      white-space: 0.4rem;
+      margin-bottom: 30px;
+    }
+  }
 }
