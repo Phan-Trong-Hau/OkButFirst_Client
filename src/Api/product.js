@@ -10,6 +10,12 @@ const createProduct = async (product) => {
   return res.data;
 };
 
+const getProduct = async (id) => { 
+  const res = await api.get(`v1/products/${id}`);
+  return res.data;
+
+}
+
 const updateProduct = async (product) => {
   const res = await api.put(`v1/products/${product.productId}`, product);
   return res.data;
@@ -23,6 +29,7 @@ const deleteProduct = async (product) => {
 export const ProductApi = {
   getAllProducts,
   createProduct,
+  getProduct,
   updateProduct,
   deleteProduct,
 };

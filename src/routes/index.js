@@ -17,6 +17,7 @@ import AccountManagement from "../Pages/Management/Account";
 import CoffeeClub from "../Pages/CoffeeClub";
 import { useContext } from "react";
 import AuthContext from "../Context/AuthProvider";
+import ProductCoffee from "../Pages/ProductCoffee";
 
 const RouterApp = () => {
   const { auth } = useContext(AuthContext);
@@ -31,7 +32,7 @@ const RouterApp = () => {
     { path: "/products", element: <Collection /> },
     { path: "/collections/merch-shop/:id", element: <Home /> },
     { path: "/collections/merch-shop", element: <MerchShop /> },
-    { path: "/collections/coffee-shop/:id", element: <Home /> },
+    { path: "/collections/coffee-shop/:id", element: <ProductCoffee /> },
     { path: "/collections/coffee-shop", element: <CoffeeShop /> },
     { path: "/collections", element: <Collection /> },
     { path: "/pages/policies", element: <Policies title={"Policies"} /> },
