@@ -40,14 +40,14 @@ const ProductDetail = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title =
-      "Buy Freshly Roasted Coffee Beans Online | Midday Stroll | OKBF";
   }, []);
 
   useEffect(() => {
     setImageSingle(product.productImages?.[0]);
     setBagSize(product.bagSize?.[0]);
     setGrind(product.grind?.[0]);
+
+    document.title = `Buy Freshly Roasted Coffee Beans Online | ${product.name} | OKBF`;
   }, [product]);
 
   console.log({ product });
@@ -122,7 +122,10 @@ const ProductDetail = () => {
   return (
     <>
       <main className="product-coffee">
-        <section style={{ background: `${product.color?.colorBackground}` }}>
+        <section
+          style={{ background: `${product.color?.colorBackground}` }}
+          className="product-detail"
+        >
           <Breadcrumb
             breadcrumb={product.name}
             list={[{ title: "Coffee Shop", path: "/collections/coffee-shop" }]}
@@ -236,24 +239,61 @@ const ProductDetail = () => {
             </div>
           </div>
         </section>
-        <section>
+        <section className="product-overview">
           <div className="container">
-            <div className="product-overview"></div>
+            <div className="product-making">
+              {product.making?.map((item, index) => (
+                <div key={index} className="making-item">
+                  <div className="img-wrap">
+                    <Image
+                      cloudName="ok-but-first-coffee"
+                      publicId={item.img}
+                      crop="scale"
+                      className="product-img"
+                    />
+                  </div>
+
+                  {index === 0 ? (
+                    <h3>PROFILE:</h3>
+                  ) : index === 1 ? (
+                    <h3>ORIGIN:</h3>
+                  ) : (
+                    <h3>ROAST:</h3>
+                  )}
+
+                  <span>{item.title}</span>
+                </div>
+              ))}
+            </div>
+            <div className="product-description">
+              <h2 className="product-description-title">PRODUCT DESCRIPTION</h2>
+              <p className="product-description-content">
+                {product.description}
+              </p>
+            </div>
+            <div className="product-discription">
+              {product.discription?.map((item, index) => (
+                <div key={index} className="discription-item">
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
-        <section>
+
+        <section className="product-comment">
           <div className="container">
-            <div className="product-comment"></div>
+            <div></div>
           </div>
         </section>
-        <section>
+        <section className="product-recommended">
           <div className="container">
-            <div className="product-recommended"></div>
+            <div></div>
           </div>
         </section>
-        <section>
+        <section className="product-recently-viewed">
           <div className="container">
-            <div className="product-recently-viewed"></div>
+            <div></div>
           </div>
         </section>
       </main>
