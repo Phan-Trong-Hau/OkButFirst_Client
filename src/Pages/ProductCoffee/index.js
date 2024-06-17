@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Breadcrumb from "../../Components/Breadcrumb";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ProductApi } from "../../Api/product";
 import { Image } from "cloudinary-react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,7 +18,7 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const [bagSize, setBagSize] = useState(0);
   const [grind, setGrind] = useState("");
-
+  const navigate = useNavigate();
   const handleChangeImageSingle = (image) => {
     setImageSingle(image);
   };
@@ -31,12 +31,13 @@ const ProductDetail = () => {
         const result = await ProductApi.getProduct(productId);
         setProduct(result.product);
       } catch (error) {
+        if (error.response.status === 404) navigate("/404");
         console.log(error);
       }
     };
 
     fetchData();
-  }, [params]);
+  }, [params, navigate]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -49,8 +50,6 @@ const ProductDetail = () => {
 
     document.title = `Buy Freshly Roasted Coffee Beans Online | ${product.name} | OKBF`;
   }, [product]);
-
-  console.log({ product });
 
   const handleChangeQuantity = (e) => {
     if (e.target.innerText === "+") {
