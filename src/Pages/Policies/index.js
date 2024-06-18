@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Breadcrumb from "../../Components/Breadcrumb";
 import "./Policies.scss";
 
@@ -21,6 +21,12 @@ const Policies = ({ title }) => {
       });
     });
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title =
+      "Buy Whole Coffee Beans Using Coffee Calculator | OKBF Policies";
+  }, []);
 
   return (
     <>

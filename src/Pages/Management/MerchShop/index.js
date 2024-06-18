@@ -279,6 +279,11 @@ const MerchShop = () => {
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "Merch Management | OKBF";
+  }, []);
+
   return (
     <>
       <main className="merch-management">

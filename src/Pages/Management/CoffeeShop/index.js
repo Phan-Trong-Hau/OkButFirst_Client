@@ -407,6 +407,11 @@ const ProductManagement = () => {
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "Coffee Management | OKBF";
+  }, []);
+
   const listProduct = fetchProducts?.map((product, index) => {
     return (
       <tr key={product._id}>

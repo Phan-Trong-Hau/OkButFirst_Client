@@ -12,7 +12,8 @@ const Account = () => {
   };
 
   useEffect(() => {
-    document.title = "Account";
+    window.scrollTo(0, 0);
+    document.title = "Account | OKBF";
   }, []);
 
   return (

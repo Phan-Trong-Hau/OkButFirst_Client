@@ -4,7 +4,8 @@ import "./NotFound.scss";
 
 const NotFound = () => {
   useEffect(() => {
-    document.title = "Not Found 404";
+    window.scrollTo(0, 0);
+    document.title = "Not Found 404 | OKBF";
   }, []);
 
   return (

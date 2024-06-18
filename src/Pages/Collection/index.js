@@ -26,6 +26,11 @@ const Collection = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "Collections | OKBF";
+  }, []);
+
   return (
     <>
       <main className="collection">

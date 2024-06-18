@@ -30,9 +30,16 @@ import coffee16 from "../../../Assets/svg/coffee16.svg";
 import coffee17 from "../../../Assets/svg/coffee17.svg";
 import coffee18 from "../../../Assets/svg/coffee18.svg";
 import grindCoffee from "../../../Assets/img/grind-coffee.png";
+import { useEffect } from "react";
 
 const BlogCoffee = () => {
   SwiperCore.use([Autoplay]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title =
+      "Specialty Coffee Blogs For Java Lovers | OKBF Coffee Company";
+  }, []);
 
   return (
     <>

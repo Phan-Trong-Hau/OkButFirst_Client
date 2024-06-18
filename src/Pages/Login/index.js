@@ -70,7 +70,8 @@ const Login = () => {
   };
 
   useEffect(() => {
-    document.title = "Create Account";
+    window.scrollTo(0, 0);
+    document.title = "Create Account | OKBF";
   }, []);
 
   return (

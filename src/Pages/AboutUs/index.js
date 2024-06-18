@@ -3,7 +3,14 @@ import aboutBanner from "../../Assets/img/about-banner.png";
 import about1 from "../../Assets/img/about-info-1.png";
 import about2 from "../../Assets/img/about-info-2.png";
 import about3 from "../../Assets/img/about-info-3.png";
+import { useEffect } from "react";
 const AboutUs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title =
+      "Premium Coffee Beans Online | About Okbutfirst Coffee Company";
+  }, []);
+
   return (
     <>
       <main className="about-us">
