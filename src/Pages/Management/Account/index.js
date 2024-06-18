@@ -28,6 +28,11 @@ const AccountManagement = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "Account Management | OKBF";
+  }, []);
+
   const handleClick = (account) => {
     setOpenPopup(true);
     setAccount(account);

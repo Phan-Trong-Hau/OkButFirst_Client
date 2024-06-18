@@ -20,7 +20,8 @@ const Admin = () => {
   };
 
   useEffect(() => {
-    document.title = "Admin";
+    window.scrollTo(0, 0);
+    document.title = "Admin | OKBF";
   }, []);
 
   return (

@@ -20,6 +20,12 @@ const CoffeeShop = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title =
+      "Buy Premium Coffee Beans & Best Coffee Products Online | OKBF";
+  }, []);
+
   return (
     <>
       <main className="coffee-shop">

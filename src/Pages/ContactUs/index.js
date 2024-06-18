@@ -3,12 +3,19 @@ import Breadcrumb from "../../Components/Breadcrumb";
 import contactMail from "../../Assets/svg/contactMail.svg";
 import contactLocation from "../../Assets/svg/contactLocation.svg";
 import contactSupport from "../../Assets/svg/contactSupport.svg";
+import { useEffect } from "react";
 
 const ContactUs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Chức năng đang hoàn thiện");
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title =
+      "Buy Freshly Roasted Coffee Beans Online Now | Contact Okbutfirst";
+  }, []);
 
   return (
     <>

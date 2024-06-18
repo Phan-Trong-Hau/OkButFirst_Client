@@ -37,10 +37,10 @@ const MerchShop = () => {
   useEffect(() => {
     if (products.length) {
       const dataMin = products?.reduce((prev, curr) =>
-        prev.price < curr.price ? prev : curr,
+        prev.price < curr.price ? prev : curr
       );
       const dataMax = products?.reduce((prev, curr) =>
-        prev.price > curr.price ? prev : curr,
+        prev.price > curr.price ? prev : curr
       );
       setMinPrice(Math.floor(dataMin.price / 10) * 10);
       setMaxPrice(Math.ceil(dataMax.price / 10) * 10);
@@ -55,7 +55,7 @@ const MerchShop = () => {
       const temp = [];
       products.forEach((product) => {
         const findProduct = filter.some(
-          (e) => product.color.indexOf(e) >= 0 || product.size.indexOf(e) >= 0,
+          (e) => product.color.indexOf(e) >= 0 || product.size.indexOf(e) >= 0
         );
 
         if (findProduct) temp.push(product);
@@ -93,6 +93,11 @@ const MerchShop = () => {
       });
     }
   }, [filter, maxPrice, minPrice, products]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "Coffee Company For Cool Merch Products Online | OKBF";
+  }, []);
 
   return (
     <>
@@ -279,7 +284,7 @@ const MerchShop = () => {
                               $ -
                               {minPrice +
                                 Math.floor(
-                                  (((maxPrice - minPrice) / 3) * 2) / 10,
+                                  (((maxPrice - minPrice) / 3) * 2) / 10
                                 ) *
                                   10}
                               $
@@ -296,7 +301,7 @@ const MerchShop = () => {
                             <span>
                               {minPrice +
                                 Math.floor(
-                                  (((maxPrice - minPrice) / 3) * 2) / 10,
+                                  (((maxPrice - minPrice) / 3) * 2) / 10
                                 ) *
                                   10}
                               $ -{maxPrice}$
