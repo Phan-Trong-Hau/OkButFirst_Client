@@ -39,12 +39,11 @@ const Login = () => {
     };
 
     try {
+      setPost("Loading.....");
       const result = await Auth.signup(newAccount);
       setPost(result);
     } catch (error) {
-      console.log(error);
-    } finally {
-      setPost("Loading.....");
+      setPost(error);
     }
   };
 
