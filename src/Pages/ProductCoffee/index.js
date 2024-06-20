@@ -163,7 +163,7 @@ const ProductDetail = () => {
                   ))}
                 </div>
                 <div className="product-grind">
-                  <h3 className="bag-size-title">
+                  <h3 className="grind-title">
                     GRIND * <span>{grind}</span>
                   </h3>
 
