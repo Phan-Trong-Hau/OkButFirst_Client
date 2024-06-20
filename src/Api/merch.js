@@ -10,6 +10,12 @@ const createMerch = async (merch) => {
   return res.data;
 };
 
+const getMerch = async (id) => {
+  const res = await api.get(`v1/merch/${id}`);
+  return res.data;
+};
+
+
 const updateMerch = async (merch) => {
   const res = await api.put(`v1/merch/${merch.merchId}`, merch);
   return res.data;
@@ -22,6 +28,7 @@ const deleteMerch = async (merch) => {
 
 export const MerchApi = {
   getAllMerch,
+  getMerch,
   createMerch,
   updateMerch,
   deleteMerch,

@@ -1,0 +1,352 @@
+$logo: url("../../Assets/svg/logo.svg");
+$arrowNext: url("../../Assets/svg/arrowNext.svg");
+$arrowPrev: url("../../Assets/svg/arrowPrev.svg");
+$descriptionBackground: url("../../Assets/img/description-background.png");
+
+@mixin styling($base-width) {
+  @keyframes roundMerch {
+    0% {
+      transform: rotate(0deg);
+      opacity: 0;
+      left: 0;
+    }
+    100% {
+      transform: rotate(270deg);
+      right: 0;
+      left: $base-width;
+      opacity: 1;
+      transition: all ease;
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  @include styling($base-width: 195px);
+}
+@media screen and (min-width: 1024px) {
+  @include styling($base-width: 390px);
+}
+
+.product-merch {
+  position: relative;
+
+  .merch-order {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    padding-bottom: 100px;
+
+    .merch-image {
+      height: 100%;
+      .merch-image-single {
+        position: relative;
+        img {
+          max-width: 500px;
+          overflow: hidden;
+        }
+      }
+
+      .merch-image-list {
+        max-width: 560px;
+        width: 100%;
+        height: 100%;
+        max-height: 150px;
+
+        .image-item {
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+
+          img {
+            width: 132px;
+            height: auto;
+            position: relative;
+            z-index: 1;
+          }
+        }
+
+        .active {
+          img {
+            padding: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+          }
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+          &::after {
+            content: "";
+            color: #000;
+            width: 30px;
+            height: 30px;
+            display: block;
+            background: $arrowPrev no-repeat center/cover;
+          }
+        }
+
+        .swiper-button-prev {
+          &::after {
+            background: $arrowPrev no-repeat center/cover;
+          }
+          left: -5px;
+        }
+
+        .swiper-button-next {
+          right: -5px;
+          &::after {
+            background: $arrowNext no-repeat center/cover;
+          }
+        }
+      }
+    }
+
+    .merch-info {
+      text-align: left;
+      padding-left: 80px;
+      margin-top: 40px;
+
+      .merch-name {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: 0.04em;
+        text-transform: unset;
+        color: #000000;
+        margin-bottom: 30px;
+      }
+
+      .merch-meta {
+        margin-bottom: 17px;
+        .meta-item {
+          margin-bottom: 5px;
+          font-size: 14px;
+          line-height: 1.5;
+          font-family: Milliard;
+          color: #000000;
+          span {
+            display: inline-block;
+            font-weight: 600;
+            min-width: 120px;
+          }
+        }
+      }
+
+      .merch-price {
+        font-family: Milliard;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 20px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #1e1e1e;
+        padding-bottom: 20px;
+      }
+
+      .merch-note {
+        color: #787878;
+        margin: 0.4rem 0 1rem;
+        font-size: 0.91667em;
+
+        a {
+          color: #007bff;
+          border-bottom: 1px solid currentColor;
+
+          &:hover {
+            color: #0056b3;
+            text-decoration: none;
+          }
+        }
+      }
+
+      .merch-size {
+        margin-bottom: 30px;
+
+        span {
+          font-weight: 400;
+          color: #a0a0a0;
+          margin-left: 5px;
+        }
+        .size-item {
+          display: inline-block;
+          height: 40px;
+          min-width: 40px;
+          line-height: 40px;
+          margin-right: 10px;
+          font-family: Milliard;
+          font-weight: 500;
+          cursor: pointer;
+          text-align: center;
+          color: #000;
+          border: 1px solid #c5c5cf;
+          font-size: 15px;
+          text-transform: uppercase;
+          margin-top: 10px;
+        }
+      }
+
+      .merch-color {
+        font-family: Milliard;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #000000;
+        margin-bottom: 18px;
+        span {
+          font-weight: 400;
+          color: #a0a0a0;
+          margin-left: 5px;
+        }
+
+        .color-item {
+          display: inline-block;
+          margin-top: 10px;
+          height: 30px;
+          width: 30px;
+          cursor: pointer;
+          border: 1px solid #c5c5cf;
+          padding: 2px;
+          margin-right: 10px;
+          border-radius: 100%;
+        }
+      }
+
+      .merch-quantity {
+        h3 {
+          font-family: Milliard;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 16px;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          margin-bottom: 10px;
+        }
+
+        .quantity-input {
+          width: 100%;
+          display: flex;
+          border: 1px solid #00000026;
+          font-size: 12px;
+          text-transform: uppercase;
+          font-family: Poppins, sans-serif;
+          button {
+            display: inline-block;
+            width: 90px;
+            line-height: 53px;
+            background: transparent;
+            color: #444;
+            text-align: center;
+            font-weight: 400;
+            cursor: pointer;
+            font-size: 23px;
+            font-family: "Milliard";
+            height: 55px;
+            user-select: none;
+            border: none;
+
+            &:active {
+              background: #ddd;
+            }
+          }
+
+          input {
+            width: 100%;
+            padding: 0 12px;
+            vertical-align: top;
+            text-align: center;
+            outline: none;
+            font-family: Milliard;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 27px;
+            text-align: center;
+            text-transform: uppercase;
+            background: transparent;
+            border: none;
+          }
+        }
+      }
+
+      .merch-subtotal {
+        color: #a0a0a0;
+        line-height: 20px;
+        font-family: Milliard;
+        font-size: 12px;
+        margin: 14px 0;
+      }
+
+      .btn-add {
+        display: block;
+        width: 100%;
+        height: 44px;
+        line-height: 40px;
+        margin-bottom: 10px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+        white-space: nowrap;
+        font-family: Poppins, sans-serif;
+        font-style: normal;
+        vertical-align: middle;
+        border: 2px solid #000;
+        transition: 0.3s ease-in-out;
+        background-color: #000;
+        color: #fff;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #fff;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  .merch-overview {
+    background-color: #f8f8f8;
+    padding: 80px 0;
+    .merch-description {
+      .merch-description-title {
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 38px;
+        letter-spacing: 0.04em;
+        color: #1a1a1a;
+        font-family: Platform;
+        text-transform: uppercase;
+        &::after {
+          display: block;
+          content: "";
+          width: 45px;
+          margin: 0 auto;
+          padding-top: 10px;
+          border-bottom: 1px solid #000;
+        }
+      }
+
+      .merch-description-content {
+        text-align: left;
+        margin: 30px 0;
+      }
+
+      .merch-feature {
+        text-align: left;
+      }
+
+      .merch-feature-content {
+        margin-left: 18px;
+        font-size: 14px;
+        line-height: 18px;
+        li {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
