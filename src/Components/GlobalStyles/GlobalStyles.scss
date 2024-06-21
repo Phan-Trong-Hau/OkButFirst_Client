@@ -482,8 +482,8 @@ body {
   transition: all 0.3s linear;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-    color: rgb(0, 0, 0);
+    background-color: white;
+    color: black;
   }
 }
 
@@ -499,7 +499,7 @@ body {
   transition: all 0.3s linear;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: black;
     color: white;
   }
 }
