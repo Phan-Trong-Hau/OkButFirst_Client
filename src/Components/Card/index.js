@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Image } from "cloudinary-react";
 
 import iconCart from "../../Assets/svg/iconCart.svg";
 import iconHeart from "../../Assets/svg/iconHeart.svg";
 import "./Card.scss";
+import { useContext } from "react";
+import AuthContext from "../../Context/AuthProvider";
 
 const Card = ({
   title,
@@ -15,6 +17,17 @@ const Card = ({
   path = "#",
   ...props
 }) => {
+  const { auth } = useContext(AuthContext);
+  const navigate = useNavigate();
+  console.log({ auth });
+  const handleClick = () => {
+    if (auth.loggedIn) {
+      console.log("Add to cart")
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <div
       className={desc ? "card has-description" : "card"}
@@ -57,7 +70,7 @@ const Card = ({
         <div className="card-price">
           <span>${price}</span>
           <div className="add-to-cart">
-            <button>
+            <button onClick={handleClick}>
               <img src={iconCart} alt="icon-cart" />
             </button>
           </div>
