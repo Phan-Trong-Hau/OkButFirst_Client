@@ -65,11 +65,31 @@ const AccountManagement = () => {
           <label className="switch">
             <input
               type="checkbox"
-              onClick={() => handleClick(account)}
+              onClick={() =>
+                auth.user.username === account.username
+                  ? {}
+                  : handleClick(account)
+              }
               checked={account.isAdmin}
-              disabled={auth.user.username === account.username}
             />
-            <span className="slider round"></span>
+            <span
+              className="slider round"
+              style={{
+                cursor:
+                  auth.user.username === account.username
+                    ? "not-allowed"
+                    : "pointer",
+              }}
+            ></span>
+          </label>
+        </td>
+        <td>
+          <label className="switch">
+            <input type="checkbox" checked={account.verified} />
+            <span
+              className="slider round"
+              style={{ cursor: "not-allowed" }}
+            ></span>
           </label>
         </td>
       </tr>
@@ -92,7 +112,7 @@ const AccountManagement = () => {
             <div className="container">
               <div className="users-management-wrapper">
                 <div className="list-user">
-                  <h3 className="user-title">Accounts Management</h3>
+                  <h1 className="user-title">Accounts Management</h1>
                   <div className="user-table">
                     <table>
                       <thead>
@@ -101,6 +121,7 @@ const AccountManagement = () => {
                           <th>User Name</th>
                           <th>Email</th>
                           <th>Is Admin</th>
+                          <th>Is Verified</th>
                         </tr>
                       </thead>
                       <tbody>{fetchAccounts && listProduct}</tbody>

@@ -60,3 +60,15 @@ input {
     }
   }
 }
+
+.accounts-management {
+  .users-management-wrapper {
+    padding-bottom: 80px;
+    .user-title {
+      font-size: 32px;
+      font-weight: 600;
+      padding-bottom: 30px;
+      text-align: left;
+    }
+  }
+}
