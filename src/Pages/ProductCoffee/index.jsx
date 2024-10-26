@@ -118,6 +118,8 @@ const ProductDetail = () => {
     );
   };
 
+  console.log({ product });
+
   return (
     <>
       <main className="product-coffee">
@@ -269,6 +271,9 @@ const ProductDetail = () => {
               <p className="product-description-content">
                 {product.description}
               </p>
+            </div>
+            <div className="product-ingredients">
+              
             </div>
             <div className="product-discription">
               {product.discription?.map((item, index) => (
