@@ -6,52 +6,61 @@ import { Image } from "cloudinary-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import "./ProductCoffee.scss";
 
-const dataProductIngredients = {
-  mainIngredients: [
-    {
-      image: {
-        src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966125/Mornin_Brazil_Nuts_mmr1re.png",
-        alt: "Mornin Brazil Nuts",
-      },
-      icon: {
-        src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966124/Mornin_-Icon1_de3lb1.png",
-        alt: "Mornin Icon",
-      },
-      name: "Brazil Nuts",
-      subtext: "The most important",
+const mainIngredients = [
+  {
+    image: {
+      src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966125/Mornin_Brazil_Nuts_mmr1re.png",
+      alt: "Mornin Brazil Nuts",
     },
-    {
-      image: {
-        src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966125/Mornin_grapefruit_zahntg.png",
-        alt: "Mornin Grapefruit",
-      },
-      icon: {
-        src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966125/Mornin_-icon2_j2cric.png",
-        alt: "Mornin Icon",
-      },
-      name: "grapefruit",
-      subtext: "Fresh and healthy",
+    icon: {
+      src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966124/Mornin_-Icon1_de3lb1.png",
+      alt: "Mornin Icon",
     },
-    {
-      image: {
-        src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966125/Mornin_Oak_efbzso.png",
-        alt: "Mornin Oak",
-      },
-      icon: {
-        src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966124/Mornin_-icon3_fzgicq.png",
-        alt: "Mornin Icon",
-      },
-      name: "Oak",
-      subtext: "Rich in Nutrients",
+    name: "Brazil Nuts",
+    subtext: "The most important",
+  },
+  {
+    image: {
+      src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966125/Mornin_grapefruit_zahntg.png",
+      alt: "Mornin Grapefruit",
     },
-  ],
-};
+    icon: {
+      src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966125/Mornin_-icon2_j2cric.png",
+      alt: "Mornin Icon",
+    },
+    name: "grapefruit",
+    subtext: "Fresh and healthy",
+  },
+  {
+    image: {
+      src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966125/Mornin_Oak_efbzso.png",
+      alt: "Mornin Oak",
+    },
+    icon: {
+      src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966124/Mornin_-icon3_fzgicq.png",
+      alt: "Mornin Icon",
+    },
+    name: "Oak",
+    subtext: "Rich in Nutrients",
+  },
+];
+
+const additionalIngredients = [
+  {
+    image: {
+      src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966125/Mornin_grapefruit_zahntg.png",
+      alt: "Mornin Grapefruit",
+    },
+    name: "Specialty Grade Coffee",
+  },
+];
 
 const ProductDetail = () => {
   const [product, setProduct] = useState({});
