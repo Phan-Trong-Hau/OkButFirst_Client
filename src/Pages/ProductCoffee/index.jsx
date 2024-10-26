@@ -12,6 +12,47 @@ import "swiper/css/navigation";
 
 import "./ProductCoffee.scss";
 
+const dataProductIngredients = {
+  mainIngredients: [
+    {
+      image: {
+        src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966125/Mornin_Brazil_Nuts_mmr1re.png",
+        alt: "Mornin Brazil Nuts",
+      },
+      icon: {
+        src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966124/Mornin_-Icon1_de3lb1.png",
+        alt: "Mornin Icon",
+      },
+      name: "Brazil Nuts",
+      subtext: "The most important",
+    },
+    {
+      image: {
+        src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966125/Mornin_grapefruit_zahntg.png",
+        alt: "Mornin Grapefruit",
+      },
+      icon: {
+        src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966125/Mornin_-icon2_j2cric.png",
+        alt: "Mornin Icon",
+      },
+      name: "grapefruit",
+      subtext: "Fresh and healthy",
+    },
+    {
+      image: {
+        src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966125/Mornin_Oak_efbzso.png",
+        alt: "Mornin Oak",
+      },
+      icon: {
+        src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966124/Mornin_-icon3_fzgicq.png",
+        alt: "Mornin Icon",
+      },
+      name: "Oak",
+      subtext: "Rich in Nutrients",
+    },
+  ],
+};
+
 const ProductDetail = () => {
   const [product, setProduct] = useState({});
   const [imageSingle, setImageSingle] = useState("");
@@ -273,7 +314,12 @@ const ProductDetail = () => {
               </p>
             </div>
             <div className="product-ingredients">
-              
+              <div className="main-ingredients">
+                <div className="item">
+                  <img src="" alt="" />
+                  <img src="" alt="" />
+                </div>
+              </div>
             </div>
             <div className="product-discription">
               {product.discription?.map((item, index) => (
