@@ -3,6 +3,17 @@ $arrowNext: url("../../Assets/svg/arrowNext.svg");
 $arrowPrev: url("../../Assets/svg/arrowPrev.svg");
 $descriptionBackground: url("../../Assets/img/description-background.png");
 
+$mornin-coffee: url("../../Assets/svg/mornin-coffee.svg");
+$mornin-crafted: url("../../Assets/svg/mornin-crafted.svg");
+$mornin-arabica: url("../../Assets/svg/mornin-arabica.svg");
+$mornin-altitute: url("../../Assets/svg/mornin-altitute.svg");
+$mornin-origin: url("../../Assets/svg/mornin-origin.svg");
+$mornin-artisan: url("../../Assets/svg/mornin-artisan.svg");
+$mornin-responsible: url("../../Assets/svg/mornin-responsible.svg");
+$mornin-location: url("../../Assets/svg/mornin-location.svg");
+
+$morning-round-shape: url("https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1730475850/morning-round-shape_hxmgtw.svg");
+
 @mixin styling($base-width) {
   @keyframes roundProduct {
     0% {
@@ -17,6 +28,52 @@ $descriptionBackground: url("../../Assets/img/description-background.png");
       opacity: 1;
       transition: all ease;
     }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) rotate(0deg);
+  }
+  25% {
+    opacity: 1;
+    transform: translateX(-50%) rotate(90deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) rotate(180deg);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(-50%) rotate(270deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+@keyframes rotate-reverse {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) rotate(360deg);
+  }
+  25% {
+    opacity: 1;
+    transform: translateX(-50%) rotate(270deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) rotate(180deg);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(-50%) rotate(90deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) rotate(0deg);
   }
 }
 
@@ -515,6 +572,179 @@ $descriptionBackground: url("../../Assets/img/description-background.png");
         line-height: 32px;
         color: #000;
         text-align: center;
+      }
+    }
+
+    .product-ingredients {
+      padding-bottom: 60px;
+
+      .main-ingredients {
+        .img {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-gap: 20px;
+          padding-bottom: 60px;
+
+          .img-wrap {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .img-fluid_main {
+              max-width: 100%;
+              max-height: auto;
+              border-radius: 50%;
+              box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+            }
+
+            .img-fluid_icon {
+              position: absolute;
+              max-width: 100%;
+              max-height: auto;
+              bottom: -25%;
+              transition: transform 0.6s ease;
+              border-radius: 50%;
+
+              &:hover {
+                transform: rotate(360deg);
+              }
+            }
+          }
+        }
+
+        .text {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-gap: 20px;
+          margin-bottom: 8px;
+          .item {
+            .main-text {
+              font-weight: 500;
+              font-size: 24px;
+              line-height: 27px;
+              text-align: center;
+              text-transform: uppercase;
+              margin-bottom: 5px;
+            }
+            .sub-text {
+              font-family: "Milliard";
+              font-weight: normal;
+              font-size: 14px;
+              line-height: 16px;
+              text-align: center;
+              color: #000000;
+            }
+          }
+        }
+      }
+
+      .sub-ingredients {
+        .img-fluid_line {
+          max-width: 68%;
+          max-height: auto;
+          margin: 0 auto;
+          display: block;
+        }
+      }
+
+      .additional-ingredients {
+        display: grid;
+
+        p {
+          font-family: "Milliard";
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 21px;
+          text-align: center;
+          text-transform: uppercase;
+          min-height: 50px;
+        }
+
+        .item {
+          width: 200px;
+          min-height: 160px;
+          padding-bottom: 20px;
+
+          .img-fluid {
+            cursor: pointer;
+            margin-bottom: 12px;
+            position: relative;
+
+            &::after {
+              content: "";
+              opacity: 0;
+              position: absolute;
+              width: 93px;
+              height: 90px;
+              top: 0;
+              left: 50%;
+              background: $morning-round-shape no-repeat center/cover;
+              transition: opacity 0.4s ease-out;
+              transform-origin: center;
+              transform: translateX(-50%) rotate(0deg);
+            }
+          }
+
+          &:hover {
+            .img-fluid {
+              &::after {
+                animation: rotate 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+              }
+            }
+          }
+
+          &:not(:hover) {
+            .img-fluid {
+              &::after {
+                animation: rotate-reverse 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+              }
+            }
+          }
+        }
+
+        .additional-top {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .additional-bottom {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .item-0 {
+          justify-self: end;
+        }
+
+        .item-1 {
+          justify-self: center;
+        }
+
+        .item-2 {
+          justify-self: end;
+        }
+
+        .item-3 {
+          justify-self: start;
+        }
+
+        .item-4 {
+          justify-self: center;
+        }
+
+        .item-5 {
+          justify-self: start;
+        }
+
+        .item-6 {
+          justify-self: center;
+        }
+
+        .item-7 {
+          justify-self: center;
+        }
       }
     }
 
