@@ -6,7 +6,6 @@ import { Image } from "cloudinary-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 
-
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -55,10 +54,59 @@ const mainIngredients = [
 const additionalIngredients = [
   {
     image: {
-      src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966125/Mornin_grapefruit_zahntg.png",
-      alt: "Mornin Grapefruit",
+      src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1730449660/mornin-coffee_czc32d.svg",
+      alt: "Mornin coffee",
     },
     name: "Specialty Grade Coffee",
+  },
+  {
+    image: {
+      src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1730449659/mornin-crafted_b0jkkg.svg",
+      alt: "Mornin crafted",
+    },
+    name: "Responsibly sourced",
+  },
+  {
+    image: {
+      src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1730449659/mornin-arabica_zgtr8l.svg",
+      alt: "Mornin arabica",
+    },
+    name: "100% Arabica",
+  },
+  {
+    image: {
+      src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1730449658/mornin-altitute_yit8oq.svg",
+      alt: "Mornin altitute",
+    },
+    name: "High altitude",
+  },
+  {
+    image: {
+      src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1730449659/mornin-origin_mbpak4.svg",
+      alt: "Mornin origin",
+    },
+    name: "Single Origin",
+  },
+  {
+    image: {
+      src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1730449660/mornin-artisan_hvp0ap.svg",
+      alt: "Mornin artisan",
+    },
+    name: "Small Batch Artisan Roasted",
+  },
+  {
+    image: {
+      src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1730449659/mornin-responsible_xd8d8v.svg",
+      alt: "Mornin responsible",
+    },
+    name: "Hand crafted",
+  },
+  {
+    image: {
+      src: "https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1730449659/mornin-location_x9kykq.svg",
+      alt: "Mornin location",
+    },
+    name: "Exotic Farm Location",
   },
 ];
 
@@ -190,8 +238,7 @@ const ProductDetail = () => {
                 <h1 className="product-name">{product.name}</h1>
                 <div className="product-price">${product.price}</div>
                 <div className="product-note">
-                  <Link to="/pages/policies">Shipping</Link> calculated at
-                  checkout.
+                  <Link to="/pages/policies">Shipping</Link> calculated at checkout.
                 </div>
                 <div className="product-bag-size">
                   <h3 className="bag-size-title">
@@ -220,11 +267,7 @@ const ProductDetail = () => {
                   </h3>
 
                   {product.grind?.map((item, index) => (
-                    <div
-                      className="grind-item"
-                      key={index}
-                      onClick={() => handleChangeGrind(item)}
-                    >
+                    <div className="grind-item" key={index} onClick={() => handleChangeGrind(item)}>
                       {item}
                     </div>
                   ))}
@@ -247,9 +290,8 @@ const ProductDetail = () => {
                     <div className="subscription-right">
                       <h3 className="subscription-title">Subscription</h3>
                       <p className="subscription-content">
-                        Products are automatically delivered on your schedule.
-                        No obligation, modify or cancel your subscription
-                        anytime.
+                        Products are automatically delivered on your schedule. No obligation, modify
+                        or cancel your subscription anytime.
                       </p>
                     </div>
                   </div>
@@ -318,15 +360,93 @@ const ProductDetail = () => {
             </div>
             <div className="product-description">
               <h2 className="product-description-title">PRODUCT DESCRIPTION</h2>
-              <p className="product-description-content">
-                {product.description}
-              </p>
+              <p className="product-description-content">{product.description}</p>
             </div>
+
             <div className="product-ingredients">
               <div className="main-ingredients">
-                <div className="item">
-                  <img src="" alt="" />
-                  <img src="" alt="" />
+                <div className="img">
+                  {mainIngredients.map((ingredient, index) => (
+                    <div className="img-wrap" key={index}>
+                      <img
+                        className="img-fluid_main"
+                        src={ingredient.image.src}
+                        alt={ingredient.image.alt}
+                      />
+                      <img
+                        className="img-fluid_icon"
+                        src={ingredient.icon.src}
+                        alt={ingredient.icon.alt}
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                <div className="text">
+                  {mainIngredients.map((ingredient, index) => (
+                    <div className="item" key={index}>
+                      <p className="main-text">{ingredient.name}</p>
+                      <p className="sub-text">{ingredient.subtext}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="sub-ingredients">
+                <img
+                  src="https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1730449797/product-line_1_ytiabm.svg"
+                  class="img-fluid_line"
+                  alt="product line"
+                />
+              </div>
+
+              <div className="additional-ingredients">
+                <div className="additional-top">
+                  <div className="additional-left">
+                    {additionalIngredients.map(
+                      (ingredient, index) =>
+                        index < 3 && (
+                          <div className={`item item-${index}`} key={index}>
+                            <div className="img-fluid">
+                              <img src={ingredient.image.src} alt={ingredient.image.alt} />
+                            </div>
+                            <p>{ingredient.name}</p>
+                          </div>
+                        )
+                    )}
+                  </div>
+                  <div className="center-additional">
+                    <img
+                      src="https://res.cloudinary.com/ok-but-first-coffee/image/upload/v1729966125/Mornin_coffee_glass_d8b4yv.png"
+                      alt="additional ingredients"
+                    />
+                  </div>
+                  <div className="additional-right">
+                    {additionalIngredients.map(
+                      (ingredient, index) =>
+                        index >= 3 &&
+                        index < 6 && (
+                          <div className={`item item-${index}`} key={index}>
+                            <div className="img-fluid">
+                              <img src={ingredient.image.src} alt={ingredient.image.alt} />
+                            </div>
+                            <p>{ingredient.name}</p>
+                          </div>
+                        )
+                    )}
+                  </div>
+                </div>
+                <div className="additional-bottom">
+                  {additionalIngredients.map(
+                    (ingredient, index) =>
+                      index >= 6 && (
+                        <div className={`item item-${index}`} key={index}>
+                          <div className="img-fluid">
+                            <img src={ingredient.image.src} alt={ingredient.image.alt} />
+                          </div>
+                          <p>{ingredient.name}</p>
+                        </div>
+                      )
+                  )}
                 </div>
               </div>
             </div>
