@@ -709,41 +709,31 @@ $morning-round-shape: url("https://res.cloudinary.com/ok-but-first-coffee/image/
           grid-template-columns: repeat(3, 1fr);
         }
 
+        .additional-left,
+        .additional-right {
+          display: grid;
+          gap: 20px;
+          grid-template-rows: repeat(3, 1fr);
+        }
+
         .additional-bottom {
           display: grid;
+          gap: 120px;
           grid-template-columns: repeat(2, 1fr);
         }
 
-        .item-0 {
-          justify-self: end;
-        }
-
-        .item-1 {
-          justify-self: center;
-        }
-
-        .item-2 {
-          justify-self: end;
-        }
-
-        .item-3 {
-          justify-self: start;
-        }
-
-        .item-4 {
-          justify-self: center;
-        }
-
-        .item-5 {
-          justify-self: start;
-        }
-
+        .item-0,
+        .item-2,
+        .item-4,
         .item-6 {
-          justify-self: center;
+          justify-self: end;
         }
 
+        .item-1,
+        .item-3,
+        .item-5,
         .item-7 {
-          justify-self: center;
+          justify-self: start;
         }
       }
     }
