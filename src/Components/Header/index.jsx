@@ -101,7 +101,7 @@ const Header = () => {
     }
   };
 
-  const isActive = (path) => location.pathname === path;
+  const isActive = (path) => location.pathname.startsWith(path);
 
   const isMoreActive = () => {
     const morePaths = ["/pages/about-us", "/pages/contact-us", "/pages/faqs"];
