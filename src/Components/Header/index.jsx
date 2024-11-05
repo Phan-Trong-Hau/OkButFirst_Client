@@ -101,6 +101,13 @@ const Header = () => {
     }
   };
 
+  const isActive = (path) => location.pathname === path;
+
+  const isMoreActive = () => {
+    const morePaths = ["/pages/about-us", "/pages/contact-us", "/pages/faqs"];
+    return morePaths.some((path) => location.pathname.startsWith(path));
+  };
+
   useEffect(() => {
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
@@ -138,6 +145,7 @@ const Header = () => {
                         <Link
                           to="/collections/coffee-shop"
                           onClick={handleShowMenu}
+                          className={`link-menu ${isActive("/collections/coffee-shop") ? "active" : ""}`}
                         >
                           Coffee
                         </Link>
@@ -146,6 +154,7 @@ const Header = () => {
                         <Link
                           to="/collections/merch-shop"
                           onClick={handleShowMenu}
+                          className={`link-menu ${isActive("/collections/merch-shop") ? "active" : ""}`}
                         >
                           Merch
                         </Link>
@@ -154,20 +163,28 @@ const Header = () => {
                         <Link
                           to="/products/coffee-club-subscription"
                           onClick={handleShowMenu}
+                          className={`link-menu ${isActive("/products/coffee-club-subscription") ? "active" : ""}`}
                         >
                           Coffee Club
                         </Link>
                       </li>
                       <li className="item hide_mb"></li>
                       <li className="item">
-                        <Link to="/blogs/coffee-101" onClick={handleShowMenu}>
+                        <Link
+                          to="/blogs/coffee-101"
+                          onClick={handleShowMenu}
+                          className={`link-menu ${isActive("/blogs/coffee-101") ? "active" : ""}`}
+                        >
                           Coffee 101
                         </Link>
                       </li>
                       <li className="item">
-                        <Link to="#" onClick={handleShowMore}>
+                        <Link
+                          to="#"
+                          onClick={handleShowMore}
+                          className={`link-menu has-arrow ${isMoreActive() ? "active" : ""}`}
+                        >
                           More
-                          <img src={arrowDown} alt="arrow-down-icon"></img>
                         </Link>
                         <div className={showMore ? "menu is-show" : "menu"}>
                           <ul className="menu-list">
@@ -183,18 +200,12 @@ const Header = () => {
                               </Link>
                             </li>
                             <li className="menu-item">
-                              <Link
-                                to="/pages/about-us"
-                                onClick={handleShowMenu}
-                              >
+                              <Link to="/pages/about-us" onClick={handleShowMenu}>
                                 <span>About Us</span>
                               </Link>
                             </li>
                             <li className="menu-item">
-                              <Link
-                                to="/pages/contact-us"
-                                onClick={handleShowMenu}
-                              >
+                              <Link to="/pages/contact-us" onClick={handleShowMenu}>
                                 <span>Contact Us</span>
                               </Link>
                             </li>
@@ -208,40 +219,25 @@ const Header = () => {
                       </li>
                       <li className="item hide_pc">
                         <Link to="/login" onClick={handleShowMenu}>
-                          <img
-                            className="icon-start"
-                            src={iconUser}
-                            alt="icon-user"
-                          />
+                          <img className="icon-start" src={iconUser} alt="icon-user" />
                           Customer Login
                         </Link>
                       </li>
                       <li className="item hide_pc">
                         <Link to="/pages/wishlist" onClick={handleShowMenu}>
-                          <img
-                            className="icon-start"
-                            src={iconHeart}
-                            alt="icon-user"
-                          />
+                          <img className="icon-start" src={iconHeart} alt="icon-user" />
                           Wishlist
                         </Link>
                       </li>
                     </ul>
-                    <div
-                      className="icon-close hide_pc"
-                      onClick={handleShowMenu}
-                    >
+                    <div className="icon-close hide_pc" onClick={handleShowMenu}>
                       <img src={iconClose} alt="icon-close" />
                     </div>
                   </div>
                 </div>
                 <div className="header-middle__logo">
                   <Link to="/">
-                    <img
-                      src={logo}
-                      alt="OK-But-First-Coffee"
-                      title="OK But First Coffee"
-                    />
+                    <img src={logo} alt="OK-But-First-Coffee" title="OK But First Coffee" />
                   </Link>
                 </div>
                 <div className="header-middle__right">
@@ -273,10 +269,7 @@ const Header = () => {
                     </Link>
                   </div>
                   <div className="header-middle__item">
-                    <Link
-                      to={auth.loggedIn ? "/account" : "#"}
-                      onClick={handleShowLogin}
-                    >
+                    <Link to={auth.loggedIn ? "/account" : "#"} onClick={handleShowLogin}>
                       <img src={user} alt="user-icon" />
                     </Link>
                     <div
@@ -290,11 +283,7 @@ const Header = () => {
                           : {}
                       }
                     >
-                      <div
-                        className={
-                          showLogin ? "login-wrapper is-show" : "login-wrapper"
-                        }
-                      >
+                      <div className={showLogin ? "login-wrapper is-show" : "login-wrapper"}>
                         <div className="login-header">
                           <h2 className="title">My Account</h2>
                           <button onClick={handleShowLogin}>
@@ -302,11 +291,7 @@ const Header = () => {
                           </button>
                         </div>
                         <div className="login-content">
-                          <form
-                            className="login-form"
-                            onSubmit={handleLogin}
-                            acceptCharset="UTF-8"
-                          >
+                          <form className="login-form" onSubmit={handleLogin} acceptCharset="UTF-8">
                             <input type="hidden" name="utf8" value={"✓"} />
                             <div className="login-input">
                               <input
@@ -338,13 +323,9 @@ const Header = () => {
                                     id="customCheck1"
                                     onClick={handleOnClickRemember}
                                   />
-                                  <label htmlFor="customCheck1">
-                                    Remember me
-                                  </label>
+                                  <label htmlFor="customCheck1">Remember me</label>
                                 </div>
-                                <Link to="/login#recover">
-                                  Forgot your password?
-                                </Link>
+                                <Link to="/login#recover">Forgot your password?</Link>
                               </div>
                               <div className="action-group">
                                 <p className="message">{post}</p>
@@ -384,11 +365,7 @@ const Header = () => {
                   }
                 >
                   <div className="search-wrapper">
-                    <form
-                      action="/"
-                      className="search-form wrapper-input"
-                      acceptCharset="UTF-8"
-                    >
+                    <form action="/" className="search-form wrapper-input" acceptCharset="UTF-8">
                       <input type="hidden" name="utf8" value={"✓"} />
                       <input
                         type="text"
@@ -410,13 +387,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div
-            className={
-              showMenu
-                ? "header-aside-mb hide_pc is-show"
-                : "header-aside-mb hide_pc"
-            }
-          >
+          <div className={showMenu ? "header-aside-mb hide_pc is-show" : "header-aside-mb hide_pc"}>
             <ul className="list">
               <li className="item">
                 <Link to="/collections/coffee-shop" onClick={handleShowMenu}>
@@ -429,10 +400,7 @@ const Header = () => {
                 </Link>
               </li>
               <li className="item">
-                <Link
-                  to="/products/coffee-club-subscription"
-                  onClick={handleShowMenu}
-                >
+                <Link to="/products/coffee-club-subscription" onClick={handleShowMenu}>
                   Coffee Club
                 </Link>
               </li>
@@ -505,9 +473,7 @@ const Header = () => {
                 : {}
             }
           >
-            <div
-              className={showLogin ? "login-wrapper is-show" : "login-wrapper"}
-            >
+            <div className={showLogin ? "login-wrapper is-show" : "login-wrapper"}>
               <div className="login-header">
                 <h2 className="title">My Account</h2>
                 <button onClick={handleShowLogin}>
@@ -515,11 +481,7 @@ const Header = () => {
                 </button>
               </div>
               <div className="login-content">
-                <form
-                  className="login-form"
-                  onSubmit={handleLogin}
-                  acceptCharset="UTF-8"
-                >
+                <form className="login-form" onSubmit={handleLogin} acceptCharset="UTF-8">
                   <input type="hidden" name="utf8" value={"✓"} />
                   <div className="login-input">
                     <input
@@ -544,11 +506,7 @@ const Header = () => {
                   <div className="login-actions">
                     <div className="action-group">
                       <div className="action__remember">
-                        <input
-                          type="checkbox"
-                          id="customCheck2"
-                          onClick={handleOnClickRemember}
-                        />
+                        <input type="checkbox" id="customCheck2" onClick={handleOnClickRemember} />
                         <label htmlFor="customCheck2">Remember me</label>
                       </div>
                       <Link to="/login#recover">Forgot your password?</Link>
@@ -557,18 +515,10 @@ const Header = () => {
                       <p className="message">{post}</p>
                     </div>
                     <div className="action-group">
-                      <input
-                        type="submit"
-                        className="theme-btn__white"
-                        value="Login"
-                      ></input>
+                      <input type="submit" className="theme-btn__white" value="Login"></input>
                     </div>
                     <div className="action-group">
-                      <Link
-                        to="/register"
-                        className="theme-btn__black"
-                        onClick={handleShowLogin}
-                      >
+                      <Link to="/register" className="theme-btn__black" onClick={handleShowLogin}>
                         Create Account
                       </Link>
                     </div>
@@ -590,11 +540,7 @@ const Header = () => {
               }
             >
               <div className="search-wrapper">
-                <form
-                  action="/"
-                  className="search-form wrapper-input"
-                  acceptCharset="UTF-8"
-                >
+                <form action="/" className="search-form wrapper-input" acceptCharset="UTF-8">
                   <input type="hidden" name="utf8" value={"✓"} />
                   <input
                     type="text"
@@ -616,9 +562,7 @@ const Header = () => {
           )}
 
           <div
-            className={
-              showMenu || showSearch || showLogin ? "background-overlay" : ""
-            }
+            className={showMenu || showSearch || showLogin ? "background-overlay" : ""}
             onClick={handleOff}
           ></div>
         </div>

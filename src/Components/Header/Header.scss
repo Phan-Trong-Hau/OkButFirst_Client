@@ -1,3 +1,5 @@
+$menu-icon: url("../../Assets/svg/menu-icon.svg");
+
 .header {
   .announcement-bar {
     position: relative;
@@ -32,6 +34,7 @@
           display: grid;
           grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr;
           width: 100%;
+
           .item {
             position: relative;
             padding: 60px 0;
@@ -40,16 +43,44 @@
             font-size: 2.2rem;
             white-space: nowrap;
 
+            .link-menu {
+              display: inline-block;
+              position: relative;
+
+              &.active::after {
+                content: "";
+                position: absolute;
+                width: 16px;
+                height: 30px;
+                background: $menu-icon no-repeat;
+                filter: invert(0.5);
+                left: 50%;
+                top: 100%;
+                transform: translateX(-50%);
+              }
+
+              &.has-arrow::before {
+                content: url("../../Assets/svg/arrowDown.svg");
+                width: 12px;
+                height: 12px;
+                position: absolute;
+                right: -16px;
+                top: 0;
+                transform: translateY(-25%);
+              }
+            }
+
             .menu {
               position: absolute;
-              left: 70%;
+              top: 100%;
+              left: 80%;
               visibility: hidden;
               opacity: 0;
               font-weight: 400;
               text-align: center;
               border: 1px solid rgba(13, 45, 77, 0.3);
               transition: all 0.3s linear;
-              transform: translate3d(-50%, 50px, 0);
+              transform: translate3d(-50%, 100px, 0);
               z-index: 2000;
 
               .menu-list {
@@ -147,8 +178,10 @@
       }
 
       &__right {
+        margin-left: auto;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
 
         .header-middle__item {
           display: inline-block;
@@ -274,8 +307,8 @@
                         display: flex;
 
                         input[type="checkbox"] {
-                          filter: sepia(100%) brightness(80%) hue-rotate(170deg)
-                            saturate(0%) contrast(400%);
+                          filter: sepia(100%) brightness(80%) hue-rotate(170deg) saturate(0%)
+                            contrast(400%);
                           height: 20px;
                           width: 12px;
                           margin-right: 5px;
@@ -460,8 +493,7 @@
                 display: flex;
 
                 input[type="checkbox"] {
-                  filter: sepia(100%) brightness(80%) hue-rotate(170deg)
-                    saturate(0%) contrast(400%);
+                  filter: sepia(100%) brightness(80%) hue-rotate(170deg) saturate(0%) contrast(400%);
                   height: 20px;
                   width: 12px;
                   margin-right: 5px;
@@ -600,7 +632,7 @@
       .menu {
         opacity: 1 !important;
         visibility: visible !important;
-        transform: translate3d(-50%, 10px, 0) !important;
+        transform: translate3d(-50%, 0, 0) !important;
       }
     }
   }
