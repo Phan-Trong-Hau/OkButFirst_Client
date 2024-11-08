@@ -101,12 +101,24 @@ const Header = () => {
     }
   };
 
+  const routers = [
+    { path: "/collections/coffee-shop", label: "Coffee" },
+    { path: "/collections/merch-shop", label: "Merch" },
+    { path: "/products/coffee-club-subscription", label: "Coffee Club" },
+    { path: "/blogs/coffee-101", label: "Coffee 101" },
+    { path: "/pages/about-us", label: "About Us" },
+    { path: "/pages/contact-us", label: "Contact Us" },
+    { path: "/pages/faqs", label: "FAQ" },
+  ];
+
   const isActive = (path) => location.pathname.startsWith(path);
 
   const isMoreActive = () => {
-    const morePaths = ["/pages/about-us", "/pages/contact-us", "/pages/faqs"];
+    const morePaths = routers.slice(4).map((router) => router.path);
     return morePaths.some((path) => location.pathname.startsWith(path));
   };
+
+  const isOverlayVisible = showMenu || showSearch || showLogin;
 
   useEffect(() => {
     window.addEventListener("resize", updateDimensions);
@@ -141,48 +153,32 @@ const Header = () => {
                 <div className="header-middle__left">
                   <div className="header-aside hide_mb">
                     <ul className="list">
-                      <li className="item">
-                        <Link
-                          to="/collections/coffee-shop"
-                          onClick={handleShowMenu}
-                          className={`link-menu ${isActive("/collections/coffee-shop") ? "active" : ""}`}
-                        >
-                          Coffee
-                        </Link>
-                      </li>
-                      <li className="item">
-                        <Link
-                          to="/collections/merch-shop"
-                          onClick={handleShowMenu}
-                          className={`link-menu ${isActive("/collections/merch-shop") ? "active" : ""}`}
-                        >
-                          Merch
-                        </Link>
-                      </li>
-                      <li className="item">
-                        <Link
-                          to="/products/coffee-club-subscription"
-                          onClick={handleShowMenu}
-                          className={`link-menu ${isActive("/products/coffee-club-subscription") ? "active" : ""}`}
-                        >
-                          Coffee Club
-                        </Link>
-                      </li>
+                      {routers.slice(0, 3).map((router, index) => (
+                        <li key={index} className="item">
+                          <Link
+                            to={router.path}
+                            onClick={handleShowMenu}
+                            className={`link-menu ${isActive(router.path) && "active"}`}
+                          >
+                            {router.label}
+                          </Link>
+                        </li>
+                      ))}
                       <li className="item hide_mb"></li>
                       <li className="item">
                         <Link
-                          to="/blogs/coffee-101"
+                          to={routers[3].path}
                           onClick={handleShowMenu}
-                          className={`link-menu ${isActive("/blogs/coffee-101") ? "active" : ""}`}
+                          className={`link-menu ${isActive(routers[3]) && "active"}`}
                         >
-                          Coffee 101
+                          {routers[3].label}
                         </Link>
                       </li>
                       <li className="item">
                         <Link
                           to="#"
                           onClick={handleShowMore}
-                          className={`link-menu has-arrow ${isMoreActive() ? "active" : ""}`}
+                          className={`link-menu has-arrow ${isMoreActive() && "active"}`}
                         >
                           More
                         </Link>
@@ -199,21 +195,13 @@ const Header = () => {
                                 <span>All More</span>
                               </Link>
                             </li>
-                            <li className="menu-item">
-                              <Link to="/pages/about-us" onClick={handleShowMenu}>
-                                <span>About Us</span>
-                              </Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/pages/contact-us" onClick={handleShowMenu}>
-                                <span>Contact Us</span>
-                              </Link>
-                            </li>
-                            <li className="menu-item">
-                              <Link to="/pages/faqs" onClick={handleShowMenu}>
-                                <span>FAQ</span>
-                              </Link>
-                            </li>
+                            {routers.slice(4).map((router, index) => (
+                              <li className="menu-item">
+                                <Link to={router.path} onClick={handleShowMenu}>
+                                  <span>{router.label}</span>
+                                </Link>
+                              </li>
+                            ))}
                           </ul>
                         </div>
                       </li>
@@ -561,10 +549,7 @@ const Header = () => {
             </div>
           )}
 
-          <div
-            className={showMenu || showSearch || showLogin ? "background-overlay" : ""}
-            onClick={handleOff}
-          ></div>
+          <div className={isOverlayVisible && "background-overlay"} onClick={handleOff}></div>
         </div>
       </header>
     </>
